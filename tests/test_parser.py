@@ -6,11 +6,17 @@ import pytest
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from src.parser import ParseError, parse_hypothesis, parse_premise  # noqa: E402
+from src.pc import markov_equivalence_class, relation_support, run_pc  # noqa: E402
 
 COLLIDER_PREMISE = (
     "Suppose there is a closed system of 3 variables, A, B and C. All the statistical relations "
     "among these 3 variables are as follows: A correlates with C. B correlates with C. "
     "However, A is independent of B."
+)
+CHAIN_PREMISE = (
+    "Suppose there is a closed system of 3 variables, A, B and C. All the statistical relations "
+    "among these 3 variables are as follows: A correlates with B. A correlates with C. "
+    "B correlates with C. However, A and C are independent given B."
 )
 
 
@@ -79,3 +85,24 @@ def test_unknown_hypothesis_is_rejected():
     with pytest.raises(ParseError, match="template"):
         parse_hypothesis("A is friends with B.")
 
+
+def test_pc_finds_the_collider():
+    cpdag = run_pc(parse_premise(COLLIDER_PREMISE))
+    assert cpdag.directed == {("A", "C"), ("B", "C")}
+    assert not cpdag.undirected
+
+
+def test_pc_leaves_a_chain_undirected():
+    # A - B - C with A and C independent given B could be a chain or a fork,
+    # so PC must not commit to any direction.
+    cpdag = run_pc(parse_premise(CHAIN_PREMISE))
+    assert not cpdag.directed
+    assert cpdag.undirected == {frozenset("AB"), frozenset("BC")}
+    assert len(markov_equivalence_class(cpdag)) == 3
+
+
+def test_relation_support_on_collider():
+    mec = markov_equivalence_class(run_pc(parse_premise(COLLIDER_PREMISE)))
+    assert relation_support(mec, "direct_cause", "A", "C") == 1.0
+    assert relation_support(mec, "direct_cause", "C", "A") == 0.0
+    assert relation_support(mec, "collider", "A", "B") == 1.0
