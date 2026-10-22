@@ -3,5 +3,5 @@ __pycache__/
 .ipynb_checkpoints/
 .DS_Store
 
-# data is downloaded and recreated by the notebooks
-data/
+# raw data is downloaded by notebook 01 (raw train.csv is too big for GitHub)
+data/raw/

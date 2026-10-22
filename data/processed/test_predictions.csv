@@ -1,0 +1,1163 @@
+premise_id,hypothesis,template,relation,x,y,label,proba,pred
+2358,"There exists at least one collider (i.e., common effect) of A and B.",has_collider,collider,A,B,0,0.4866666666666667,0
+2358,A directly causes B.,parent,direct_cause,A,B,0,0.06333333333333334,0
+2358,"A is a cause for B, but not a direct one.",non-child descendant,indirect_cause,A,B,0,0.04666666666666667,0
+2358,B directly causes A.,child,direct_cause,B,A,0,0.07,0
+2358,B causes something else which causes A.,non-parent ancestor,indirect_cause,B,A,0,0.013333333333333334,0
+2358,"There exists at least one confounder (i.e., common cause) of A and B.",has_confounder,confounder,A,B,0,0.04,0
+2359,"There exists at least one collider (i.e., common effect) of B and C.",has_collider,collider,B,C,0,0.49333333333333335,0
+2359,A directly causes B.,parent,direct_cause,A,B,0,0.006666666666666667,0
+2359,A causes something else which causes B.,non-parent ancestor,indirect_cause,A,B,0,0.02,0
+2359,B directly causes A.,child,direct_cause,B,A,0,0.01,0
+2359,"B is a cause for A, but not a direct one.",non-child descendant,indirect_cause,B,A,0,0.0,0
+2359,A directly causes C.,parent,direct_cause,A,C,1,0.6633333333333333,1
+2359,"A is a cause for C, but not a direct one.",non-child descendant,indirect_cause,A,C,0,0.056666666666666664,0
+2359,C directly causes A.,child,direct_cause,C,A,0,0.006666666666666667,0
+2359,"C is a cause for A, but not a direct one.",non-child descendant,indirect_cause,C,A,0,0.0,0
+2360,C causes something else which causes B.,non-parent ancestor,indirect_cause,C,B,0,0.01,0
+2359,B directly causes C.,parent,direct_cause,B,C,1,0.6733333333333333,1
+2359,C directly causes B.,child,direct_cause,C,B,0,0.0033333333333333335,0
+2359,C causes something else which causes B.,non-parent ancestor,indirect_cause,C,B,0,0.0033333333333333335,0
+2341,A directly causes B.,parent,direct_cause,A,B,0,0.03,0
+2341,A causes something else which causes B.,non-parent ancestor,indirect_cause,A,B,0,0.03,0
+2359,"There exists at least one collider (i.e., common effect) of A and C.",has_collider,collider,A,C,0,0.44,0
+2341,"B is a cause for A, but not a direct one.",non-child descendant,indirect_cause,B,A,0,0.023333333333333334,0
+2341,A directly causes C.,parent,direct_cause,A,C,0,0.05333333333333334,0
+2360,"There exists at least one confounder (i.e., common cause) of A and B.",has_confounder,confounder,A,B,0,0.02666666666666667,0
+2359,"B is a cause for C, but not a direct one.",non-child descendant,indirect_cause,B,C,0,0.016666666666666666,0
+2360,C directly causes B.,child,direct_cause,C,B,0,0.0033333333333333335,0
+2360,B causes something else which causes C.,non-parent ancestor,indirect_cause,B,C,0,0.013333333333333334,0
+2360,B directly causes C.,parent,direct_cause,B,C,0,0.006666666666666667,0
+2360,"There exists at least one confounder (i.e., common cause) of A and C.",has_confounder,confounder,A,C,0,0.006666666666666667,0
+2360,"There exists at least one confounder (i.e., common cause) of B and C.",has_confounder,confounder,B,C,0,0.06,0
+2359,"There exists at least one confounder (i.e., common cause) of A and B.",has_confounder,confounder,A,B,0,0.023333333333333334,0
+2359,"There exists at least one confounder (i.e., common cause) of A and C.",has_confounder,confounder,A,C,0,0.01,0
+2359,"There exists at least one confounder (i.e., common cause) of B and C.",has_confounder,confounder,B,C,0,0.05333333333333334,0
+2341,"There exists at least one confounder (i.e., common cause) of A and B.",has_confounder,confounder,A,B,0,0.04,0
+2341,"There exists at least one confounder (i.e., common cause) of A and C.",has_confounder,confounder,A,C,0,0.016666666666666666,0
+2360,"There exists at least one collider (i.e., common effect) of A and B.",has_collider,collider,A,B,0,0.5533333333333333,1
+2360,"There exists at least one collider (i.e., common effect) of A and C.",has_collider,collider,A,C,0,0.4866666666666667,0
+2360,"There exists at least one collider (i.e., common effect) of B and C.",has_collider,collider,B,C,0,0.5333333333333333,1
+2359,"There exists at least one collider (i.e., common effect) of A and B.",has_collider,collider,A,B,1,0.8,1
+2360,A directly causes B.,parent,direct_cause,A,B,0,0.02666666666666667,0
+2360,"A is a cause for B, but not a direct one.",non-child descendant,indirect_cause,A,B,0,0.023333333333333334,0
+2360,B directly causes A.,child,direct_cause,B,A,0,0.03333333333333333,0
+2360,"B is a cause for A, but not a direct one.",non-child descendant,indirect_cause,B,A,0,0.02,0
+2360,A directly causes C.,parent,direct_cause,A,C,0,0.05,0
+2360,"A is a cause for C, but not a direct one.",non-child descendant,indirect_cause,A,C,0,0.023333333333333334,0
+2360,C directly causes A.,child,direct_cause,C,A,0,0.04,0
+2360,C causes something else which causes A.,non-parent ancestor,indirect_cause,C,A,0,0.013333333333333334,0
+2341,C directly causes A.,child,direct_cause,C,A,0,0.043333333333333335,0
+2341,"C is a cause for A, but not a direct one.",non-child descendant,indirect_cause,C,A,0,0.016666666666666666,0
+2341,B directly causes A.,child,direct_cause,B,A,0,0.03333333333333333,0
+2341,A causes something else which causes C.,non-parent ancestor,indirect_cause,A,C,0,0.03,0
+2341,"There exists at least one collider (i.e., common effect) of A and B.",has_collider,collider,A,B,0,0.5433333333333333,1
+2341,"There exists at least one collider (i.e., common effect) of A and C.",has_collider,collider,A,C,0,0.4633333333333333,0
+2361,D directly causes A.,child,direct_cause,D,A,0,0.0033333333333333335,0
+2361,"D is a cause for A, but not a direct one.",non-child descendant,indirect_cause,D,A,0,0.0033333333333333335,0
+2361,B directly causes C.,parent,direct_cause,B,C,0,0.07,0
+2361,B causes something else which causes C.,non-parent ancestor,indirect_cause,B,C,0,0.03,0
+2361,C directly causes B.,child,direct_cause,C,B,0,0.03666666666666667,0
+2361,"C is a cause for B, but not a direct one.",non-child descendant,indirect_cause,C,B,0,0.02,0
+2361,"D is a cause for C, but not a direct one.",non-child descendant,indirect_cause,D,C,0,0.0033333333333333335,0
+2361,C causes something else which causes D.,non-parent ancestor,indirect_cause,C,D,0,0.023333333333333334,0
+2361,"There exists at least one confounder (i.e., common cause) of C and D.",has_confounder,confounder,C,D,0,0.06333333333333334,0
+2361,"There exists at least one confounder (i.e., common cause) of B and D.",has_confounder,confounder,B,D,0,0.006666666666666667,0
+2361,"There exists at least one confounder (i.e., common cause) of B and C.",has_confounder,confounder,B,C,0,0.05333333333333334,0
+2361,"There exists at least one confounder (i.e., common cause) of A and D.",has_confounder,confounder,A,D,0,0.0033333333333333335,0
+2361,"There exists at least one confounder (i.e., common cause) of A and B.",has_confounder,confounder,A,B,0,0.05,0
+2361,"A is a cause for D, but not a direct one.",non-child descendant,indirect_cause,A,D,0,0.1,0
+2362,"There exists at least one confounder (i.e., common cause) of C and D.",has_confounder,confounder,C,D,0,0.11,0
+2362,"There exists at least one confounder (i.e., common cause) of B and D.",has_confounder,confounder,B,D,0,0.013333333333333334,0
+2362,"There exists at least one confounder (i.e., common cause) of B and C.",has_confounder,confounder,B,C,0,0.056666666666666664,0
+2362,"There exists at least one confounder (i.e., common cause) of A and D.",has_confounder,confounder,A,D,0,0.006666666666666667,0
+2362,"There exists at least one confounder (i.e., common cause) of A and C.",has_confounder,confounder,A,C,0,0.006666666666666667,0
+2362,"There exists at least one confounder (i.e., common cause) of A and B.",has_confounder,confounder,A,B,0,0.04,0
+2361,B directly causes D.,parent,direct_cause,B,D,0,0.013333333333333334,0
+2361,B causes something else which causes D.,non-parent ancestor,indirect_cause,B,D,0,0.08666666666666667,0
+2361,D directly causes B.,child,direct_cause,D,B,0,0.0033333333333333335,0
+2361,D causes something else which causes B.,non-parent ancestor,indirect_cause,D,B,0,0.006666666666666667,0
+2361,C directly causes D.,parent,direct_cause,C,D,0,0.02666666666666667,0
+2361,"There exists at least one confounder (i.e., common cause) of A and C.",has_confounder,confounder,A,C,0,0.016666666666666666,0
+2361,A directly causes D.,parent,direct_cause,A,D,0,0.013333333333333334,0
+2362,B directly causes A.,child,direct_cause,B,A,0,0.016666666666666666,0
+2361,C directly causes A.,child,direct_cause,C,A,0,0.05,0
+2362,A causes something else which causes B.,non-parent ancestor,indirect_cause,A,B,0,0.01,0
+2362,A directly causes B.,parent,direct_cause,A,B,0,0.016666666666666666,0
+2362,A directly causes C.,parent,direct_cause,A,C,0,0.016666666666666666,0
+2362,"A is a cause for C, but not a direct one.",non-child descendant,indirect_cause,A,C,0,0.02666666666666667,0
+2362,C directly causes A.,child,direct_cause,C,A,0,0.02,0
+2362,"C is a cause for A, but not a direct one.",non-child descendant,indirect_cause,C,A,0,0.013333333333333334,0
+2362,A directly causes D.,parent,direct_cause,A,D,0,0.04,0
+2362,A causes something else which causes D.,non-parent ancestor,indirect_cause,A,D,0,0.07333333333333333,0
+2362,D directly causes A.,child,direct_cause,D,A,0,0.01,0
+2362,"D is a cause for A, but not a direct one.",non-child descendant,indirect_cause,D,A,0,0.013333333333333334,0
+2362,B directly causes C.,parent,direct_cause,B,C,0,0.023333333333333334,0
+2362,"B is a cause for C, but not a direct one.",non-child descendant,indirect_cause,B,C,0,0.016666666666666666,0
+2362,C directly causes B.,child,direct_cause,C,B,0,0.01,0
+2362,B causes something else which causes A.,non-parent ancestor,indirect_cause,B,A,0,0.006666666666666667,0
+2362,C causes something else which causes B.,non-parent ancestor,indirect_cause,C,B,0,0.006666666666666667,0
+2362,"B is a cause for D, but not a direct one.",non-child descendant,indirect_cause,B,D,0,0.11333333333333333,0
+2362,D directly causes B.,child,direct_cause,D,B,0,0.01,0
+2362,"D is a cause for B, but not a direct one.",non-child descendant,indirect_cause,D,B,0,0.013333333333333334,0
+2362,C directly causes D.,parent,direct_cause,C,D,0,0.016666666666666666,0
+2362,"C is a cause for D, but not a direct one.",non-child descendant,indirect_cause,C,D,0,0.03666666666666667,0
+2362,D directly causes C.,child,direct_cause,D,C,0,0.0033333333333333335,0
+2362,"D is a cause for C, but not a direct one.",non-child descendant,indirect_cause,D,C,0,0.016666666666666666,0
+2361,A directly causes B.,parent,direct_cause,A,B,0,0.03,0
+2361,"A is a cause for B, but not a direct one.",non-child descendant,indirect_cause,A,B,0,0.03333333333333333,0
+2361,B directly causes A.,child,direct_cause,B,A,0,0.03,0
+2361,"B is a cause for A, but not a direct one.",non-child descendant,indirect_cause,B,A,0,0.02,0
+2361,A directly causes C.,parent,direct_cause,A,C,0,0.07333333333333333,0
+2361,A causes something else which causes C.,non-parent ancestor,indirect_cause,A,C,0,0.02666666666666667,0
+2362,B directly causes D.,parent,direct_cause,B,D,0,0.04,0
+2361,C causes something else which causes A.,non-parent ancestor,indirect_cause,C,A,0,0.013333333333333334,0
+2361,D directly causes C.,child,direct_cause,D,C,0,0.006666666666666667,0
+2361,"There exists at least one collider (i.e., common effect) of B and C.",has_collider,collider,B,C,0,0.48333333333333334,0
+2362,"There exists at least one collider (i.e., common effect) of A and B.",has_collider,collider,A,B,0,0.68,1
+2362,"There exists at least one collider (i.e., common effect) of A and C.",has_collider,collider,A,C,0,0.46,0
+2362,"There exists at least one collider (i.e., common effect) of A and D.",has_collider,collider,A,D,0,0.43,0
+2362,"There exists at least one collider (i.e., common effect) of B and C.",has_collider,collider,B,C,0,0.48333333333333334,0
+2362,"There exists at least one collider (i.e., common effect) of B and D.",has_collider,collider,B,D,0,0.4866666666666667,0
+2362,"There exists at least one collider (i.e., common effect) of C and D.",has_collider,collider,C,D,0,0.4,0
+2361,"There exists at least one collider (i.e., common effect) of A and B.",has_collider,collider,A,B,0,0.5466666666666666,1
+2361,"There exists at least one collider (i.e., common effect) of A and C.",has_collider,collider,A,C,0,0.5,0
+2361,"There exists at least one collider (i.e., common effect) of A and D.",has_collider,collider,A,D,0,0.48,0
+2361,"There exists at least one collider (i.e., common effect) of B and D.",has_collider,collider,B,D,0,0.49,0
+2361,"There exists at least one collider (i.e., common effect) of C and D.",has_collider,collider,C,D,0,0.4166666666666667,0
+2363,"E is a cause for D, but not a direct one.",non-child descendant,indirect_cause,E,D,0,0.0033333333333333335,0
+2363,E directly causes D.,child,direct_cause,E,D,0,0.0033333333333333335,0
+2363,D causes something else which causes E.,non-parent ancestor,indirect_cause,D,E,0,0.0033333333333333335,0
+2364,D directly causes A.,child,direct_cause,D,A,0,0.006666666666666667,0
+2363,E causes something else which causes C.,non-parent ancestor,indirect_cause,E,C,0,0.006666666666666667,0
+2363,E directly causes C.,child,direct_cause,E,C,0,0.0033333333333333335,0
+2365,A directly causes B.,parent,direct_cause,A,B,0,0.01,0
+2363,D directly causes E.,parent,direct_cause,D,E,0,0.03,0
+2365,"A is a cause for B, but not a direct one.",non-child descendant,indirect_cause,A,B,0,0.02666666666666667,0
+2365,"C is a cause for A, but not a direct one.",non-child descendant,indirect_cause,C,A,0,0.0,0
+2365,"B is a cause for A, but not a direct one.",non-child descendant,indirect_cause,B,A,0,0.006666666666666667,0
+2365,A directly causes C.,parent,direct_cause,A,C,0,0.0,0
+2365,"A is a cause for C, but not a direct one.",non-child descendant,indirect_cause,A,C,0,0.0,0
+2365,C directly causes A.,child,direct_cause,C,A,0,0.0,0
+2363,C causes something else which causes E.,non-parent ancestor,indirect_cause,C,E,0,0.17333333333333334,0
+2365,A directly causes D.,parent,direct_cause,A,D,1,0.9733333333333334,1
+2365,"A is a cause for D, but not a direct one.",non-child descendant,indirect_cause,A,D,0,0.14666666666666667,0
+2365,B directly causes A.,child,direct_cause,B,A,0,0.006666666666666667,0
+2363,C directly causes E.,parent,direct_cause,C,E,0,0.013333333333333334,0
+2363,B causes something else which causes E.,non-parent ancestor,indirect_cause,B,E,0,0.13666666666666666,0
+2363,D directly causes C.,child,direct_cause,D,C,0,0.0033333333333333335,0
+2363,"A is a cause for E, but not a direct one.",non-child descendant,indirect_cause,A,E,0,0.13666666666666666,0
+2363,E directly causes A.,child,direct_cause,E,A,0,0.01,0
+2363,E causes something else which causes A.,non-parent ancestor,indirect_cause,E,A,0,0.023333333333333334,0
+2363,B directly causes C.,parent,direct_cause,B,C,0,0.0033333333333333335,0
+2363,"B is a cause for C, but not a direct one.",non-child descendant,indirect_cause,B,C,0,0.0033333333333333335,0
+2363,C directly causes B.,child,direct_cause,C,B,0,0.0,0
+2363,"C is a cause for B, but not a direct one.",non-child descendant,indirect_cause,C,B,0,0.0,0
+2363,B directly causes D.,parent,direct_cause,B,D,0,0.013333333333333334,0
+2363,"B is a cause for D, but not a direct one.",non-child descendant,indirect_cause,B,D,0,0.04666666666666667,0
+2363,D directly causes B.,child,direct_cause,D,B,0,0.0,0
+2363,"D is a cause for B, but not a direct one.",non-child descendant,indirect_cause,D,B,0,0.0,0
+2363,B directly causes E.,parent,direct_cause,B,E,0,0.07,0
+2365,D directly causes A.,child,direct_cause,D,A,0,0.0,0
+2363,E directly causes B.,child,direct_cause,E,B,0,0.01,0
+2363,"E is a cause for B, but not a direct one.",non-child descendant,indirect_cause,E,B,0,0.0,0
+2363,C directly causes D.,parent,direct_cause,C,D,0,0.016666666666666666,0
+2363,"C is a cause for D, but not a direct one.",non-child descendant,indirect_cause,C,D,0,0.0,0
+2363,D causes something else which causes C.,non-parent ancestor,indirect_cause,D,C,0,0.006666666666666667,0
+2365,"D is a cause for A, but not a direct one.",non-child descendant,indirect_cause,D,A,0,0.0,0
+2365,C directly causes B.,child,direct_cause,C,B,0,0.0,0
+2365,A causes something else which causes E.,non-parent ancestor,indirect_cause,A,E,0,0.73,1
+2365,E causes something else which causes C.,non-parent ancestor,indirect_cause,E,C,0,0.0033333333333333335,0
+2365,D directly causes E.,parent,direct_cause,D,E,0,0.03333333333333333,0
+2365,"D is a cause for E, but not a direct one.",non-child descendant,indirect_cause,D,E,0,0.006666666666666667,0
+2365,E directly causes D.,child,direct_cause,E,D,0,0.013333333333333334,0
+2365,E causes something else which causes D.,non-parent ancestor,indirect_cause,E,D,0,0.03666666666666667,0
+2366,A directly causes B.,parent,direct_cause,A,B,0,0.013333333333333334,0
+2366,"A is a cause for B, but not a direct one.",non-child descendant,indirect_cause,A,B,0,0.02,0
+2366,B directly causes A.,child,direct_cause,B,A,0,0.02,0
+2366,B causes something else which causes A.,non-parent ancestor,indirect_cause,B,A,0,0.006666666666666667,0
+2366,A directly causes C.,parent,direct_cause,A,C,0,0.02,0
+2366,A causes something else which causes C.,non-parent ancestor,indirect_cause,A,C,0,0.02666666666666667,0
+2366,C directly causes A.,child,direct_cause,C,A,0,0.0033333333333333335,0
+2366,"C is a cause for A, but not a direct one.",non-child descendant,indirect_cause,C,A,0,0.006666666666666667,0
+2366,A directly causes D.,parent,direct_cause,A,D,0,0.03666666666666667,0
+2366,"A is a cause for D, but not a direct one.",non-child descendant,indirect_cause,A,D,0,0.06,0
+2366,D directly causes A.,child,direct_cause,D,A,0,0.013333333333333334,0
+2366,"D is a cause for A, but not a direct one.",non-child descendant,indirect_cause,D,A,0,0.006666666666666667,0
+2365,E directly causes C.,child,direct_cause,E,C,0,0.0,0
+2365,A directly causes E.,parent,direct_cause,A,E,1,0.81,1
+2365,"C is a cause for E, but not a direct one.",non-child descendant,indirect_cause,C,E,0,0.4033333333333333,0
+2365,"D is a cause for C, but not a direct one.",non-child descendant,indirect_cause,D,C,0,0.0,0
+2365,E directly causes A.,child,direct_cause,E,A,0,0.0,0
+2365,E causes something else which causes A.,non-parent ancestor,indirect_cause,E,A,0,0.016666666666666666,0
+2365,B directly causes C.,parent,direct_cause,B,C,0,0.0,0
+2365,"B is a cause for C, but not a direct one.",non-child descendant,indirect_cause,B,C,0,0.0,0
+2363,A directly causes E.,parent,direct_cause,A,E,0,0.07666666666666666,0
+2365,C causes something else which causes B.,non-parent ancestor,indirect_cause,C,B,0,0.006666666666666667,0
+2365,B directly causes D.,parent,direct_cause,B,D,1,0.9733333333333334,1
+2365,"B is a cause for D, but not a direct one.",non-child descendant,indirect_cause,B,D,0,0.14,0
+2365,D directly causes B.,child,direct_cause,D,B,0,0.0033333333333333335,0
+2365,"D is a cause for B, but not a direct one.",non-child descendant,indirect_cause,D,B,0,0.0,0
+2365,B directly causes E.,parent,direct_cause,B,E,1,0.9533333333333334,1
+2365,B causes something else which causes E.,non-parent ancestor,indirect_cause,B,E,0,0.55,1
+2365,E directly causes B.,child,direct_cause,E,B,0,0.0,0
+2365,"E is a cause for B, but not a direct one.",non-child descendant,indirect_cause,E,B,0,0.013333333333333334,0
+2365,C directly causes D.,parent,direct_cause,C,D,1,0.98,1
+2365,C causes something else which causes D.,non-parent ancestor,indirect_cause,C,D,0,0.02,0
+2365,D directly causes C.,child,direct_cause,D,C,0,0.0033333333333333335,0
+2365,C directly causes E.,parent,direct_cause,C,E,1,0.97,1
+2363,D causes something else which causes A.,non-parent ancestor,indirect_cause,D,A,0,0.0,0
+2363,A causes something else which causes C.,non-parent ancestor,indirect_cause,A,C,0,0.0033333333333333335,0
+2363,A causes something else which causes D.,non-parent ancestor,indirect_cause,A,D,0,0.02,0
+2346,B directly causes A.,child,direct_cause,B,A,0,0.01,0
+2346,A causes something else which causes B.,non-parent ancestor,indirect_cause,A,B,0,0.006666666666666667,0
+2346,A directly causes B.,parent,direct_cause,A,B,0,0.006666666666666667,0
+2367,E causes something else which causes D.,non-parent ancestor,indirect_cause,E,D,0,0.006666666666666667,0
+2367,E directly causes D.,child,direct_cause,E,D,0,0.0,0
+2367,"D is a cause for E, but not a direct one.",non-child descendant,indirect_cause,D,E,0,0.013333333333333334,0
+2367,D directly causes E.,parent,direct_cause,D,E,0,0.016666666666666666,0
+2346,B causes something else which causes A.,non-parent ancestor,indirect_cause,B,A,0,0.0,0
+2367,"E is a cause for C, but not a direct one.",non-child descendant,indirect_cause,E,C,0,0.006666666666666667,0
+2367,C causes something else which causes E.,non-parent ancestor,indirect_cause,C,E,0,0.16,0
+2367,C directly causes E.,parent,direct_cause,C,E,0,0.01,0
+2367,"D is a cause for C, but not a direct one.",non-child descendant,indirect_cause,D,C,0,0.0,0
+2367,D directly causes C.,child,direct_cause,D,C,0,0.0033333333333333335,0
+2367,"C is a cause for D, but not a direct one.",non-child descendant,indirect_cause,C,D,0,0.006666666666666667,0
+2367,C directly causes D.,parent,direct_cause,C,D,1,0.8933333333333333,1
+2367,E causes something else which causes B.,non-parent ancestor,indirect_cause,E,B,0,0.0,0
+2367,E directly causes C.,child,direct_cause,E,C,0,0.0033333333333333335,0
+2346,A directly causes C.,parent,direct_cause,A,C,1,0.95,1
+2346,A causes something else which causes C.,non-parent ancestor,indirect_cause,A,C,0,0.016666666666666666,0
+2346,C directly causes A.,child,direct_cause,C,A,0,0.0,0
+2346,"D is a cause for B, but not a direct one.",non-child descendant,indirect_cause,D,B,0,0.0,0
+2346,D directly causes B.,child,direct_cause,D,B,0,0.0,0
+2346,B causes something else which causes D.,non-parent ancestor,indirect_cause,B,D,1,0.23333333333333334,0
+2346,B directly causes D.,parent,direct_cause,B,D,1,0.9466666666666667,1
+2346,"C is a cause for B, but not a direct one.",non-child descendant,indirect_cause,C,B,0,0.0,0
+2346,C directly causes B.,child,direct_cause,C,B,0,0.0,0
+2346,B causes something else which causes C.,non-parent ancestor,indirect_cause,B,C,0,0.006666666666666667,0
+2346,B directly causes C.,parent,direct_cause,B,C,1,0.9466666666666667,1
+2346,"E is a cause for A, but not a direct one.",non-child descendant,indirect_cause,E,A,0,0.0,0
+2346,E directly causes A.,child,direct_cause,E,A,0,0.0,0
+2346,A causes something else which causes E.,non-parent ancestor,indirect_cause,A,E,1,0.68,1
+2346,A directly causes E.,parent,direct_cause,A,E,1,0.9533333333333334,1
+2346,"D is a cause for A, but not a direct one.",non-child descendant,indirect_cause,D,A,0,0.0033333333333333335,0
+2346,D directly causes A.,child,direct_cause,D,A,0,0.0,0
+2346,A causes something else which causes D.,non-parent ancestor,indirect_cause,A,D,1,0.7933333333333333,1
+2346,A directly causes D.,parent,direct_cause,A,D,0,0.016666666666666666,0
+2346,"C is a cause for A, but not a direct one.",non-child descendant,indirect_cause,C,A,0,0.0,0
+2367,E directly causes B.,child,direct_cause,E,B,0,0.0,0
+2367,B causes something else which causes E.,non-parent ancestor,indirect_cause,B,E,0,0.5233333333333333,1
+2367,B directly causes E.,parent,direct_cause,B,E,1,0.91,1
+2367,"D is a cause for B, but not a direct one.",non-child descendant,indirect_cause,D,B,0,0.0033333333333333335,0
+2367,A causes something else which causes B.,non-parent ancestor,indirect_cause,A,B,0,0.01,0
+2367,A directly causes B.,parent,direct_cause,A,B,0,0.0033333333333333335,0
+2364,"E is a cause for D, but not a direct one.",non-child descendant,indirect_cause,E,D,0,0.0,0
+2364,E directly causes D.,child,direct_cause,E,D,0,0.0033333333333333335,0
+2364,D causes something else which causes E.,non-parent ancestor,indirect_cause,D,E,0,0.05,0
+2364,D directly causes E.,parent,direct_cause,D,E,1,0.8566666666666667,1
+2364,"E is a cause for C, but not a direct one.",non-child descendant,indirect_cause,E,C,0,0.0033333333333333335,0
+2364,E directly causes C.,child,direct_cause,E,C,0,0.0033333333333333335,0
+2363,A directly causes B.,parent,direct_cause,A,B,0,0.0033333333333333335,0
+2363,"A is a cause for B, but not a direct one.",non-child descendant,indirect_cause,A,B,0,0.006666666666666667,0
+2363,B directly causes A.,child,direct_cause,B,A,0,0.0,0
+2363,B causes something else which causes A.,non-parent ancestor,indirect_cause,B,A,0,0.0033333333333333335,0
+2363,A directly causes C.,parent,direct_cause,A,C,0,0.0033333333333333335,0
+2366,A directly causes E.,parent,direct_cause,A,E,0,0.09666666666666666,0
+2363,C directly causes A.,child,direct_cause,C,A,0,0.0,0
+2363,"C is a cause for A, but not a direct one.",non-child descendant,indirect_cause,C,A,0,0.0,0
+2363,A directly causes D.,parent,direct_cause,A,D,0,0.016666666666666666,0
+2367,B directly causes A.,child,direct_cause,B,A,0,0.0033333333333333335,0
+2363,D directly causes A.,child,direct_cause,D,A,0,0.0,0
+2367,B causes something else which causes A.,non-parent ancestor,indirect_cause,B,A,0,0.01,0
+2367,A causes something else which causes C.,non-parent ancestor,indirect_cause,A,C,0,0.023333333333333334,0
+2367,D directly causes B.,child,direct_cause,D,B,0,0.0033333333333333335,0
+2367,B causes something else which causes D.,non-parent ancestor,indirect_cause,B,D,1,0.7766666666666666,1
+2367,B directly causes D.,parent,direct_cause,B,D,0,0.01,0
+2367,"C is a cause for B, but not a direct one.",non-child descendant,indirect_cause,C,B,0,0.0,0
+2367,C directly causes B.,child,direct_cause,C,B,0,0.0,0
+2367,"B is a cause for C, but not a direct one.",non-child descendant,indirect_cause,B,C,0,0.0033333333333333335,0
+2367,B directly causes C.,parent,direct_cause,B,C,1,0.8933333333333333,1
+2367,"E is a cause for A, but not a direct one.",non-child descendant,indirect_cause,E,A,0,0.0033333333333333335,0
+2367,E directly causes A.,child,direct_cause,E,A,0,0.0,0
+2367,"A is a cause for E, but not a direct one.",non-child descendant,indirect_cause,A,E,0,0.5266666666666666,1
+2367,A directly causes E.,parent,direct_cause,A,E,1,0.91,1
+2367,D causes something else which causes A.,non-parent ancestor,indirect_cause,D,A,0,0.0033333333333333335,0
+2367,D directly causes A.,child,direct_cause,D,A,0,0.0,0
+2367,"A is a cause for D, but not a direct one.",non-child descendant,indirect_cause,A,D,1,0.19333333333333333,0
+2367,A directly causes D.,parent,direct_cause,A,D,1,0.9033333333333333,1
+2367,C causes something else which causes A.,non-parent ancestor,indirect_cause,C,A,0,0.0,0
+2367,C directly causes A.,child,direct_cause,C,A,0,0.0,0
+2367,A directly causes C.,parent,direct_cause,A,C,1,0.8866666666666667,1
+2364,"D is a cause for A, but not a direct one.",non-child descendant,indirect_cause,D,A,0,0.006666666666666667,0
+2366,A causes something else which causes E.,non-parent ancestor,indirect_cause,A,E,0,0.07333333333333333,0
+2366,"E is a cause for A, but not a direct one.",non-child descendant,indirect_cause,E,A,0,0.02,0
+2368,E causes something else which causes B.,non-parent ancestor,indirect_cause,E,B,0,0.006666666666666667,0
+2368,C directly causes D.,parent,direct_cause,C,D,0,0.013333333333333334,0
+2368,C causes something else which causes D.,non-parent ancestor,indirect_cause,C,D,0,0.013333333333333334,0
+2368,D directly causes C.,child,direct_cause,D,C,0,0.0,0
+2368,D causes something else which causes C.,non-parent ancestor,indirect_cause,D,C,0,0.006666666666666667,0
+2368,C directly causes E.,parent,direct_cause,C,E,1,0.6466666666666666,1
+2368,C causes something else which causes E.,non-parent ancestor,indirect_cause,C,E,0,0.12333333333333334,0
+2368,E directly causes C.,child,direct_cause,E,C,0,0.016666666666666666,0
+2368,E directly causes B.,child,direct_cause,E,B,0,0.0,0
+2368,"E is a cause for C, but not a direct one.",non-child descendant,indirect_cause,E,C,0,0.006666666666666667,0
+2368,D causes something else which causes E.,non-parent ancestor,indirect_cause,D,E,0,0.11,0
+2368,E directly causes D.,child,direct_cause,E,D,0,0.016666666666666666,0
+2368,E causes something else which causes D.,non-parent ancestor,indirect_cause,E,D,0,0.016666666666666666,0
+2369,A directly causes B.,parent,direct_cause,A,B,0,0.006666666666666667,0
+2369,A causes something else which causes B.,non-parent ancestor,indirect_cause,A,B,0,0.0,0
+2369,B directly causes A.,child,direct_cause,B,A,0,0.0033333333333333335,0
+2369,B causes something else which causes A.,non-parent ancestor,indirect_cause,B,A,0,0.0033333333333333335,0
+2369,A directly causes C.,parent,direct_cause,A,C,0,0.0033333333333333335,0
+2368,D directly causes E.,parent,direct_cause,D,E,1,0.6566666666666666,1
+2369,"A is a cause for C, but not a direct one.",non-child descendant,indirect_cause,A,C,0,0.016666666666666666,0
+2368,B causes something else which causes E.,non-parent ancestor,indirect_cause,B,E,0,0.14666666666666667,0
+2368,"D is a cause for B, but not a direct one.",non-child descendant,indirect_cause,D,B,0,0.006666666666666667,0
+2364,C directly causes B.,child,direct_cause,C,B,0,0.0,0
+2364,"B is a cause for C, but not a direct one.",non-child descendant,indirect_cause,B,C,0,0.0,0
+2364,B directly causes C.,parent,direct_cause,B,C,0,0.0,0
+2364,"E is a cause for A, but not a direct one.",non-child descendant,indirect_cause,E,A,0,0.0,0
+2364,E directly causes A.,child,direct_cause,E,A,0,0.0,0
+2364,A causes something else which causes E.,non-parent ancestor,indirect_cause,A,E,0,0.29,0
+2364,A directly causes E.,parent,direct_cause,A,E,0,0.81,1
+2368,A directly causes E.,parent,direct_cause,A,E,1,0.63,1
+2368,B directly causes E.,parent,direct_cause,B,E,1,0.6533333333333333,1
+2368,A causes something else which causes E.,non-parent ancestor,indirect_cause,A,E,0,0.15333333333333332,0
+2368,E causes something else which causes A.,non-parent ancestor,indirect_cause,E,A,0,0.02666666666666667,0
+2368,B directly causes C.,parent,direct_cause,B,C,0,0.0,0
+2368,"B is a cause for C, but not a direct one.",non-child descendant,indirect_cause,B,C,0,0.013333333333333334,0
+2368,C directly causes B.,child,direct_cause,C,B,0,0.0,0
+2368,C causes something else which causes B.,non-parent ancestor,indirect_cause,C,B,0,0.0033333333333333335,0
+2368,B directly causes D.,parent,direct_cause,B,D,0,0.0033333333333333335,0
+2368,B causes something else which causes D.,non-parent ancestor,indirect_cause,B,D,0,0.02,0
+2368,D directly causes B.,child,direct_cause,D,B,0,0.0,0
+2368,E directly causes A.,child,direct_cause,E,A,0,0.0,0
+2369,C directly causes A.,child,direct_cause,C,A,0,0.0,0
+2369,"C is a cause for A, but not a direct one.",non-child descendant,indirect_cause,C,A,0,0.006666666666666667,0
+2369,A directly causes D.,parent,direct_cause,A,D,1,0.8733333333333333,1
+2369,C directly causes E.,parent,direct_cause,C,E,1,0.9233333333333333,1
+2369,C causes something else which causes E.,non-parent ancestor,indirect_cause,C,E,0,0.3333333333333333,0
+2369,E directly causes C.,child,direct_cause,E,C,0,0.0,0
+2369,"E is a cause for C, but not a direct one.",non-child descendant,indirect_cause,E,C,0,0.0,0
+2369,D directly causes E.,parent,direct_cause,D,E,0,0.05,0
+2369,D causes something else which causes E.,non-parent ancestor,indirect_cause,D,E,0,0.0033333333333333335,0
+2369,E directly causes D.,child,direct_cause,E,D,0,0.03333333333333333,0
+2369,E causes something else which causes D.,non-parent ancestor,indirect_cause,E,D,0,0.006666666666666667,0
+2369,D causes something else which causes C.,non-parent ancestor,indirect_cause,D,C,0,0.0,0
+2364,A directly causes B.,parent,direct_cause,A,B,0,0.0,0
+2364,B directly causes A.,child,direct_cause,B,A,0,0.0033333333333333335,0
+2364,B causes something else which causes A.,non-parent ancestor,indirect_cause,B,A,0,0.0033333333333333335,0
+2364,A directly causes C.,parent,direct_cause,A,C,0,0.02666666666666667,0
+2364,A causes something else which causes C.,non-parent ancestor,indirect_cause,A,C,0,0.02666666666666667,0
+2364,C directly causes A.,child,direct_cause,C,A,0,0.016666666666666666,0
+2364,"C is a cause for A, but not a direct one.",non-child descendant,indirect_cause,C,A,0,0.0033333333333333335,0
+2364,A directly causes D.,parent,direct_cause,A,D,0,0.03333333333333333,0
+2364,"A is a cause for D, but not a direct one.",non-child descendant,indirect_cause,A,D,0,0.13,0
+2364,"A is a cause for B, but not a direct one.",non-child descendant,indirect_cause,A,B,0,0.0033333333333333335,0
+2369,D directly causes C.,child,direct_cause,D,C,0,0.0,0
+2369,C causes something else which causes D.,non-parent ancestor,indirect_cause,C,D,0,0.04,0
+2369,C directly causes D.,parent,direct_cause,C,D,1,0.84,1
+2369,"A is a cause for D, but not a direct one.",non-child descendant,indirect_cause,A,D,0,0.13333333333333333,0
+2369,D directly causes A.,child,direct_cause,D,A,0,0.0,0
+2369,D causes something else which causes A.,non-parent ancestor,indirect_cause,D,A,0,0.0033333333333333335,0
+2369,A directly causes E.,parent,direct_cause,A,E,1,0.91,1
+2369,"A is a cause for E, but not a direct one.",non-child descendant,indirect_cause,A,E,0,0.33666666666666667,0
+2369,E directly causes A.,child,direct_cause,E,A,0,0.0,0
+2369,E causes something else which causes A.,non-parent ancestor,indirect_cause,E,A,0,0.013333333333333334,0
+2369,B directly causes C.,parent,direct_cause,B,C,0,0.013333333333333334,0
+2369,"B is a cause for C, but not a direct one.",non-child descendant,indirect_cause,B,C,0,0.0033333333333333335,0
+2369,C directly causes B.,child,direct_cause,C,B,0,0.0033333333333333335,0
+2369,C causes something else which causes B.,non-parent ancestor,indirect_cause,C,B,0,0.0,0
+2369,B directly causes D.,parent,direct_cause,B,D,0,0.013333333333333334,0
+2369,B causes something else which causes D.,non-parent ancestor,indirect_cause,B,D,1,0.7466666666666667,1
+2369,D directly causes B.,child,direct_cause,D,B,0,0.0,0
+2369,D causes something else which causes B.,non-parent ancestor,indirect_cause,D,B,0,0.01,0
+2369,B directly causes E.,parent,direct_cause,B,E,0,0.02,0
+2369,"B is a cause for E, but not a direct one.",non-child descendant,indirect_cause,B,E,1,0.68,1
+2369,E directly causes B.,child,direct_cause,E,B,0,0.006666666666666667,0
+2369,"E is a cause for B, but not a direct one.",non-child descendant,indirect_cause,E,B,0,0.023333333333333334,0
+2364,C causes something else which causes B.,non-parent ancestor,indirect_cause,C,B,0,0.0033333333333333335,0
+2366,E directly causes A.,child,direct_cause,E,A,0,0.02,0
+2364,B directly causes D.,parent,direct_cause,B,D,0,0.0,0
+2364,D directly causes B.,child,direct_cause,D,B,0,0.0,0
+2366,"E is a cause for D, but not a direct one.",non-child descendant,indirect_cause,E,D,0,0.02,0
+2370,A directly causes B.,parent,direct_cause,A,B,0,0.0,0
+2370,A causes something else which causes B.,non-parent ancestor,indirect_cause,A,B,0,0.0033333333333333335,0
+2370,B directly causes A.,child,direct_cause,B,A,0,0.0033333333333333335,0
+2370,B causes something else which causes A.,non-parent ancestor,indirect_cause,B,A,0,0.01,0
+2370,A directly causes C.,parent,direct_cause,A,C,0,0.0033333333333333335,0
+2370,A causes something else which causes C.,non-parent ancestor,indirect_cause,A,C,0,0.0033333333333333335,0
+2370,C directly causes A.,child,direct_cause,C,A,0,0.0033333333333333335,0
+2366,E directly causes D.,child,direct_cause,E,D,0,0.023333333333333334,0
+2370,"C is a cause for A, but not a direct one.",non-child descendant,indirect_cause,C,A,0,0.0,0
+2370,"A is a cause for D, but not a direct one.",non-child descendant,indirect_cause,A,D,0,0.0033333333333333335,0
+2370,D directly causes A.,child,direct_cause,D,A,0,0.0033333333333333335,0
+2370,D causes something else which causes A.,non-parent ancestor,indirect_cause,D,A,0,0.0033333333333333335,0
+2370,A directly causes E.,parent,direct_cause,A,E,0,0.01,0
+2370,"A is a cause for E, but not a direct one.",non-child descendant,indirect_cause,A,E,0,0.08,0
+2370,E directly causes A.,child,direct_cause,E,A,0,0.0033333333333333335,0
+2370,"E is a cause for A, but not a direct one.",non-child descendant,indirect_cause,E,A,0,0.0,0
+2370,B directly causes C.,parent,direct_cause,B,C,0,0.0033333333333333335,0
+2370,A directly causes D.,parent,direct_cause,A,D,0,0.006666666666666667,0
+2370,B causes something else which causes C.,non-parent ancestor,indirect_cause,B,C,0,0.01,0
+2366,D causes something else which causes E.,non-parent ancestor,indirect_cause,D,E,0,0.02,0
+2366,"E is a cause for C, but not a direct one.",non-child descendant,indirect_cause,E,C,0,0.023333333333333334,0
+2366,B directly causes C.,parent,direct_cause,B,C,0,0.023333333333333334,0
+2366,"B is a cause for C, but not a direct one.",non-child descendant,indirect_cause,B,C,0,0.01,0
+2366,C directly causes B.,child,direct_cause,C,B,0,0.006666666666666667,0
+2366,"C is a cause for B, but not a direct one.",non-child descendant,indirect_cause,C,B,0,0.0033333333333333335,0
+2366,B directly causes D.,parent,direct_cause,B,D,0,0.02,0
+2366,"B is a cause for D, but not a direct one.",non-child descendant,indirect_cause,B,D,0,0.09,0
+2366,D directly causes B.,child,direct_cause,D,B,0,0.0033333333333333335,0
+2366,"D is a cause for B, but not a direct one.",non-child descendant,indirect_cause,D,B,0,0.006666666666666667,0
+2366,D directly causes E.,parent,direct_cause,D,E,0,0.05,0
+2366,B directly causes E.,parent,direct_cause,B,E,0,0.03333333333333333,0
+2366,E directly causes B.,child,direct_cause,E,B,0,0.01,0
+2366,E causes something else which causes B.,non-parent ancestor,indirect_cause,E,B,0,0.006666666666666667,0
+2366,C directly causes D.,parent,direct_cause,C,D,0,0.12,0
+2366,C causes something else which causes D.,non-parent ancestor,indirect_cause,C,D,0,0.006666666666666667,0
+2366,"D is a cause for C, but not a direct one.",non-child descendant,indirect_cause,D,C,0,0.0,0
+2366,C directly causes E.,parent,direct_cause,C,E,0,0.02666666666666667,0
+2366,"C is a cause for E, but not a direct one.",non-child descendant,indirect_cause,C,E,0,0.11333333333333333,0
+2366,E directly causes C.,child,direct_cause,E,C,0,0.01,0
+2366,B causes something else which causes E.,non-parent ancestor,indirect_cause,B,E,0,0.15666666666666668,0
+2370,C directly causes B.,child,direct_cause,C,B,0,0.0,0
+2370,"C is a cause for B, but not a direct one.",non-child descendant,indirect_cause,C,B,0,0.0,0
+2370,B directly causes D.,parent,direct_cause,B,D,0,0.01,0
+2368,A directly causes C.,parent,direct_cause,A,C,0,0.0,0
+2368,"A is a cause for C, but not a direct one.",non-child descendant,indirect_cause,A,C,0,0.016666666666666666,0
+2368,C directly causes A.,child,direct_cause,C,A,0,0.0,0
+2368,"C is a cause for A, but not a direct one.",non-child descendant,indirect_cause,C,A,0,0.006666666666666667,0
+2368,A directly causes D.,parent,direct_cause,A,D,0,0.02,0
+2368,"A is a cause for D, but not a direct one.",non-child descendant,indirect_cause,A,D,0,0.03,0
+2368,D directly causes A.,child,direct_cause,D,A,0,0.0033333333333333335,0
+2368,"D is a cause for A, but not a direct one.",non-child descendant,indirect_cause,D,A,0,0.0033333333333333335,0
+2368,"B is a cause for A, but not a direct one.",non-child descendant,indirect_cause,B,A,0,0.01,0
+2364,C directly causes E.,parent,direct_cause,C,E,0,0.03,0
+2364,D directly causes C.,child,direct_cause,D,C,0,0.013333333333333334,0
+2364,"C is a cause for D, but not a direct one.",non-child descendant,indirect_cause,C,D,0,0.006666666666666667,0
+2364,C directly causes D.,parent,direct_cause,C,D,0,0.05,0
+2364,E causes something else which causes B.,non-parent ancestor,indirect_cause,E,B,0,0.0,0
+2364,E directly causes B.,child,direct_cause,E,B,0,0.0,0
+2364,"B is a cause for E, but not a direct one.",non-child descendant,indirect_cause,B,E,0,0.13,0
+2364,B directly causes E.,parent,direct_cause,B,E,1,0.85,1
+2364,D causes something else which causes B.,non-parent ancestor,indirect_cause,D,B,0,0.0033333333333333335,0
+2364,"D is a cause for C, but not a direct one.",non-child descendant,indirect_cause,D,C,0,0.0,0
+2368,B directly causes A.,child,direct_cause,B,A,0,0.0,0
+2368,"A is a cause for B, but not a direct one.",non-child descendant,indirect_cause,A,B,0,0.02666666666666667,0
+2368,A directly causes B.,parent,direct_cause,A,B,0,0.0033333333333333335,0
+2370,"B is a cause for D, but not a direct one.",non-child descendant,indirect_cause,B,D,0,0.03,0
+2370,D directly causes B.,child,direct_cause,D,B,0,0.0,0
+2370,D causes something else which causes B.,non-parent ancestor,indirect_cause,D,B,0,0.0033333333333333335,0
+2370,B directly causes E.,parent,direct_cause,B,E,0,0.0,0
+2370,"B is a cause for E, but not a direct one.",non-child descendant,indirect_cause,B,E,0,0.09333333333333334,0
+2370,E directly causes B.,child,direct_cause,E,B,0,0.0033333333333333335,0
+2370,E causes something else which causes B.,non-parent ancestor,indirect_cause,E,B,0,0.0033333333333333335,0
+2370,C directly causes D.,parent,direct_cause,C,D,0,0.0,0
+2370,"C is a cause for D, but not a direct one.",non-child descendant,indirect_cause,C,D,0,0.0,0
+2370,D directly causes C.,child,direct_cause,D,C,0,0.0,0
+2364,"C is a cause for E, but not a direct one.",non-child descendant,indirect_cause,C,E,0,0.56,1
+2370,C directly causes E.,parent,direct_cause,C,E,0,0.0,0
+2370,"C is a cause for E, but not a direct one.",non-child descendant,indirect_cause,C,E,0,0.11333333333333333,0
+2370,E directly causes C.,child,direct_cause,E,C,0,0.0,0
+2370,E causes something else which causes C.,non-parent ancestor,indirect_cause,E,C,0,0.006666666666666667,0
+2370,D directly causes E.,parent,direct_cause,D,E,0,0.006666666666666667,0
+2370,"D is a cause for E, but not a direct one.",non-child descendant,indirect_cause,D,E,0,0.006666666666666667,0
+2370,E directly causes D.,child,direct_cause,E,D,0,0.0,0
+2370,"E is a cause for D, but not a direct one.",non-child descendant,indirect_cause,E,D,0,0.0,0
+2364,B causes something else which causes D.,non-parent ancestor,indirect_cause,B,D,0,0.013333333333333334,0
+2370,"D is a cause for C, but not a direct one.",non-child descendant,indirect_cause,D,C,0,0.0033333333333333335,0
+2366,D directly causes C.,child,direct_cause,D,C,0,0.016666666666666666,0
+2368,"There exists at least one confounder (i.e., common cause) of A and E.",has_confounder,confounder,A,E,0,0.006666666666666667,0
+2364,"There exists at least one confounder (i.e., common cause) of A and D.",has_confounder,confounder,A,D,0,0.006666666666666667,0
+2364,"There exists at least one confounder (i.e., common cause) of A and C.",has_confounder,confounder,A,C,0,0.0033333333333333335,0
+2363,"There exists at least one collider (i.e., common effect) of A and C.",has_collider,collider,A,C,0,0.3933333333333333,0
+2364,"There exists at least one confounder (i.e., common cause) of A and B.",has_confounder,confounder,A,B,0,0.013333333333333334,0
+2369,"There exists at least one confounder (i.e., common cause) of D and E.",has_confounder,confounder,D,E,1,0.8166666666666667,1
+2369,"There exists at least one confounder (i.e., common cause) of C and E.",has_confounder,confounder,C,E,0,0.27,0
+2369,"There exists at least one confounder (i.e., common cause) of C and D.",has_confounder,confounder,C,D,0,0.17666666666666667,0
+2369,"There exists at least one confounder (i.e., common cause) of B and E.",has_confounder,confounder,B,E,0,0.0,0
+2369,"There exists at least one confounder (i.e., common cause) of B and D.",has_confounder,confounder,B,D,0,0.0033333333333333335,0
+2369,"There exists at least one confounder (i.e., common cause) of B and C.",has_confounder,confounder,B,C,0,0.02666666666666667,0
+2369,"There exists at least one confounder (i.e., common cause) of A and E.",has_confounder,confounder,A,E,0,0.0033333333333333335,0
+2369,"There exists at least one confounder (i.e., common cause) of A and D.",has_confounder,confounder,A,D,0,0.0033333333333333335,0
+2369,"There exists at least one confounder (i.e., common cause) of A and C.",has_confounder,confounder,A,C,0,0.0,0
+2369,"There exists at least one confounder (i.e., common cause) of A and B.",has_confounder,confounder,A,B,0,0.013333333333333334,0
+2368,"There exists at least one confounder (i.e., common cause) of D and E.",has_confounder,confounder,D,E,0,0.18666666666666668,0
+2368,"There exists at least one confounder (i.e., common cause) of C and E.",has_confounder,confounder,C,E,0,0.18,0
+2368,"There exists at least one confounder (i.e., common cause) of C and D.",has_confounder,confounder,C,D,0,0.02,0
+2364,"There exists at least one confounder (i.e., common cause) of A and E.",has_confounder,confounder,A,E,0,0.0033333333333333335,0
+2368,"There exists at least one confounder (i.e., common cause) of B and E.",has_confounder,confounder,B,E,0,0.016666666666666666,0
+2364,"There exists at least one confounder (i.e., common cause) of B and C.",has_confounder,confounder,B,C,0,0.03,0
+2364,"There exists at least one confounder (i.e., common cause) of B and E.",has_confounder,confounder,B,E,0,0.006666666666666667,0
+2346,"There exists at least one confounder (i.e., common cause) of A and E.",has_confounder,confounder,A,E,0,0.0,0
+2346,"There exists at least one confounder (i.e., common cause) of A and D.",has_confounder,confounder,A,D,0,0.0,0
+2346,"There exists at least one confounder (i.e., common cause) of A and C.",has_confounder,confounder,A,C,0,0.0,0
+2346,"There exists at least one confounder (i.e., common cause) of A and B.",has_confounder,confounder,A,B,0,0.0,0
+2367,"There exists at least one confounder (i.e., common cause) of D and E.",has_confounder,confounder,D,E,1,0.8233333333333334,1
+2367,"There exists at least one confounder (i.e., common cause) of C and E.",has_confounder,confounder,C,E,1,0.8366666666666667,1
+2367,"There exists at least one confounder (i.e., common cause) of C and D.",has_confounder,confounder,C,D,1,0.7966666666666666,1
+2367,"There exists at least one confounder (i.e., common cause) of B and E.",has_confounder,confounder,B,E,0,0.0033333333333333335,0
+2367,"There exists at least one confounder (i.e., common cause) of B and D.",has_confounder,confounder,B,D,0,0.01,0
+2367,"There exists at least one confounder (i.e., common cause) of B and C.",has_confounder,confounder,B,C,0,0.016666666666666666,0
+2367,"There exists at least one confounder (i.e., common cause) of A and E.",has_confounder,confounder,A,E,0,0.0033333333333333335,0
+2367,"There exists at least one confounder (i.e., common cause) of A and D.",has_confounder,confounder,A,D,0,0.0033333333333333335,0
+2367,"There exists at least one confounder (i.e., common cause) of A and C.",has_confounder,confounder,A,C,0,0.0033333333333333335,0
+2367,"There exists at least one confounder (i.e., common cause) of A and B.",has_confounder,confounder,A,B,0,0.0033333333333333335,0
+2364,"There exists at least one confounder (i.e., common cause) of D and E.",has_confounder,confounder,D,E,0,0.2833333333333333,0
+2364,"There exists at least one confounder (i.e., common cause) of C and E.",has_confounder,confounder,C,E,0,0.13,0
+2364,"There exists at least one confounder (i.e., common cause) of C and D.",has_confounder,confounder,C,D,0,0.11,0
+2364,"There exists at least one confounder (i.e., common cause) of B and D.",has_confounder,confounder,B,D,0,0.01,0
+2368,"There exists at least one confounder (i.e., common cause) of B and D.",has_confounder,confounder,B,D,0,0.006666666666666667,0
+2368,"There exists at least one confounder (i.e., common cause) of B and C.",has_confounder,confounder,B,C,0,0.02,0
+2363,"There exists at least one confounder (i.e., common cause) of A and C.",has_confounder,confounder,A,C,0,0.006666666666666667,0
+2366,"There exists at least one confounder (i.e., common cause) of A and B.",has_confounder,confounder,A,B,0,0.01,0
+2365,"There exists at least one confounder (i.e., common cause) of D and E.",has_confounder,confounder,D,E,1,0.9066666666666666,1
+2365,"There exists at least one confounder (i.e., common cause) of C and E.",has_confounder,confounder,C,E,0,0.08666666666666667,0
+2365,"There exists at least one confounder (i.e., common cause) of C and D.",has_confounder,confounder,C,D,0,0.07666666666666666,0
+2365,"There exists at least one confounder (i.e., common cause) of B and E.",has_confounder,confounder,B,E,0,0.0,0
+2365,"There exists at least one confounder (i.e., common cause) of B and D.",has_confounder,confounder,B,D,0,0.0,0
+2365,"There exists at least one confounder (i.e., common cause) of B and C.",has_confounder,confounder,B,C,0,0.0033333333333333335,0
+2365,"There exists at least one confounder (i.e., common cause) of A and E.",has_confounder,confounder,A,E,0,0.0,0
+2365,"There exists at least one confounder (i.e., common cause) of A and D.",has_confounder,confounder,A,D,0,0.0,0
+2365,"There exists at least one confounder (i.e., common cause) of A and C.",has_confounder,confounder,A,C,0,0.0,0
+2365,"There exists at least one confounder (i.e., common cause) of A and B.",has_confounder,confounder,A,B,0,0.013333333333333334,0
+2363,"There exists at least one confounder (i.e., common cause) of D and E.",has_confounder,confounder,D,E,0,0.24,0
+2363,"There exists at least one confounder (i.e., common cause) of C and E.",has_confounder,confounder,C,E,0,0.10666666666666667,0
+2363,"There exists at least one confounder (i.e., common cause) of C and D.",has_confounder,confounder,C,D,0,0.11,0
+2363,"There exists at least one confounder (i.e., common cause) of B and E.",has_confounder,confounder,B,E,0,0.006666666666666667,0
+2363,"There exists at least one confounder (i.e., common cause) of B and D.",has_confounder,confounder,B,D,0,0.01,0
+2363,"There exists at least one confounder (i.e., common cause) of B and C.",has_confounder,confounder,B,C,0,0.03,0
+2366,"There exists at least one confounder (i.e., common cause) of A and C.",has_confounder,confounder,A,C,0,0.01,0
+2366,"There exists at least one confounder (i.e., common cause) of A and D.",has_confounder,confounder,A,D,0,0.006666666666666667,0
+2366,"There exists at least one confounder (i.e., common cause) of A and E.",has_confounder,confounder,A,E,0,0.0033333333333333335,0
+2366,"There exists at least one confounder (i.e., common cause) of B and C.",has_confounder,confounder,B,C,0,0.013333333333333334,0
+2368,"There exists at least one confounder (i.e., common cause) of A and D.",has_confounder,confounder,A,D,0,0.0,0
+2368,"There exists at least one confounder (i.e., common cause) of A and C.",has_confounder,confounder,A,C,0,0.0,0
+2368,"There exists at least one confounder (i.e., common cause) of A and B.",has_confounder,confounder,A,B,0,0.0,0
+2370,"There exists at least one confounder (i.e., common cause) of D and E.",has_confounder,confounder,D,E,0,0.13,0
+2370,"There exists at least one confounder (i.e., common cause) of C and E.",has_confounder,confounder,C,E,0,0.023333333333333334,0
+2370,"There exists at least one confounder (i.e., common cause) of C and D.",has_confounder,confounder,C,D,0,0.04666666666666667,0
+2370,"There exists at least one confounder (i.e., common cause) of B and E.",has_confounder,confounder,B,E,0,0.0,0
+2370,"There exists at least one confounder (i.e., common cause) of B and D.",has_confounder,confounder,B,D,0,0.0,0
+2346,"There exists at least one confounder (i.e., common cause) of B and C.",has_confounder,confounder,B,C,0,0.013333333333333334,0
+2370,"There exists at least one confounder (i.e., common cause) of B and C.",has_confounder,confounder,B,C,0,0.0033333333333333335,0
+2370,"There exists at least one confounder (i.e., common cause) of A and D.",has_confounder,confounder,A,D,0,0.0,0
+2370,"There exists at least one confounder (i.e., common cause) of A and C.",has_confounder,confounder,A,C,0,0.0,0
+2370,"There exists at least one confounder (i.e., common cause) of A and B.",has_confounder,confounder,A,B,0,0.0,0
+2366,"There exists at least one confounder (i.e., common cause) of D and E.",has_confounder,confounder,D,E,0,0.18333333333333332,0
+2366,"There exists at least one confounder (i.e., common cause) of C and E.",has_confounder,confounder,C,E,0,0.06666666666666667,0
+2366,"There exists at least one confounder (i.e., common cause) of C and D.",has_confounder,confounder,C,D,0,0.043333333333333335,0
+2366,"There exists at least one confounder (i.e., common cause) of B and E.",has_confounder,confounder,B,E,0,0.006666666666666667,0
+2366,"There exists at least one confounder (i.e., common cause) of B and D.",has_confounder,confounder,B,D,0,0.01,0
+2370,"There exists at least one confounder (i.e., common cause) of A and E.",has_confounder,confounder,A,E,0,0.0,0
+2363,"There exists at least one collider (i.e., common effect) of A and B.",has_collider,collider,A,B,0,0.5833333333333334,1
+2363,"There exists at least one confounder (i.e., common cause) of A and B.",has_confounder,confounder,A,B,0,0.016666666666666666,0
+2363,"There exists at least one collider (i.e., common effect) of A and D.",has_collider,collider,A,D,0,0.35333333333333333,0
+2364,"There exists at least one collider (i.e., common effect) of A and D.",has_collider,collider,A,D,1,0.6733333333333333,1
+2364,"There exists at least one collider (i.e., common effect) of A and C.",has_collider,collider,A,C,0,0.41,0
+2364,"There exists at least one collider (i.e., common effect) of A and B.",has_collider,collider,A,B,1,0.9166666666666666,1
+2369,"There exists at least one collider (i.e., common effect) of D and E.",has_collider,collider,D,E,0,0.09333333333333334,0
+2369,"There exists at least one collider (i.e., common effect) of C and E.",has_collider,collider,C,E,0,0.13666666666666666,0
+2369,"There exists at least one collider (i.e., common effect) of C and D.",has_collider,collider,C,D,0,0.5833333333333334,1
+2369,"There exists at least one collider (i.e., common effect) of B and E.",has_collider,collider,B,E,0,0.12,0
+2369,"There exists at least one collider (i.e., common effect) of B and D.",has_collider,collider,B,D,0,0.7133333333333334,1
+2369,"There exists at least one collider (i.e., common effect) of B and C.",has_collider,collider,B,C,0,0.7433333333333333,1
+2369,"There exists at least one collider (i.e., common effect) of A and E.",has_collider,collider,A,E,0,0.12,0
+2369,"There exists at least one collider (i.e., common effect) of A and D.",has_collider,collider,A,D,0,0.72,1
+2369,"There exists at least one collider (i.e., common effect) of A and C.",has_collider,collider,A,C,1,0.9233333333333333,1
+2369,"There exists at least one collider (i.e., common effect) of A and B.",has_collider,collider,A,B,0,0.6233333333333333,1
+2368,"There exists at least one collider (i.e., common effect) of D and E.",has_collider,collider,D,E,0,0.06333333333333334,0
+2368,"There exists at least one collider (i.e., common effect) of C and E.",has_collider,collider,C,E,0,0.08666666666666667,0
+2368,"There exists at least one collider (i.e., common effect) of C and D.",has_collider,collider,C,D,1,0.5966666666666667,1
+2368,"There exists at least one collider (i.e., common effect) of B and E.",has_collider,collider,B,E,0,0.09333333333333334,0
+2364,"There exists at least one collider (i.e., common effect) of A and E.",has_collider,collider,A,E,0,0.1,0
+2364,"There exists at least one collider (i.e., common effect) of B and C.",has_collider,collider,B,C,1,0.5166666666666667,1
+2364,"There exists at least one collider (i.e., common effect) of B and D.",has_collider,collider,B,D,1,0.7166666666666667,1
+2364,"There exists at least one collider (i.e., common effect) of B and E.",has_collider,collider,B,E,0,0.07333333333333333,0
+2346,"There exists at least one collider (i.e., common effect) of B and C.",has_collider,collider,B,C,1,0.6566666666666666,1
+2346,"There exists at least one collider (i.e., common effect) of A and E.",has_collider,collider,A,E,0,0.03666666666666667,0
+2346,"There exists at least one collider (i.e., common effect) of A and D.",has_collider,collider,A,D,0,0.31666666666666665,0
+2346,"There exists at least one collider (i.e., common effect) of A and C.",has_collider,collider,A,C,1,0.66,1
+2346,"There exists at least one collider (i.e., common effect) of A and B.",has_collider,collider,A,B,1,0.86,1
+2367,"There exists at least one collider (i.e., common effect) of D and E.",has_collider,collider,D,E,0,0.08333333333333333,0
+2367,"There exists at least one collider (i.e., common effect) of C and E.",has_collider,collider,C,E,0,0.06333333333333334,0
+2367,"There exists at least one collider (i.e., common effect) of C and D.",has_collider,collider,C,D,0,0.20333333333333334,0
+2368,"There exists at least one collider (i.e., common effect) of B and D.",has_collider,collider,B,D,1,0.5633333333333334,1
+2367,"There exists at least one collider (i.e., common effect) of B and E.",has_collider,collider,B,E,0,0.06333333333333334,0
+2367,"There exists at least one collider (i.e., common effect) of B and C.",has_collider,collider,B,C,0,0.3333333333333333,0
+2367,"There exists at least one collider (i.e., common effect) of A and E.",has_collider,collider,A,E,0,0.04666666666666667,0
+2367,"There exists at least one collider (i.e., common effect) of A and D.",has_collider,collider,A,D,0,0.25333333333333335,0
+2367,"There exists at least one collider (i.e., common effect) of A and C.",has_collider,collider,A,C,1,0.5466666666666666,1
+2367,"There exists at least one collider (i.e., common effect) of A and B.",has_collider,collider,A,B,1,0.7166666666666667,1
+2364,"There exists at least one collider (i.e., common effect) of D and E.",has_collider,collider,D,E,0,0.07666666666666666,0
+2364,"There exists at least one collider (i.e., common effect) of C and E.",has_collider,collider,C,E,0,0.1,0
+2364,"There exists at least one collider (i.e., common effect) of C and D.",has_collider,collider,C,D,0,0.31666666666666665,0
+2367,"There exists at least one collider (i.e., common effect) of B and D.",has_collider,collider,B,D,0,0.2733333333333333,0
+2363,"There exists at least one confounder (i.e., common cause) of A and E.",has_confounder,confounder,A,E,0,0.0033333333333333335,0
+2368,"There exists at least one collider (i.e., common effect) of B and C.",has_collider,collider,B,C,1,0.5633333333333334,1
+2368,"There exists at least one collider (i.e., common effect) of A and D.",has_collider,collider,A,D,1,0.58,1
+2365,"There exists at least one collider (i.e., common effect) of D and E.",has_collider,collider,D,E,0,0.07666666666666666,0
+2365,"There exists at least one collider (i.e., common effect) of C and E.",has_collider,collider,C,E,0,0.043333333333333335,0
+2365,"There exists at least one collider (i.e., common effect) of C and D.",has_collider,collider,C,D,0,0.25666666666666665,0
+2365,"There exists at least one collider (i.e., common effect) of B and E.",has_collider,collider,B,E,0,0.05,0
+2365,"There exists at least one collider (i.e., common effect) of B and D.",has_collider,collider,B,D,0,0.52,1
+2365,"There exists at least one collider (i.e., common effect) of B and C.",has_collider,collider,B,C,1,0.95,1
+2365,"There exists at least one collider (i.e., common effect) of A and E.",has_collider,collider,A,E,0,0.03333333333333333,0
+2365,"There exists at least one collider (i.e., common effect) of A and D.",has_collider,collider,A,D,0,0.5033333333333333,1
+2365,"There exists at least one collider (i.e., common effect) of A and C.",has_collider,collider,A,C,1,0.96,1
+2365,"There exists at least one collider (i.e., common effect) of A and B.",has_collider,collider,A,B,1,0.9466666666666667,1
+2363,"There exists at least one collider (i.e., common effect) of D and E.",has_collider,collider,D,E,0,0.043333333333333335,0
+2363,"There exists at least one collider (i.e., common effect) of C and E.",has_collider,collider,C,E,0,0.07,0
+2363,"There exists at least one collider (i.e., common effect) of C and D.",has_collider,collider,C,D,0,0.29,0
+2363,"There exists at least one collider (i.e., common effect) of B and E.",has_collider,collider,B,E,0,0.06666666666666667,0
+2363,"There exists at least one collider (i.e., common effect) of B and D.",has_collider,collider,B,D,0,0.3566666666666667,0
+2363,"There exists at least one collider (i.e., common effect) of B and C.",has_collider,collider,B,C,0,0.4166666666666667,0
+2363,"There exists at least one collider (i.e., common effect) of A and E.",has_collider,collider,A,E,0,0.06666666666666667,0
+2366,"There exists at least one collider (i.e., common effect) of A and B.",has_collider,collider,A,B,0,0.3466666666666667,0
+2366,"There exists at least one collider (i.e., common effect) of A and C.",has_collider,collider,A,C,0,0.3,0
+2366,"There exists at least one collider (i.e., common effect) of A and D.",has_collider,collider,A,D,0,0.3,0
+2366,"There exists at least one collider (i.e., common effect) of A and E.",has_collider,collider,A,E,0,0.22333333333333333,0
+2368,"There exists at least one collider (i.e., common effect) of A and C.",has_collider,collider,A,C,1,0.6366666666666667,1
+2368,"There exists at least one collider (i.e., common effect) of A and B.",has_collider,collider,A,B,1,0.8533333333333334,1
+2370,"There exists at least one collider (i.e., common effect) of D and E.",has_collider,collider,D,E,0,0.02666666666666667,0
+2370,"There exists at least one collider (i.e., common effect) of C and E.",has_collider,collider,C,E,0,0.02,0
+2370,"There exists at least one collider (i.e., common effect) of C and D.",has_collider,collider,C,D,0,0.06,0
+2370,"There exists at least one collider (i.e., common effect) of B and E.",has_collider,collider,B,E,0,0.056666666666666664,0
+2370,"There exists at least one collider (i.e., common effect) of B and D.",has_collider,collider,B,D,0,0.07,0
+2370,"There exists at least one collider (i.e., common effect) of B and C.",has_collider,collider,B,C,0,0.09666666666666666,0
+2368,"There exists at least one collider (i.e., common effect) of A and E.",has_collider,collider,A,E,0,0.17333333333333334,0
+2370,"There exists at least one collider (i.e., common effect) of A and E.",has_collider,collider,A,E,0,0.04666666666666667,0
+2370,"There exists at least one collider (i.e., common effect) of A and C.",has_collider,collider,A,C,0,0.1,0
+2370,"There exists at least one collider (i.e., common effect) of A and B.",has_collider,collider,A,B,0,0.2866666666666667,0
+2366,"There exists at least one collider (i.e., common effect) of D and E.",has_collider,collider,D,E,0,0.08,0
+2366,"There exists at least one collider (i.e., common effect) of C and E.",has_collider,collider,C,E,0,0.12333333333333334,0
+2366,"There exists at least one collider (i.e., common effect) of C and D.",has_collider,collider,C,D,0,0.23333333333333334,0
+2366,"There exists at least one collider (i.e., common effect) of B and E.",has_collider,collider,B,E,0,0.21666666666666667,0
+2366,"There exists at least one collider (i.e., common effect) of B and D.",has_collider,collider,B,D,0,0.28,0
+2366,"There exists at least one collider (i.e., common effect) of B and C.",has_collider,collider,B,C,0,0.17666666666666667,0
+2370,"There exists at least one collider (i.e., common effect) of A and D.",has_collider,collider,A,D,0,0.08,0
+2363,"There exists at least one confounder (i.e., common cause) of A and D.",has_confounder,confounder,A,D,0,0.006666666666666667,0
+2356,"There exists at least one confounder (i.e., common cause) of C and E.",has_confounder,confounder,C,E,0,0.023333333333333334,0
+2371,D directly causes F.,parent,direct_cause,D,F,0,0.01,0
+2372,"E is a cause for D, but not a direct one.",non-child descendant,indirect_cause,E,D,0,0.0033333333333333335,0
+2372,D directly causes F.,parent,direct_cause,D,F,1,0.8433333333333334,1
+2372,D causes something else which causes F.,non-parent ancestor,indirect_cause,D,F,0,0.43333333333333335,0
+2372,F directly causes D.,child,direct_cause,F,D,0,0.0,0
+2372,"F is a cause for D, but not a direct one.",non-child descendant,indirect_cause,F,D,0,0.016666666666666666,0
+2372,E directly causes F.,parent,direct_cause,E,F,0,0.03333333333333333,0
+2372,"E is a cause for F, but not a direct one.",non-child descendant,indirect_cause,E,F,0,0.013333333333333334,0
+2372,F directly causes E.,child,direct_cause,F,E,0,0.0,0
+2372,F causes something else which causes E.,non-parent ancestor,indirect_cause,F,E,0,0.013333333333333334,0
+2371,A directly causes B.,parent,direct_cause,A,B,0,0.0,0
+2371,"A is a cause for B, but not a direct one.",non-child descendant,indirect_cause,A,B,0,0.006666666666666667,0
+2371,B directly causes A.,child,direct_cause,B,A,0,0.0,0
+2371,"B is a cause for A, but not a direct one.",non-child descendant,indirect_cause,B,A,0,0.0,0
+2371,A directly causes C.,parent,direct_cause,A,C,0,0.0,0
+2371,"A is a cause for C, but not a direct one.",non-child descendant,indirect_cause,A,C,0,0.0033333333333333335,0
+2371,C directly causes A.,child,direct_cause,C,A,0,0.0,0
+2371,C causes something else which causes A.,non-parent ancestor,indirect_cause,C,A,0,0.0,0
+2372,E directly causes D.,child,direct_cause,E,D,0,0.0,0
+2372,"D is a cause for E, but not a direct one.",non-child descendant,indirect_cause,D,E,0,0.0033333333333333335,0
+2372,D directly causes E.,parent,direct_cause,D,E,0,0.023333333333333334,0
+2372,F causes something else which causes C.,non-parent ancestor,indirect_cause,F,C,0,0.0033333333333333335,0
+2372,"B is a cause for E, but not a direct one.",non-child descendant,indirect_cause,B,E,1,0.7366666666666667,1
+2372,E directly causes B.,child,direct_cause,E,B,0,0.0,0
+2372,"E is a cause for B, but not a direct one.",non-child descendant,indirect_cause,E,B,0,0.013333333333333334,0
+2372,B directly causes F.,parent,direct_cause,B,F,0,0.02666666666666667,0
+2372,"B is a cause for F, but not a direct one.",non-child descendant,indirect_cause,B,F,1,0.9933333333333333,1
+2372,F directly causes B.,child,direct_cause,F,B,0,0.0,0
+2372,F causes something else which causes B.,non-parent ancestor,indirect_cause,F,B,0,0.013333333333333334,0
+2372,C directly causes D.,parent,direct_cause,C,D,1,0.9133333333333333,1
+2371,A directly causes D.,parent,direct_cause,A,D,0,0.06666666666666667,0
+2372,"C is a cause for D, but not a direct one.",non-child descendant,indirect_cause,C,D,0,0.023333333333333334,0
+2372,"D is a cause for C, but not a direct one.",non-child descendant,indirect_cause,D,C,0,0.0,0
+2372,C directly causes E.,parent,direct_cause,C,E,1,0.9466666666666667,1
+2372,C causes something else which causes E.,non-parent ancestor,indirect_cause,C,E,0,0.2866666666666667,0
+2372,E directly causes C.,child,direct_cause,E,C,0,0.0,0
+2372,"E is a cause for C, but not a direct one.",non-child descendant,indirect_cause,E,C,0,0.0033333333333333335,0
+2372,C directly causes F.,parent,direct_cause,C,F,1,0.8166666666666667,1
+2372,"C is a cause for F, but not a direct one.",non-child descendant,indirect_cause,C,F,1,0.6533333333333333,1
+2372,F directly causes C.,child,direct_cause,F,C,0,0.0,0
+2372,D directly causes C.,child,direct_cause,D,C,0,0.0033333333333333335,0
+2371,"A is a cause for D, but not a direct one.",non-child descendant,indirect_cause,A,D,0,0.06,0
+2371,D directly causes A.,child,direct_cause,D,A,0,0.01,0
+2371,"D is a cause for A, but not a direct one.",non-child descendant,indirect_cause,D,A,0,0.0,0
+2371,F directly causes B.,child,direct_cause,F,B,0,0.0,0
+2371,"F is a cause for B, but not a direct one.",non-child descendant,indirect_cause,F,B,0,0.0,0
+2371,C directly causes D.,parent,direct_cause,C,D,0,0.006666666666666667,0
+2371,"C is a cause for D, but not a direct one.",non-child descendant,indirect_cause,C,D,0,0.0033333333333333335,0
+2371,D directly causes C.,child,direct_cause,D,C,0,0.0,0
+2371,"D is a cause for C, but not a direct one.",non-child descendant,indirect_cause,D,C,0,0.0,0
+2371,C directly causes E.,parent,direct_cause,C,E,1,0.9733333333333334,1
+2371,"C is a cause for E, but not a direct one.",non-child descendant,indirect_cause,C,E,0,0.11,0
+2371,"B is a cause for F, but not a direct one.",non-child descendant,indirect_cause,B,F,1,0.79,1
+2371,E directly causes C.,child,direct_cause,E,C,0,0.0,0
+2371,C directly causes F.,parent,direct_cause,C,F,1,0.9133333333333333,1
+2371,C causes something else which causes F.,non-parent ancestor,indirect_cause,C,F,1,0.74,1
+2371,F directly causes C.,child,direct_cause,F,C,0,0.0,0
+2371,F causes something else which causes C.,non-parent ancestor,indirect_cause,F,C,0,0.0033333333333333335,0
+2371,D directly causes E.,parent,direct_cause,D,E,1,0.9633333333333334,1
+2371,D causes something else which causes E.,non-parent ancestor,indirect_cause,D,E,0,0.04,0
+2371,E directly causes D.,child,direct_cause,E,D,0,0.006666666666666667,0
+2371,"E is a cause for D, but not a direct one.",non-child descendant,indirect_cause,E,D,0,0.0,0
+2371,E causes something else which causes C.,non-parent ancestor,indirect_cause,E,C,0,0.0033333333333333335,0
+2371,D causes something else which causes F.,non-parent ancestor,indirect_cause,D,F,1,0.8466666666666667,1
+2371,B directly causes F.,parent,direct_cause,B,F,0,0.9533333333333334,1
+2371,E directly causes B.,child,direct_cause,E,B,0,0.0,0
+2371,A directly causes E.,parent,direct_cause,A,E,1,0.9233333333333333,1
+2371,"A is a cause for E, but not a direct one.",non-child descendant,indirect_cause,A,E,0,0.35,0
+2371,E directly causes A.,child,direct_cause,E,A,0,0.0,0
+2371,"E is a cause for A, but not a direct one.",non-child descendant,indirect_cause,E,A,0,0.0,0
+2371,A directly causes F.,parent,direct_cause,A,F,1,0.8266666666666667,1
+2371,A causes something else which causes F.,non-parent ancestor,indirect_cause,A,F,1,0.85,1
+2371,F directly causes A.,child,direct_cause,F,A,0,0.0,0
+2371,F causes something else which causes A.,non-parent ancestor,indirect_cause,F,A,0,0.013333333333333334,0
+2371,E causes something else which causes B.,non-parent ancestor,indirect_cause,E,B,0,0.006666666666666667,0
+2371,B directly causes C.,parent,direct_cause,B,C,0,0.0,0
+2371,C directly causes B.,child,direct_cause,C,B,0,0.0,0
+2371,"C is a cause for B, but not a direct one.",non-child descendant,indirect_cause,C,B,0,0.0,0
+2371,B directly causes D.,parent,direct_cause,B,D,0,0.0033333333333333335,0
+2371,B causes something else which causes D.,non-parent ancestor,indirect_cause,B,D,0,0.01,0
+2371,D directly causes B.,child,direct_cause,D,B,0,0.0,0
+2371,"D is a cause for B, but not a direct one.",non-child descendant,indirect_cause,D,B,0,0.0,0
+2371,B directly causes E.,parent,direct_cause,B,E,1,0.9633333333333334,1
+2371,"B is a cause for E, but not a direct one.",non-child descendant,indirect_cause,B,E,0,0.18666666666666668,0
+2371,B causes something else which causes C.,non-parent ancestor,indirect_cause,B,C,0,0.0,0
+2371,F directly causes D.,child,direct_cause,F,D,0,0.0,0
+2373,C causes something else which causes D.,non-parent ancestor,indirect_cause,C,D,0,0.013333333333333334,0
+2371,E directly causes F.,parent,direct_cause,E,F,1,0.9466666666666667,1
+2374,F directly causes C.,child,direct_cause,F,C,0,0.0033333333333333335,0
+2374,"F is a cause for C, but not a direct one.",non-child descendant,indirect_cause,F,C,0,0.0033333333333333335,0
+2374,D directly causes E.,parent,direct_cause,D,E,0,0.67,1
+2374,D causes something else which causes E.,non-parent ancestor,indirect_cause,D,E,0,0.06333333333333334,0
+2374,E directly causes D.,child,direct_cause,E,D,0,0.0,0
+2374,"E is a cause for D, but not a direct one.",non-child descendant,indirect_cause,E,D,0,0.006666666666666667,0
+2374,D directly causes F.,parent,direct_cause,D,F,0,0.006666666666666667,0
+2374,"D is a cause for F, but not a direct one.",non-child descendant,indirect_cause,D,F,0,0.20333333333333334,0
+2374,F directly causes D.,child,direct_cause,F,D,0,0.0,0
+2374,F causes something else which causes D.,non-parent ancestor,indirect_cause,F,D,0,0.023333333333333334,0
+2374,E directly causes F.,parent,direct_cause,E,F,0,0.02666666666666667,0
+2374,E causes something else which causes F.,non-parent ancestor,indirect_cause,E,F,0,0.01,0
+2374,F directly causes E.,child,direct_cause,F,E,0,0.0033333333333333335,0
+2374,"F is a cause for E, but not a direct one.",non-child descendant,indirect_cause,F,E,0,0.08666666666666667,0
+2356,A directly causes B.,parent,direct_cause,A,B,0,0.0,0
+2356,A causes something else which causes B.,non-parent ancestor,indirect_cause,A,B,0,0.0033333333333333335,0
+2356,B directly causes A.,child,direct_cause,B,A,0,0.0,0
+2374,C causes something else which causes F.,non-parent ancestor,indirect_cause,C,F,0,0.27666666666666667,0
+2374,C directly causes F.,parent,direct_cause,C,F,1,0.6766666666666666,1
+2374,"E is a cause for C, but not a direct one.",non-child descendant,indirect_cause,E,C,0,0.0033333333333333335,0
+2374,E directly causes C.,child,direct_cause,E,C,0,0.0033333333333333335,0
+2374,B directly causes D.,parent,direct_cause,B,D,0,0.016666666666666666,0
+2374,B causes something else which causes D.,non-parent ancestor,indirect_cause,B,D,0,0.14666666666666667,0
+2374,D directly causes B.,child,direct_cause,D,B,0,0.0033333333333333335,0
+2374,D causes something else which causes B.,non-parent ancestor,indirect_cause,D,B,0,0.006666666666666667,0
+2374,B directly causes E.,parent,direct_cause,B,E,0,0.02,0
+2374,B causes something else which causes E.,non-parent ancestor,indirect_cause,B,E,1,0.6433333333333333,1
+2374,E directly causes B.,child,direct_cause,E,B,0,0.0,0
+2374,E causes something else which causes B.,non-parent ancestor,indirect_cause,E,B,0,0.01,0
+2356,"B is a cause for A, but not a direct one.",non-child descendant,indirect_cause,B,A,0,0.0,0
+2374,B directly causes F.,parent,direct_cause,B,F,0,0.006666666666666667,0
+2374,F directly causes B.,child,direct_cause,F,B,0,0.0,0
+2374,F causes something else which causes B.,non-parent ancestor,indirect_cause,F,B,0,0.02,0
+2374,C directly causes D.,parent,direct_cause,C,D,0,0.01,0
+2374,"C is a cause for D, but not a direct one.",non-child descendant,indirect_cause,C,D,0,0.013333333333333334,0
+2374,D directly causes C.,child,direct_cause,D,C,0,0.0033333333333333335,0
+2374,"D is a cause for C, but not a direct one.",non-child descendant,indirect_cause,D,C,0,0.0,0
+2374,C directly causes E.,parent,direct_cause,C,E,1,0.6966666666666667,1
+2374,"C is a cause for E, but not a direct one.",non-child descendant,indirect_cause,C,E,0,0.49666666666666665,0
+2374,B causes something else which causes F.,non-parent ancestor,indirect_cause,B,F,1,0.6433333333333333,1
+2374,C causes something else which causes B.,non-parent ancestor,indirect_cause,C,B,0,0.0,0
+2356,A directly causes C.,parent,direct_cause,A,C,0,0.0,0
+2356,C directly causes A.,child,direct_cause,C,A,0,0.0,0
+2356,B causes something else which causes E.,non-parent ancestor,indirect_cause,B,E,0,0.12,0
+2356,E directly causes B.,child,direct_cause,E,B,0,0.0,0
+2356,"E is a cause for B, but not a direct one.",non-child descendant,indirect_cause,E,B,0,0.013333333333333334,0
+2356,B directly causes F.,parent,direct_cause,B,F,1,0.8766666666666667,1
+2356,B causes something else which causes F.,non-parent ancestor,indirect_cause,B,F,1,0.5833333333333334,1
+2356,F directly causes B.,child,direct_cause,F,B,0,0.0,0
+2356,"F is a cause for B, but not a direct one.",non-child descendant,indirect_cause,F,B,0,0.0,0
+2356,C directly causes D.,parent,direct_cause,C,D,0,0.8266666666666667,1
+2356,C causes something else which causes D.,non-parent ancestor,indirect_cause,C,D,0,0.05333333333333334,0
+2356,D directly causes C.,child,direct_cause,D,C,0,0.0033333333333333335,0
+2356,"D is a cause for C, but not a direct one.",non-child descendant,indirect_cause,D,C,0,0.0,0
+2356,C directly causes E.,parent,direct_cause,C,E,0,0.006666666666666667,0
+2356,C causes something else which causes E.,non-parent ancestor,indirect_cause,C,E,0,0.10333333333333333,0
+2356,E directly causes C.,child,direct_cause,E,C,0,0.0033333333333333335,0
+2356,"E is a cause for C, but not a direct one.",non-child descendant,indirect_cause,E,C,0,0.006666666666666667,0
+2356,C directly causes F.,parent,direct_cause,C,F,1,0.86,1
+2356,C causes something else which causes F.,non-parent ancestor,indirect_cause,C,F,0,0.6133333333333333,1
+2356,B directly causes E.,parent,direct_cause,B,E,0,0.006666666666666667,0
+2356,D causes something else which causes B.,non-parent ancestor,indirect_cause,D,B,0,0.0033333333333333335,0
+2356,D directly causes B.,child,direct_cause,D,B,0,0.0,0
+2356,"B is a cause for D, but not a direct one.",non-child descendant,indirect_cause,B,D,0,0.10333333333333333,0
+2356,"C is a cause for A, but not a direct one.",non-child descendant,indirect_cause,C,A,0,0.0,0
+2356,A directly causes D.,parent,direct_cause,A,D,0,0.83,1
+2356,"A is a cause for D, but not a direct one.",non-child descendant,indirect_cause,A,D,0,0.12333333333333334,0
+2356,D directly causes A.,child,direct_cause,D,A,0,0.0,0
+2356,D causes something else which causes A.,non-parent ancestor,indirect_cause,D,A,0,0.006666666666666667,0
+2356,A directly causes E.,parent,direct_cause,A,E,0,0.04666666666666667,0
+2356,A causes something else which causes E.,non-parent ancestor,indirect_cause,A,E,0,0.19,0
+2356,E directly causes A.,child,direct_cause,E,A,0,0.02666666666666667,0
+2356,"A is a cause for C, but not a direct one.",non-child descendant,indirect_cause,A,C,0,0.0,0
+2356,"E is a cause for A, but not a direct one.",non-child descendant,indirect_cause,E,A,0,0.02,0
+2356,A causes something else which causes F.,non-parent ancestor,indirect_cause,A,F,1,0.7533333333333333,1
+2356,F directly causes A.,child,direct_cause,F,A,0,0.0,0
+2356,"F is a cause for A, but not a direct one.",non-child descendant,indirect_cause,F,A,0,0.0,0
+2356,B directly causes C.,parent,direct_cause,B,C,0,0.03,0
+2356,B causes something else which causes C.,non-parent ancestor,indirect_cause,B,C,0,0.016666666666666666,0
+2356,C directly causes B.,child,direct_cause,C,B,0,0.02,0
+2356,C causes something else which causes B.,non-parent ancestor,indirect_cause,C,B,0,0.013333333333333334,0
+2356,B directly causes D.,parent,direct_cause,B,D,0,0.8533333333333334,1
+2356,A directly causes F.,parent,direct_cause,A,F,1,0.84,1
+2374,C directly causes B.,child,direct_cause,C,B,0,0.0,0
+2374,B causes something else which causes C.,non-parent ancestor,indirect_cause,B,C,0,0.02,0
+2374,B directly causes C.,parent,direct_cause,B,C,0,0.02666666666666667,0
+2373,F causes something else which causes A.,non-parent ancestor,indirect_cause,F,A,0,0.013333333333333334,0
+2373,B directly causes C.,parent,direct_cause,B,C,1,0.8266666666666667,1
+2373,"B is a cause for C, but not a direct one.",non-child descendant,indirect_cause,B,C,0,0.05333333333333334,0
+2373,C directly causes B.,child,direct_cause,C,B,0,0.0033333333333333335,0
+2373,"C is a cause for B, but not a direct one.",non-child descendant,indirect_cause,C,B,0,0.0,0
+2373,B directly causes D.,parent,direct_cause,B,D,0,0.0033333333333333335,0
+2373,B causes something else which causes D.,non-parent ancestor,indirect_cause,B,D,0,0.043333333333333335,0
+2373,D directly causes B.,child,direct_cause,D,B,0,0.0,0
+2373,"D is a cause for B, but not a direct one.",non-child descendant,indirect_cause,D,B,0,0.0033333333333333335,0
+2373,B directly causes E.,parent,direct_cause,B,E,0,0.043333333333333335,0
+2373,B causes something else which causes E.,non-parent ancestor,indirect_cause,B,E,1,0.73,1
+2373,E directly causes B.,child,direct_cause,E,B,0,0.006666666666666667,0
+2373,"E is a cause for B, but not a direct one.",non-child descendant,indirect_cause,E,B,0,0.03666666666666667,0
+2373,B directly causes F.,parent,direct_cause,B,F,1,0.8666666666666667,1
+2373,"B is a cause for F, but not a direct one.",non-child descendant,indirect_cause,B,F,1,0.5666666666666667,1
+2373,F directly causes B.,child,direct_cause,F,B,0,0.0033333333333333335,0
+2373,"F is a cause for B, but not a direct one.",non-child descendant,indirect_cause,F,B,0,0.01,0
+2373,F directly causes A.,child,direct_cause,F,A,0,0.0,0
+2373,A causes something else which causes F.,non-parent ancestor,indirect_cause,A,F,1,0.42,0
+2373,A directly causes F.,parent,direct_cause,A,F,1,0.8933333333333333,1
+2373,"E is a cause for A, but not a direct one.",non-child descendant,indirect_cause,E,A,0,0.023333333333333334,0
+2371,E causes something else which causes F.,non-parent ancestor,indirect_cause,E,F,0,0.03333333333333333,0
+2371,F directly causes E.,child,direct_cause,F,E,0,0.0,0
+2371,F causes something else which causes E.,non-parent ancestor,indirect_cause,F,E,0,0.013333333333333334,0
+2373,A directly causes B.,parent,direct_cause,A,B,0,0.006666666666666667,0
+2373,"A is a cause for B, but not a direct one.",non-child descendant,indirect_cause,A,B,0,0.03666666666666667,0
+2373,B directly causes A.,child,direct_cause,B,A,0,0.0033333333333333335,0
+2373,"B is a cause for A, but not a direct one.",non-child descendant,indirect_cause,B,A,0,0.006666666666666667,0
+2373,A directly causes C.,parent,direct_cause,A,C,1,0.7966666666666666,1
+2373,C directly causes D.,parent,direct_cause,C,D,0,0.0033333333333333335,0
+2373,"A is a cause for C, but not a direct one.",non-child descendant,indirect_cause,A,C,0,0.09,0
+2373,C causes something else which causes A.,non-parent ancestor,indirect_cause,C,A,0,0.01,0
+2373,A directly causes D.,parent,direct_cause,A,D,0,0.03333333333333333,0
+2373,A causes something else which causes D.,non-parent ancestor,indirect_cause,A,D,0,0.04,0
+2373,D directly causes A.,child,direct_cause,D,A,0,0.0033333333333333335,0
+2373,D causes something else which causes A.,non-parent ancestor,indirect_cause,D,A,0,0.0033333333333333335,0
+2373,A directly causes E.,parent,direct_cause,A,E,0,0.06666666666666667,0
+2373,"A is a cause for E, but not a direct one.",non-child descendant,indirect_cause,A,E,1,0.7033333333333334,1
+2373,E directly causes A.,child,direct_cause,E,A,0,0.02,0
+2373,C directly causes A.,child,direct_cause,C,A,0,0.0,0
+2372,B directly causes E.,parent,direct_cause,B,E,1,0.9733333333333334,1
+2373,D directly causes C.,child,direct_cause,D,C,0,0.0033333333333333335,0
+2373,D causes something else which causes C.,non-parent ancestor,indirect_cause,D,C,0,0.01,0
+2374,B directly causes A.,child,direct_cause,B,A,0,0.01,0
+2374,B causes something else which causes A.,non-parent ancestor,indirect_cause,B,A,0,0.03,0
+2374,A directly causes C.,parent,direct_cause,A,C,0,0.01,0
+2374,A causes something else which causes C.,non-parent ancestor,indirect_cause,A,C,0,0.013333333333333334,0
+2374,C directly causes A.,child,direct_cause,C,A,0,0.0,0
+2374,C causes something else which causes A.,non-parent ancestor,indirect_cause,C,A,0,0.016666666666666666,0
+2374,A directly causes D.,parent,direct_cause,A,D,0,0.043333333333333335,0
+2374,A causes something else which causes D.,non-parent ancestor,indirect_cause,A,D,0,0.05,0
+2374,"A is a cause for B, but not a direct one.",non-child descendant,indirect_cause,A,B,0,0.01,0
+2374,D directly causes A.,child,direct_cause,D,A,0,0.0033333333333333335,0
+2374,A directly causes E.,parent,direct_cause,A,E,1,0.65,1
+2374,"A is a cause for E, but not a direct one.",non-child descendant,indirect_cause,A,E,0,0.3933333333333333,0
+2374,E directly causes A.,child,direct_cause,E,A,0,0.0,0
+2374,"E is a cause for A, but not a direct one.",non-child descendant,indirect_cause,E,A,0,0.006666666666666667,0
+2374,A directly causes F.,parent,direct_cause,A,F,1,0.65,1
+2374,"A is a cause for F, but not a direct one.",non-child descendant,indirect_cause,A,F,0,0.37,0
+2374,F directly causes A.,child,direct_cause,F,A,0,0.0033333333333333335,0
+2374,F causes something else which causes A.,non-parent ancestor,indirect_cause,F,A,0,0.016666666666666666,0
+2374,D causes something else which causes A.,non-parent ancestor,indirect_cause,D,A,0,0.01,0
+2371,"F is a cause for D, but not a direct one.",non-child descendant,indirect_cause,F,D,0,0.0,0
+2374,A directly causes B.,parent,direct_cause,A,B,0,0.016666666666666666,0
+2373,F directly causes E.,child,direct_cause,F,E,0,0.0,0
+2373,C directly causes E.,parent,direct_cause,C,E,1,0.8366666666666667,1
+2373,C causes something else which causes E.,non-parent ancestor,indirect_cause,C,E,0,0.26666666666666666,0
+2373,E directly causes C.,child,direct_cause,E,C,0,0.006666666666666667,0
+2373,E causes something else which causes C.,non-parent ancestor,indirect_cause,E,C,0,0.016666666666666666,0
+2373,C directly causes F.,parent,direct_cause,C,F,0,0.05,0
+2373,C causes something else which causes F.,non-parent ancestor,indirect_cause,C,F,1,0.7566666666666667,1
+2373,F directly causes C.,child,direct_cause,F,C,0,0.013333333333333334,0
+2373,"F is a cause for C, but not a direct one.",non-child descendant,indirect_cause,F,C,0,0.023333333333333334,0
+2373,"F is a cause for E, but not a direct one.",non-child descendant,indirect_cause,F,E,0,0.03333333333333333,0
+2373,D directly causes E.,parent,direct_cause,D,E,1,0.8633333333333333,1
+2373,E directly causes D.,child,direct_cause,E,D,0,0.01,0
+2373,E causes something else which causes D.,non-parent ancestor,indirect_cause,E,D,0,0.016666666666666666,0
+2373,D directly causes F.,parent,direct_cause,D,F,0,0.02,0
+2373,"D is a cause for F, but not a direct one.",non-child descendant,indirect_cause,D,F,1,0.8033333333333333,1
+2373,F directly causes D.,child,direct_cause,F,D,0,0.006666666666666667,0
+2373,F causes something else which causes D.,non-parent ancestor,indirect_cause,F,D,0,0.02666666666666667,0
+2373,E directly causes F.,parent,direct_cause,E,F,1,0.8833333333333333,1
+2373,E causes something else which causes F.,non-parent ancestor,indirect_cause,E,F,0,0.18666666666666668,0
+2373,"D is a cause for E, but not a direct one.",non-child descendant,indirect_cause,D,E,0,0.08,0
+2372,"D is a cause for B, but not a direct one.",non-child descendant,indirect_cause,D,B,0,0.01,0
+2375,A causes something else which causes B.,non-parent ancestor,indirect_cause,A,B,0,0.0,0
+2372,B causes something else which causes D.,non-parent ancestor,indirect_cause,B,D,1,0.2633333333333333,0
+2356,"There exists at least one collider (i.e., common effect) of A and F.",has_collider,collider,A,F,0,0.0033333333333333335,0
+2356,"There exists at least one collider (i.e., common effect) of B and C.",has_collider,collider,B,C,1,0.92,1
+2356,"There exists at least one collider (i.e., common effect) of B and D.",has_collider,collider,B,D,1,0.9033333333333333,1
+2356,"There exists at least one collider (i.e., common effect) of B and E.",has_collider,collider,B,E,1,0.9,1
+2356,"There exists at least one collider (i.e., common effect) of B and F.",has_collider,collider,B,F,0,0.013333333333333334,0
+2356,"There exists at least one collider (i.e., common effect) of C and D.",has_collider,collider,C,D,1,0.8633333333333333,1
+2356,"There exists at least one collider (i.e., common effect) of C and E.",has_collider,collider,C,E,1,0.86,1
+2356,"There exists at least one collider (i.e., common effect) of C and F.",has_collider,collider,C,F,0,0.016666666666666666,0
+2356,F directly causes C.,child,direct_cause,F,C,0,0.0,0
+2375,"There exists at least one confounder (i.e., common cause) of A and B.",has_confounder,confounder,A,B,0,0.0,0
+2375,"There exists at least one confounder (i.e., common cause) of A and C.",has_confounder,confounder,A,C,0,0.0,0
+2375,"There exists at least one confounder (i.e., common cause) of A and D.",has_confounder,confounder,A,D,0,0.0,0
+2375,"There exists at least one confounder (i.e., common cause) of A and E.",has_confounder,confounder,A,E,0,0.0,0
+2356,"There exists at least one collider (i.e., common effect) of A and E.",has_collider,collider,A,E,1,0.8933333333333333,1
+2375,"There exists at least one confounder (i.e., common cause) of A and F.",has_confounder,confounder,A,F,0,0.0,0
+2375,"There exists at least one confounder (i.e., common cause) of B and D.",has_confounder,confounder,B,D,0,0.0,0
+2375,"There exists at least one confounder (i.e., common cause) of B and E.",has_confounder,confounder,B,E,0,0.0,0
+2375,"There exists at least one confounder (i.e., common cause) of B and F.",has_confounder,confounder,B,F,0,0.0,0
+2375,"There exists at least one confounder (i.e., common cause) of C and D.",has_confounder,confounder,C,D,1,0.25,0
+2375,"There exists at least one confounder (i.e., common cause) of C and E.",has_confounder,confounder,C,E,0,0.07,0
+2375,"There exists at least one confounder (i.e., common cause) of C and F.",has_confounder,confounder,C,F,0,0.013333333333333334,0
+2375,"There exists at least one confounder (i.e., common cause) of D and E.",has_confounder,confounder,D,E,1,0.98,1
+2375,"There exists at least one confounder (i.e., common cause) of D and F.",has_confounder,confounder,D,F,1,0.9833333333333333,1
+2375,"There exists at least one confounder (i.e., common cause) of E and F.",has_confounder,confounder,E,F,1,0.9966666666666667,1
+2372,"There exists at least one confounder (i.e., common cause) of A and B.",has_confounder,confounder,A,B,0,0.0,0
+2372,"There exists at least one confounder (i.e., common cause) of A and C.",has_confounder,confounder,A,C,0,0.0,0
+2372,"There exists at least one confounder (i.e., common cause) of A and D.",has_confounder,confounder,A,D,0,0.0,0
+2372,"There exists at least one confounder (i.e., common cause) of A and E.",has_confounder,confounder,A,E,0,0.0,0
+2375,"There exists at least one confounder (i.e., common cause) of B and C.",has_confounder,confounder,B,C,0,0.0,0
+2356,"There exists at least one collider (i.e., common effect) of A and D.",has_collider,collider,A,D,1,0.9,1
+2356,"There exists at least one collider (i.e., common effect) of A and C.",has_collider,collider,A,C,1,0.9333333333333333,1
+2356,"There exists at least one collider (i.e., common effect) of A and B.",has_collider,collider,A,B,1,0.96,1
+2373,"There exists at least one collider (i.e., common effect) of A and C.",has_collider,collider,A,C,1,0.7533333333333333,1
+2373,"There exists at least one collider (i.e., common effect) of A and D.",has_collider,collider,A,D,1,0.8366666666666667,1
+2373,"There exists at least one collider (i.e., common effect) of A and E.",has_collider,collider,A,E,1,0.74,1
+2373,"There exists at least one collider (i.e., common effect) of A and F.",has_collider,collider,A,F,0,0.02,0
+2373,"There exists at least one collider (i.e., common effect) of B and C.",has_collider,collider,B,C,1,0.5533333333333333,1
+2373,"There exists at least one collider (i.e., common effect) of B and D.",has_collider,collider,B,D,1,0.8166666666666667,1
+2373,"There exists at least one collider (i.e., common effect) of B and E.",has_collider,collider,B,E,1,0.7333333333333333,1
+2373,"There exists at least one collider (i.e., common effect) of B and F.",has_collider,collider,B,F,0,0.02,0
+2373,"There exists at least one collider (i.e., common effect) of C and D.",has_collider,collider,C,D,1,0.9366666666666666,1
+2373,"There exists at least one collider (i.e., common effect) of C and E.",has_collider,collider,C,E,0,0.25,0
+2373,"There exists at least one collider (i.e., common effect) of C and F.",has_collider,collider,C,F,0,0.06666666666666667,0
+2373,"There exists at least one collider (i.e., common effect) of D and E.",has_collider,collider,D,E,0,0.06,0
+2373,"There exists at least one collider (i.e., common effect) of D and F.",has_collider,collider,D,F,0,0.04,0
+2373,"There exists at least one collider (i.e., common effect) of E and F.",has_collider,collider,E,F,0,0.04,0
+2374,"There exists at least one collider (i.e., common effect) of A and B.",has_collider,collider,A,B,0,0.43,0
+2374,"There exists at least one collider (i.e., common effect) of A and C.",has_collider,collider,A,C,1,0.7833333333333333,1
+2374,"There exists at least one collider (i.e., common effect) of A and D.",has_collider,collider,A,D,0,0.7366666666666667,1
+2374,"There exists at least one collider (i.e., common effect) of A and E.",has_collider,collider,A,E,0,0.14666666666666667,0
+2374,"There exists at least one collider (i.e., common effect) of A and F.",has_collider,collider,A,F,0,0.013333333333333334,0
+2374,"There exists at least one collider (i.e., common effect) of B and C.",has_collider,collider,B,C,0,0.4066666666666667,0
+2374,"There exists at least one collider (i.e., common effect) of B and D.",has_collider,collider,B,D,1,0.44666666666666666,0
+2374,"There exists at least one collider (i.e., common effect) of B and E.",has_collider,collider,B,E,0,0.17666666666666667,0
+2374,"There exists at least one collider (i.e., common effect) of B and F.",has_collider,collider,B,F,0,0.02,0
+2374,"There exists at least one collider (i.e., common effect) of C and D.",has_collider,collider,C,D,1,0.6633333333333333,1
+2374,"There exists at least one collider (i.e., common effect) of C and E.",has_collider,collider,C,E,0,0.09666666666666666,0
+2374,"There exists at least one collider (i.e., common effect) of C and F.",has_collider,collider,C,F,0,0.01,0
+2374,"There exists at least one collider (i.e., common effect) of D and E.",has_collider,collider,D,E,0,0.02666666666666667,0
+2374,"There exists at least one collider (i.e., common effect) of D and F.",has_collider,collider,D,F,0,0.02,0
+2374,"There exists at least one collider (i.e., common effect) of E and F.",has_collider,collider,E,F,0,0.013333333333333334,0
+2372,"There exists at least one confounder (i.e., common cause) of A and F.",has_confounder,confounder,A,F,0,0.0,0
+2372,"There exists at least one confounder (i.e., common cause) of B and C.",has_confounder,confounder,B,C,0,0.0033333333333333335,0
+2372,"There exists at least one confounder (i.e., common cause) of B and D.",has_confounder,confounder,B,D,0,0.0,0
+2372,"There exists at least one confounder (i.e., common cause) of B and E.",has_confounder,confounder,B,E,0,0.0,0
+2373,"There exists at least one confounder (i.e., common cause) of C and F.",has_confounder,confounder,C,F,1,0.6166666666666667,1
+2373,"There exists at least one confounder (i.e., common cause) of D and E.",has_confounder,confounder,D,E,0,0.2966666666666667,0
+2373,"There exists at least one confounder (i.e., common cause) of D and F.",has_confounder,confounder,D,F,0,0.23,0
+2373,"There exists at least one confounder (i.e., common cause) of E and F.",has_confounder,confounder,E,F,1,0.38333333333333336,0
+2374,"There exists at least one confounder (i.e., common cause) of A and B.",has_confounder,confounder,A,B,0,0.01,0
+2374,"There exists at least one confounder (i.e., common cause) of A and C.",has_confounder,confounder,A,C,0,0.0,0
+2374,"There exists at least one confounder (i.e., common cause) of A and D.",has_confounder,confounder,A,D,0,0.0,0
+2374,"There exists at least one confounder (i.e., common cause) of A and E.",has_confounder,confounder,A,E,0,0.0033333333333333335,0
+2374,"There exists at least one confounder (i.e., common cause) of A and F.",has_confounder,confounder,A,F,0,0.0,0
+2374,"There exists at least one confounder (i.e., common cause) of B and C.",has_confounder,confounder,B,C,0,0.01,0
+2374,"There exists at least one confounder (i.e., common cause) of B and D.",has_confounder,confounder,B,D,0,0.0,0
+2374,"There exists at least one confounder (i.e., common cause) of B and E.",has_confounder,confounder,B,E,0,0.0,0
+2374,"There exists at least one confounder (i.e., common cause) of B and F.",has_confounder,confounder,B,F,0,0.0,0
+2374,"There exists at least one confounder (i.e., common cause) of C and D.",has_confounder,confounder,C,D,0,0.016666666666666666,0
+2374,"There exists at least one confounder (i.e., common cause) of C and E.",has_confounder,confounder,C,E,0,0.11333333333333333,0
+2374,"There exists at least one confounder (i.e., common cause) of C and F.",has_confounder,confounder,C,F,0,0.08,0
+2374,"There exists at least one confounder (i.e., common cause) of D and E.",has_confounder,confounder,D,E,1,0.3566666666666667,0
+2374,"There exists at least one confounder (i.e., common cause) of D and F.",has_confounder,confounder,D,F,1,0.5033333333333333,1
+2374,"There exists at least one confounder (i.e., common cause) of E and F.",has_confounder,confounder,E,F,1,0.8033333333333333,1
+2356,"There exists at least one confounder (i.e., common cause) of A and B.",has_confounder,confounder,A,B,0,0.006666666666666667,0
+2356,"There exists at least one confounder (i.e., common cause) of A and C.",has_confounder,confounder,A,C,0,0.0033333333333333335,0
+2356,"There exists at least one confounder (i.e., common cause) of A and D.",has_confounder,confounder,A,D,0,0.0,0
+2356,"There exists at least one confounder (i.e., common cause) of A and E.",has_confounder,confounder,A,E,0,0.0,0
+2356,"There exists at least one confounder (i.e., common cause) of A and F.",has_confounder,confounder,A,F,0,0.0,0
+2356,"There exists at least one confounder (i.e., common cause) of B and C.",has_confounder,confounder,B,C,0,0.01,0
+2356,"There exists at least one confounder (i.e., common cause) of B and D.",has_confounder,confounder,B,D,0,0.0033333333333333335,0
+2356,"There exists at least one confounder (i.e., common cause) of B and E.",has_confounder,confounder,B,E,0,0.0,0
+2356,"There exists at least one confounder (i.e., common cause) of B and F.",has_confounder,confounder,B,F,0,0.0,0
+2356,"There exists at least one confounder (i.e., common cause) of C and D.",has_confounder,confounder,C,D,0,0.16666666666666666,0
+2373,"There exists at least one confounder (i.e., common cause) of C and E.",has_confounder,confounder,C,E,0,0.24666666666666667,0
+2373,"There exists at least one collider (i.e., common effect) of A and B.",has_collider,collider,A,B,1,0.98,1
+2373,"There exists at least one confounder (i.e., common cause) of C and D.",has_confounder,confounder,C,D,0,0.05,0
+2373,"There exists at least one confounder (i.e., common cause) of B and E.",has_confounder,confounder,B,E,0,0.0033333333333333335,0
+2372,"There exists at least one confounder (i.e., common cause) of B and F.",has_confounder,confounder,B,F,0,0.0,0
+2372,"There exists at least one confounder (i.e., common cause) of C and D.",has_confounder,confounder,C,D,0,0.19,0
+2372,"There exists at least one confounder (i.e., common cause) of C and E.",has_confounder,confounder,C,E,0,0.19,0
+2372,"There exists at least one confounder (i.e., common cause) of C and F.",has_confounder,confounder,C,F,0,0.14666666666666667,0
+2372,"There exists at least one confounder (i.e., common cause) of D and E.",has_confounder,confounder,D,E,1,0.9833333333333333,1
+2372,"There exists at least one confounder (i.e., common cause) of D and F.",has_confounder,confounder,D,F,1,0.98,1
+2372,"There exists at least one confounder (i.e., common cause) of E and F.",has_confounder,confounder,E,F,1,0.9966666666666667,1
+2371,"There exists at least one confounder (i.e., common cause) of A and B.",has_confounder,confounder,A,B,0,0.0,0
+2371,"There exists at least one confounder (i.e., common cause) of A and C.",has_confounder,confounder,A,C,0,0.0,0
+2371,"There exists at least one confounder (i.e., common cause) of A and D.",has_confounder,confounder,A,D,0,0.0,0
+2371,"There exists at least one confounder (i.e., common cause) of A and E.",has_confounder,confounder,A,E,0,0.0,0
+2371,"There exists at least one confounder (i.e., common cause) of A and F.",has_confounder,confounder,A,F,0,0.0,0
+2371,"There exists at least one confounder (i.e., common cause) of B and C.",has_confounder,confounder,B,C,0,0.0,0
+2371,"There exists at least one confounder (i.e., common cause) of B and D.",has_confounder,confounder,B,D,0,0.0,0
+2371,"There exists at least one confounder (i.e., common cause) of B and E.",has_confounder,confounder,B,E,0,0.0,0
+2371,"There exists at least one confounder (i.e., common cause) of B and F.",has_confounder,confounder,B,F,0,0.0,0
+2371,"There exists at least one confounder (i.e., common cause) of C and D.",has_confounder,confounder,C,D,0,0.013333333333333334,0
+2371,"There exists at least one confounder (i.e., common cause) of C and E.",has_confounder,confounder,C,E,0,0.06333333333333334,0
+2371,"There exists at least one confounder (i.e., common cause) of C and F.",has_confounder,confounder,C,F,0,0.09,0
+2371,"There exists at least one confounder (i.e., common cause) of D and E.",has_confounder,confounder,D,E,0,0.15,0
+2371,"There exists at least one confounder (i.e., common cause) of D and F.",has_confounder,confounder,D,F,0,0.18666666666666668,0
+2371,"There exists at least one confounder (i.e., common cause) of E and F.",has_confounder,confounder,E,F,1,0.92,1
+2373,"There exists at least one confounder (i.e., common cause) of A and B.",has_confounder,confounder,A,B,0,0.006666666666666667,0
+2373,"There exists at least one confounder (i.e., common cause) of A and C.",has_confounder,confounder,A,C,0,0.016666666666666666,0
+2373,"There exists at least one confounder (i.e., common cause) of A and D.",has_confounder,confounder,A,D,0,0.0033333333333333335,0
+2373,"There exists at least one confounder (i.e., common cause) of A and E.",has_confounder,confounder,A,E,0,0.006666666666666667,0
+2373,"There exists at least one confounder (i.e., common cause) of A and F.",has_confounder,confounder,A,F,0,0.01,0
+2373,"There exists at least one confounder (i.e., common cause) of B and C.",has_confounder,confounder,B,C,0,0.08333333333333333,0
+2373,"There exists at least one confounder (i.e., common cause) of B and D.",has_confounder,confounder,B,D,0,0.006666666666666667,0
+2373,"There exists at least one confounder (i.e., common cause) of B and F.",has_confounder,confounder,B,F,0,0.013333333333333334,0
+2372,D directly causes B.,child,direct_cause,D,B,0,0.0,0
+2371,"There exists at least one collider (i.e., common effect) of E and F.",has_collider,collider,E,F,0,0.0033333333333333335,0
+2371,"There exists at least one collider (i.e., common effect) of D and E.",has_collider,collider,D,E,0,0.12,0
+2375,E causes something else which causes D.,non-parent ancestor,indirect_cause,E,D,0,0.0,0
+2375,E directly causes D.,child,direct_cause,E,D,0,0.0,0
+2375,"D is a cause for E, but not a direct one.",non-child descendant,indirect_cause,D,E,0,0.0033333333333333335,0
+2375,D directly causes E.,parent,direct_cause,D,E,1,0.9966666666666667,1
+2375,F causes something else which causes C.,non-parent ancestor,indirect_cause,F,C,0,0.0033333333333333335,0
+2375,F directly causes C.,child,direct_cause,F,C,0,0.0,0
+2375,C causes something else which causes F.,non-parent ancestor,indirect_cause,C,F,1,1.0,1
+2375,C directly causes F.,parent,direct_cause,C,F,0,0.0033333333333333335,0
+2375,E causes something else which causes C.,non-parent ancestor,indirect_cause,E,C,0,0.0033333333333333335,0
+2375,E directly causes C.,child,direct_cause,E,C,0,0.0,0
+2375,"C is a cause for E, but not a direct one.",non-child descendant,indirect_cause,C,E,1,0.9866666666666667,1
+2375,C directly causes E.,parent,direct_cause,C,E,0,0.0033333333333333335,0
+2375,"D is a cause for C, but not a direct one.",non-child descendant,indirect_cause,D,C,0,0.0,0
+2375,D directly causes F.,parent,direct_cause,D,F,1,0.9666666666666667,1
+2375,D directly causes C.,child,direct_cause,D,C,0,0.0033333333333333335,0
+2375,C directly causes D.,parent,direct_cause,C,D,1,0.99,1
+2375,F causes something else which causes B.,non-parent ancestor,indirect_cause,F,B,0,0.0,0
+2375,F directly causes B.,child,direct_cause,F,B,0,0.0,0
+2375,B causes something else which causes F.,non-parent ancestor,indirect_cause,B,F,1,0.9833333333333333,1
+2375,B directly causes F.,parent,direct_cause,B,F,0,0.006666666666666667,0
+2375,E causes something else which causes B.,non-parent ancestor,indirect_cause,E,B,0,0.0,0
+2375,E directly causes B.,child,direct_cause,E,B,0,0.0,0
+2375,B causes something else which causes E.,non-parent ancestor,indirect_cause,B,E,1,0.9233333333333333,1
+2375,B directly causes E.,parent,direct_cause,B,E,0,0.99,1
+2375,D causes something else which causes B.,non-parent ancestor,indirect_cause,D,B,0,0.0,0
+2375,D directly causes B.,child,direct_cause,D,B,0,0.0,0
+2375,B causes something else which causes D.,non-parent ancestor,indirect_cause,B,D,0,0.10333333333333333,0
+2375,B directly causes D.,parent,direct_cause,B,D,1,1.0,1
+2375,"C is a cause for D, but not a direct one.",non-child descendant,indirect_cause,C,D,0,0.0,0
+2375,D causes something else which causes F.,non-parent ancestor,indirect_cause,D,F,1,0.8466666666666667,1
+2375,F directly causes D.,child,direct_cause,F,D,0,0.0,0
+2375,"F is a cause for D, but not a direct one.",non-child descendant,indirect_cause,F,D,0,0.006666666666666667,0
+2372,B directly causes D.,parent,direct_cause,B,D,1,0.9666666666666667,1
+2372,C causes something else which causes B.,non-parent ancestor,indirect_cause,C,B,0,0.0033333333333333335,0
+2372,C directly causes B.,child,direct_cause,C,B,0,0.0,0
+2372,"B is a cause for C, but not a direct one.",non-child descendant,indirect_cause,B,C,0,0.0033333333333333335,0
+2372,B directly causes C.,parent,direct_cause,B,C,0,0.0,0
+2372,F causes something else which causes A.,non-parent ancestor,indirect_cause,F,A,0,0.0,0
+2372,F directly causes A.,child,direct_cause,F,A,0,0.0,0
+2372,"A is a cause for F, but not a direct one.",non-child descendant,indirect_cause,A,F,1,0.98,1
+2372,A directly causes F.,parent,direct_cause,A,F,1,0.9533333333333334,1
+2372,E causes something else which causes A.,non-parent ancestor,indirect_cause,E,A,0,0.0,0
+2372,E directly causes A.,child,direct_cause,E,A,0,0.0033333333333333335,0
+2372,A causes something else which causes E.,non-parent ancestor,indirect_cause,A,E,0,0.4766666666666667,0
+2372,A directly causes E.,parent,direct_cause,A,E,1,0.9566666666666667,1
+2372,D causes something else which causes A.,non-parent ancestor,indirect_cause,D,A,0,0.0,0
+2372,D directly causes A.,child,direct_cause,D,A,0,0.0033333333333333335,0
+2372,A causes something else which causes D.,non-parent ancestor,indirect_cause,A,D,0,0.09666666666666666,0
+2372,A directly causes D.,parent,direct_cause,A,D,1,0.9833333333333333,1
+2372,C causes something else which causes A.,non-parent ancestor,indirect_cause,C,A,0,0.006666666666666667,0
+2372,C directly causes A.,child,direct_cause,C,A,0,0.0,0
+2372,A causes something else which causes C.,non-parent ancestor,indirect_cause,A,C,0,0.01,0
+2372,A directly causes C.,parent,direct_cause,A,C,0,0.0,0
+2372,"B is a cause for A, but not a direct one.",non-child descendant,indirect_cause,B,A,0,0.01,0
+2372,B directly causes A.,child,direct_cause,B,A,0,0.0,0
+2372,A causes something else which causes B.,non-parent ancestor,indirect_cause,A,B,0,0.0,0
+2372,A directly causes B.,parent,direct_cause,A,B,0,0.0,0
+2375,F causes something else which causes E.,non-parent ancestor,indirect_cause,F,E,0,0.0,0
+2375,F directly causes E.,child,direct_cause,F,E,0,0.0,0
+2375,E causes something else which causes F.,non-parent ancestor,indirect_cause,E,F,0,0.006666666666666667,0
+2375,E directly causes F.,parent,direct_cause,E,F,1,0.9933333333333333,1
+2375,C causes something else which causes B.,non-parent ancestor,indirect_cause,C,B,0,0.0,0
+2375,C directly causes B.,child,direct_cause,C,B,0,0.0,0
+2375,B causes something else which causes C.,non-parent ancestor,indirect_cause,B,C,0,0.0033333333333333335,0
+2375,B directly causes C.,parent,direct_cause,B,C,0,0.0,0
+2375,"There exists at least one collider (i.e., common effect) of D and F.",has_collider,collider,D,F,0,0.0,0
+2375,"There exists at least one collider (i.e., common effect) of E and F.",has_collider,collider,E,F,0,0.0,0
+2372,"There exists at least one collider (i.e., common effect) of A and B.",has_collider,collider,A,B,1,0.9833333333333333,1
+2372,"There exists at least one collider (i.e., common effect) of A and C.",has_collider,collider,A,C,1,0.9633333333333334,1
+2372,"There exists at least one collider (i.e., common effect) of A and D.",has_collider,collider,A,D,1,0.98,1
+2372,"There exists at least one collider (i.e., common effect) of A and E.",has_collider,collider,A,E,0,0.16666666666666666,0
+2372,"There exists at least one collider (i.e., common effect) of A and F.",has_collider,collider,A,F,0,0.0,0
+2372,"There exists at least one collider (i.e., common effect) of B and C.",has_collider,collider,B,C,1,0.9466666666666667,1
+2372,"There exists at least one collider (i.e., common effect) of B and D.",has_collider,collider,B,D,1,0.91,1
+2372,"There exists at least one collider (i.e., common effect) of B and E.",has_collider,collider,B,E,0,0.3333333333333333,0
+2372,"There exists at least one collider (i.e., common effect) of B and F.",has_collider,collider,B,F,0,0.0033333333333333335,0
+2372,"There exists at least one collider (i.e., common effect) of C and D.",has_collider,collider,C,D,1,0.8433333333333334,1
+2372,"There exists at least one collider (i.e., common effect) of C and E.",has_collider,collider,C,E,0,0.36,0
+2372,"There exists at least one collider (i.e., common effect) of C and F.",has_collider,collider,C,F,0,0.0033333333333333335,0
+2372,"There exists at least one collider (i.e., common effect) of D and E.",has_collider,collider,D,E,0,0.22666666666666666,0
+2372,"There exists at least one collider (i.e., common effect) of D and F.",has_collider,collider,D,F,0,0.0,0
+2372,"There exists at least one collider (i.e., common effect) of E and F.",has_collider,collider,E,F,0,0.006666666666666667,0
+2371,"There exists at least one collider (i.e., common effect) of A and B.",has_collider,collider,A,B,1,0.9933333333333333,1
+2371,"There exists at least one collider (i.e., common effect) of A and C.",has_collider,collider,A,C,1,0.9733333333333334,1
+2371,"There exists at least one collider (i.e., common effect) of A and D.",has_collider,collider,A,D,1,0.9766666666666667,1
+2371,"There exists at least one collider (i.e., common effect) of A and E.",has_collider,collider,A,E,1,0.93,1
+2371,"There exists at least one collider (i.e., common effect) of A and F.",has_collider,collider,A,F,0,0.0033333333333333335,0
+2371,"There exists at least one collider (i.e., common effect) of B and C.",has_collider,collider,B,C,1,0.9766666666666667,1
+2371,"There exists at least one collider (i.e., common effect) of B and D.",has_collider,collider,B,D,1,0.97,1
+2371,"There exists at least one collider (i.e., common effect) of B and E.",has_collider,collider,B,E,1,0.9233333333333333,1
+2371,"There exists at least one collider (i.e., common effect) of B and F.",has_collider,collider,B,F,0,0.0033333333333333335,0
+2371,"There exists at least one collider (i.e., common effect) of C and D.",has_collider,collider,C,D,1,0.9633333333333334,1
+2371,"There exists at least one collider (i.e., common effect) of C and E.",has_collider,collider,C,E,1,0.7766666666666666,1
+2371,"There exists at least one collider (i.e., common effect) of C and F.",has_collider,collider,C,F,0,0.02666666666666667,0
+2375,"There exists at least one collider (i.e., common effect) of D and E.",has_collider,collider,D,E,1,0.92,1
+2371,"There exists at least one collider (i.e., common effect) of D and F.",has_collider,collider,D,F,0,0.0033333333333333335,0
+2375,"There exists at least one collider (i.e., common effect) of C and F.",has_collider,collider,C,F,0,0.0,0
+2375,"There exists at least one collider (i.e., common effect) of C and D.",has_collider,collider,C,D,0,0.33666666666666667,0
+2375,F causes something else which causes A.,non-parent ancestor,indirect_cause,F,A,0,0.0,0
+2375,F directly causes A.,child,direct_cause,F,A,0,0.0,0
+2375,A causes something else which causes F.,non-parent ancestor,indirect_cause,A,F,1,0.9533333333333334,1
+2375,A directly causes F.,parent,direct_cause,A,F,0,0.82,1
+2375,E causes something else which causes A.,non-parent ancestor,indirect_cause,E,A,0,0.0,0
+2375,E directly causes A.,child,direct_cause,E,A,0,0.0,0
+2375,A causes something else which causes E.,non-parent ancestor,indirect_cause,A,E,1,0.91,1
+2375,A directly causes E.,parent,direct_cause,A,E,1,0.7366666666666667,1
+2375,D causes something else which causes A.,non-parent ancestor,indirect_cause,D,A,0,0.0,0
+2375,D directly causes A.,child,direct_cause,D,A,0,0.0,0
+2375,A causes something else which causes D.,non-parent ancestor,indirect_cause,A,D,0,0.39666666666666667,0
+2375,A directly causes D.,parent,direct_cause,A,D,1,0.9733333333333334,1
+2375,"C is a cause for A, but not a direct one.",non-child descendant,indirect_cause,C,A,0,0.0,0
+2375,C directly causes A.,child,direct_cause,C,A,0,0.0,0
+2375,A causes something else which causes C.,non-parent ancestor,indirect_cause,A,C,0,0.0033333333333333335,0
+2375,A directly causes C.,parent,direct_cause,A,C,0,0.0033333333333333335,0
+2375,B causes something else which causes A.,non-parent ancestor,indirect_cause,B,A,0,0.0033333333333333335,0
+2375,B directly causes A.,child,direct_cause,B,A,0,0.0,0
+2356,"There exists at least one confounder (i.e., common cause) of C and F.",has_confounder,confounder,C,F,0,0.16,0
+2375,A directly causes B.,parent,direct_cause,A,B,0,0.0,0
+2375,"There exists at least one collider (i.e., common effect) of A and B.",has_collider,collider,A,B,1,1.0,1
+2375,"There exists at least one collider (i.e., common effect) of A and C.",has_collider,collider,A,C,1,0.9966666666666667,1
+2375,"There exists at least one collider (i.e., common effect) of A and D.",has_collider,collider,A,D,1,1.0,1
+2375,"There exists at least one collider (i.e., common effect) of A and E.",has_collider,collider,A,E,1,0.9966666666666667,1
+2375,"There exists at least one collider (i.e., common effect) of A and F.",has_collider,collider,A,F,0,0.0,0
+2375,"There exists at least one collider (i.e., common effect) of B and C.",has_collider,collider,B,C,1,1.0,1
+2375,"There exists at least one collider (i.e., common effect) of B and D.",has_collider,collider,B,D,1,1.0,1
+2375,"There exists at least one collider (i.e., common effect) of B and E.",has_collider,collider,B,E,1,0.9366666666666666,1
+2375,"There exists at least one collider (i.e., common effect) of B and F.",has_collider,collider,B,F,0,0.0,0
+2375,"There exists at least one collider (i.e., common effect) of C and E.",has_collider,collider,C,E,1,0.6766666666666666,1
+2356,"F is a cause for C, but not a direct one.",non-child descendant,indirect_cause,F,C,0,0.0,0

@@ -1,0 +1,441 @@
+premise_id,split,variables,directed_edges,undirected_edges,mec_size
+18,train,"A, B, C, D, E",A->E;B->E;C->E;D->E,A-B;A-C;A-D,4
+25,train,"A, B, C, D, E",A->C;A->D;B->C;B->D;C->E,C-D,2
+29,train,"A, B, C, D, E",A->C;A->D;A->E;B->C;B->E;C->D;C->E;D->E,,1
+44,train,"A, B, C, D, E",A->D;A->E;B->D;B->E;C->D;C->E,,1
+48,train,"A, B, C, D, E",A->D;A->E;B->D;C->D;C->E;D->E,A-B;B-C,3
+51,train,"A, B, C, D, E",A->D;B->D;C->D,A-E,2
+56,train,"A, B, C, D, E",,A-B;A-C;A-D;A-E;B-C;B-E;C-D,14
+67,train,"A, B, C, D, E",,A-B;A-C;A-D;A-E;B-C,10
+69,train,"A, B, C, D, E",A->D;A->E;B->D;B->E;C->D;D->E,A-B;A-C,3
+70,train,"A, B, C, D, E",A->C;A->E;B->C;B->D;C->D;C->E;D->E,,1
+73,train,"A, B, C, D, E",A->D;B->D;C->D,A-B;A-C;A-E;B-E,8
+76,train,"A, B, C, D, E",A->D;A->E;B->D;B->E;C->D;D->E,A-C,2
+84,train,"A, B, C, D, E",A->C;A->D;A->E;B->C;B->D;C->E;D->E,,1
+96,train,"A, B, C, D, E",A->C;A->D;A->E;B->C;B->D;B->E,C-D;C-E,3
+100,train,"A, B, C, D, E",A->C;A->E;B->C;B->E;C->D,,1
+110,train,"A, B, C, D, E",,A-D;A-E;B-C,6
+112,train,"A, B, C, D, E",A->D;A->E;B->E;C->D,,1
+119,train,"A, B, C, D, E",A->D;C->D,A-B;A-E;B-E,6
+121,train,"A, B, C, D, E",,A-B;A-C;A-D;A-E;B-E;C-D,20
+129,train,"A, B, C, D, E",A->E;B->E;C->E;D->E,A-B;A-D;B-C,4
+135,train,"A, B, C, D, E",A->D;A->E;B->E;C->D;D->E,A-B,2
+136,train,"A, B, C, D, E",A->C;A->D;B->C;B->D;C->E;D->E,,1
+158,train,"A, B, C, D, E, F",A->D;A->E;A->F;B->F;C->D;C->E;D->F,A-B;B-C;D-E,6
+169,train,"A, B, C, D, E, F",A->D;A->E;A->F;B->E;B->F;C->D;C->F;D->F;E->F,B-C,2
+174,train,"A, B, C, D, E, F",A->D;A->E;A->F;B->D;B->F;C->D;D->E,A-C,2
+175,train,"A, B, C, D, E, F",A->C;A->E;A->F;B->C;B->E;B->F;C->D;D->E;D->F,,1
+178,train,"A, B, C, D, E, F",A->C;A->D;A->F;B->C;B->D;B->F;C->F;D->E;E->F,C-D,2
+179,train,"A, B, C, D, E, F",A->E;C->E;D->E,A-B;A-F;B-C;B-D;B-F;C-D,20
+180,train,"A, B, C, D, E, F",A->E;A->F;B->E;B->F;C->E;C->F;D->E;E->F,A-B;A-C;A-D;B-C;B-D,10
+185,train,"A, B, C, D, E, F",A->D;A->F;B->F;C->D;C->F;D->E;D->F;E->F,A-B;B-C,3
+189,train,"A, B, C, D, E, F",A->E;A->F;B->D;B->F;C->D;C->E;D->E;D->F;E->F,A-B;A-C,3
+193,train,"A, B, C, D, E, F",,A-B;A-C;A-D;B-C,8
+197,train,"A, B, C, D, E, F",,A-B;A-D;A-E;B-C,5
+204,train,"A, B, C, D, E, F",A->C;A->D;A->F;B->C;C->D;C->E;D->F;E->F,,1
+209,train,"A, B, C, D, E, F",A->C;A->D;A->E;B->C;B->D;B->E;C->E;C->F;D->E,,1
+211,train,"A, B, C, D, E, F",A->D;A->F;B->D;B->E;C->D;C->F;D->E;D->F;E->F,A-B;B-C,3
+212,train,"A, B, C, D, E, F",A->D;A->E;A->F;B->E;C->D;C->F;D->E;D->F;E->F,A-B;B-C,3
+219,train,"A, B, C, D, E, F",A->C;A->D;A->E;A->F;B->C;B->D;B->E;B->F;C->F;D->F;E->F,,1
+221,train,"A, B, C, D, E, F",A->F;C->F;E->F,A-B;B-C;B-D;D-E,5
+230,train,"A, B, C, D, E, F",B->E;C->E;D->E,A-B;A-F;B-C;C-D,5
+232,train,"A, B, C, D, E, F",A->C;B->C;C->D,A-F;B-E,4
+234,train,"A, B, C, D, E, F",A->E;A->F;B->D;B->F;C->D;C->F;D->E;D->F;E->F,A-B;A-C,3
+238,train,"A, B, C, D, E, F",A->E;A->F;B->E;B->F;C->F;D->E;E->F,A-B;A-C;A-D;B-C;C-D,10
+241,train,"A, B, C, D, E, F",A->E;B->D;B->E;C->D;D->E,A-B;A-C;A-F,4
+248,train,"A, B, C, D, E, F",A->C;A->D;A->E;A->F;B->C;C->D;C->E;C->F,,1
+252,train,"A, B, C, D, E, F",B->E;C->E;D->E,A-B;A-C;A-F;B-C;B-D,10
+253,train,"A, B, C, D, E, F",A->E;A->F;B->E;B->F;C->F;D->E,A-B;A-C,3
+255,train,"A, B, C, D, E, F",A->D;A->E;A->F;B->E;B->F;C->D;C->F;D->F;E->F,,1
+260,train,"A, B, C, D, E, F",A->C;B->C;B->E;C->E;D->E,A-F,2
+276,train,"A, B, C, D, E, F",A->C;A->F;B->C;B->F;C->E;D->E,A-D,2
+280,train,"A, B, C, D, E, F",A->C;A->D;B->C;B->D;C->F;D->E;E->F,,1
+283,train,"A, B, C, D, E, F",A->F;B->E;C->E;D->E;E->F,A-B;B-C;B-D,4
+284,train,"A, B, C, D, E, F",A->D;A->E;A->F;B->D;B->F;C->D;C->E;D->E;E->F,A-B;A-C,3
+290,train,"A, B, C, D, E, F",A->E;B->D;C->D;D->E,,1
+291,train,"A, B, C, D, E, F",,A-F;B-E;C-D,8
+292,train,"A, B, C, D, E, F",A->D;A->F;C->D;D->E;E->F,A-B;B-C,3
+297,train,"A, B, C, D, E, F",A->C;A->F;B->C;B->E;C->D;C->E;D->E;D->F;E->F,,1
+299,train,"A, B, C, D, E, F",A->E;B->E;D->E,A-B;A-C;A-D;A-F;B-C;C-D,13
+300,train,"A, B, C, D, E, F",A->E;B->E;D->E,A-B;A-C;A-D;A-F;B-C;B-F;C-D,14
+304,train,"A, B, C, D, E, F",A->C;A->E;A->F;B->C;C->D;C->E;D->E;E->F,,1
+308,train,"A, B, C, D, E, F",A->F;B->E;C->E;D->E;E->F,A-B;A-D;B-C,4
+322,train,"A, B, C, D, E, F",A->E;C->E;D->E,A-B;A-C;A-F;B-C;B-D;B-F,13
+333,train,"A, B, C, D, E, F",A->D;B->D;B->E;C->D;D->E,A-B;A-C;A-F,4
+343,train,"A, B, C, D, E, F",A->F;B->F;C->F;E->F,A-B;A-D;B-D;D-E,8
+351,train,"A, B, C, D, E, F",A->C;A->E;A->F;B->C;B->E;C->D;C->F;D->E,,1
+362,train,"A, B, C, D, E, F",A->C;A->D;A->F;B->C;B->F;C->D;C->E,,1
+367,train,"A, B, C, D, E, F",A->D;B->D;C->D;D->E;D->F,A-B;E-F,4
+368,train,"A, B, C, D, E, F",A->C;A->D;A->E;A->F;B->C;B->D;B->F;C->E;D->E,C-D,2
+369,train,"A, B, C, D, E, F",A->C;A->D;A->E;B->C;B->D;B->E,C-D;C-E,3
+384,train,"A, B, C, D, E, F",A->D;A->E;A->F;B->E;C->D;C->E;C->F;D->E;D->F;E->F,A-B;B-C,3
+388,train,"A, B, C, D, E, F",A->C;A->E;A->F;B->C;B->E;B->F;C->D;C->F;D->E;D->F;E->F,,1
+403,train,"A, B, C, D, E, F",A->F;B->D;C->D;D->E;E->F,A-B;A-C,3
+409,train,"A, B, C, D, E, F",A->C;A->E;A->F;B->C;B->D;B->F;C->D;C->E,,1
+411,train,"A, B, C, D, E, F",A->C;A->E;A->F;B->C;B->D;B->E;C->D;D->E;D->F,,1
+415,train,"A, B, C, D, E, F",A->C;A->D;A->E;A->F;B->C;B->F;C->D;D->E;D->F;E->F,,1
+417,train,"A, B, C, D, E, F",B->D;C->D,A-B;A-E;A-F,4
+421,train,"A, B, C, D, E, F",A->D;C->D;D->E,A-B;A-F;B-F,6
+423,train,"A, B, C, D, E, F",A->E;A->F;B->D;B->F;C->D;D->E;E->F,A-C,2
+424,train,"A, B, C, D, E, F",A->D;A->E;B->D;C->D;D->E;D->F,A-B,2
+427,train,"A, B, C, D, E, F",A->C;A->E;B->C;B->E;C->D;C->E;D->E,,1
+431,train,"A, B, C, D, E, F",A->C;A->F;B->C;B->F;C->D;C->E,C-F;D-E,4
+433,train,"A, B, C, D, E, F",A->E;D->E;E->F,A-B;B-C;C-D,4
+434,train,"A, B, C, D, E, F",A->E;A->F;B->E;C->E;C->F;D->E;E->F,A-B;A-D;B-C;B-D,8
+436,train,"A, B, C, D, E, F",B->D;C->D,A-B;A-C;A-E,4
+439,train,"A, B, C, D, E, F",A->E;B->E;C->E;D->E;E->F,A-B;A-C;A-D,4
+441,train,"A, B, C, D, E, F",A->C;A->D;A->E;A->F;B->C;B->D;B->E;C->F,C-D;C-E,3
+446,train,"A, B, C, D, E, F",A->E;B->E;D->E,A-B;A-C;A-F;B-F;C-D,10
+451,train,"A, B, C, D, E, F",A->C;A->F;B->C;B->F;C->D;C->E,,1
+458,train,"A, B, C, D, E, F",A->D;A->E;B->D;C->D;D->E;E->F,A-B,2
+462,train,"A, B, C, D, E, F",A->D;A->E;C->D;D->E,A-B;A-F;B-C,4
+464,train,"A, B, C, D, E, F",,A-B;A-E;A-F;B-E;B-F;C-D,20
+465,train,"A, B, C, D, E, F",A->D;C->D;C->E;D->E,A-B;A-F;B-C,4
+472,train,"A, B, C, D, E, F",A->D;A->E;B->D;C->D;D->E;D->F,,1
+473,train,"A, B, C, D, E, F",A->C;A->E;A->F;B->C;B->E;B->F;C->E;C->F;D->E;E->F,,1
+479,train,"A, B, C, D, E, F",,A-B;A-C;A-E;A-F;B-C;B-D;C-D,14
+480,train,"A, B, C, D, E, F",A->E;A->F;B->E;B->F;C->E;C->F;D->E;E->F,A-B;A-D;B-D,6
+481,train,"A, B, C, D, E, F",A->C;A->D;A->F;B->C;B->D;C->E;C->F;D->E;D->F;E->F,C-D,2
+483,train,"A, B, C, D, E, F",A->E;A->F;B->D;B->F;C->D;C->F;D->E;E->F,A-B;A-C,3
+486,train,"A, B, C, D, E, F",A->C;A->D;A->E;B->C;B->E;C->D;C->E;D->E,A-F,2
+487,train,"A, B, C, D, E, F",A->C;A->E;A->F;B->C;B->F;C->D;D->E,,1
+496,train,"A, B, C, D, E, F",A->E;A->F;B->D;B->E;C->D;C->E;D->E;D->F,A-B;A-C,3
+508,train,"A, B, C, D, E, F",A->D;A->F;B->F;C->D;C->E;D->E,B-C,2
+510,train,"A, B, C, D, E, F",A->D;A->E;B->D;C->D;D->E;D->F;E->F,A-B,2
+523,train,"A, B, C, D, E, F",A->C;A->D;A->E;A->F;B->C;B->F;C->D;C->F;D->E;D->F;E->F,,1
+528,train,"A, B, C, D, E, F",A->D;A->E;B->D;B->E;C->D;D->E,A-B,2
+529,train,"A, B, C, D, E, F",A->C;A->D;B->C;B->D;C->E;D->E,A-F;C-D,4
+530,train,"A, B, C, D, E, F",A->C;A->F;B->C;B->D;B->E;C->D;C->F;D->E;E->F,,1
+531,train,"A, B, C, D, E, F",A->E;A->F;B->F;C->F;D->E;E->F,A-B;A-C;B-C;B-D,8
+533,train,"A, B, C, D, E, F",A->E;B->D;C->D;D->E;D->F;E->F,A-B;A-C,3
+545,train,"A, B, C, D, E, F",A->F;B->D;B->E;C->D;D->E;D->F;E->F,A-B;A-C,3
+555,train,"A, B, C, D, E, F",A->D;A->E;A->F;B->D;B->E;B->F;C->D;C->E;C->F,A-B;D-E,4
+556,train,"A, B, C, D, E, F",A->C;A->D;A->E;A->F;B->C;C->D;C->E;C->F;D->F;E->F,,1
+565,train,"A, B, C, D, E, F",B->D;B->E;C->D;D->E,A-B;A-C;A-F,4
+566,train,"A, B, C, D, E, F",B->E;D->E,A-F;B-C;C-D,6
+576,train,"A, B, C, D, E, F",A->F;D->F;E->F,A-B;A-C;B-C;B-D;B-E;C-D;C-E,14
+582,train,"A, B, C, D, E, F",A->E;A->F;B->E;B->F;C->E;D->E;E->F,A-B;A-C;A-D;B-C;B-D,10
+583,train,"A, B, C, D, E, F",A->E;A->F;B->E;B->F;C->E;D->E;E->F,A-C;C-D,3
+597,train,"A, B, C, D, E, F",A->E;A->F;B->E;B->F;C->E;D->E;E->F,C-D,2
+599,train,"A, B, C, D, E, F",A->E;A->F;C->F;D->E;E->F,A-B;B-C;B-D;C-D,8
+600,train,"A, B, C, D, E, F",A->D;A->E;B->D;B->E;C->D;C->E,D-E,2
+603,train,"A, B, C, D, E, F",,,1
+611,train,"A, B, C, D, E, F",A->E;B->E;D->E,A-C;A-F;C-D,4
+619,train,"A, B, C, D, E, F",A->C;A->E;B->C;B->D;C->D;C->E;C->F;D->E,,1
+621,train,"A, B, C, D, E, F",A->C;A->E;A->F;B->C;B->D;B->E;C->D;C->E;D->E;D->F;E->F,,1
+622,train,"A, B, C, D, E, F",A->C;A->D;B->C;C->D;C->E;D->E;D->F;E->F,,1
+630,train,"A, B, C, D, E, F",A->D;A->E;B->D;C->D;D->E,A-B;A-F;B-F,6
+637,train,"A, B, C, D, E, F",A->D;A->E;A->F;B->D;B->F;C->D;C->F;D->E;D->F;E->F,A-B;B-C,3
+638,train,"A, B, C, D, E, F",A->D;A->F;B->F;C->D;C->E;D->E;E->F,A-B,2
+643,train,"A, B, C, D, E, F",A->D;A->F;B->D;C->D;C->F;D->F;E->F,A-B;A-E;B-C,4
+644,train,"A, B, C, D, E, F",A->E;A->F;B->E;B->F;C->E;D->E;D->F;E->F,A-C;C-D,3
+651,train,"A, B, C, D, E, F",A->D;A->F;C->D;C->F;D->E;E->F,A-B;B-C,3
+669,train,"A, B, C, D, E, F",A->E;A->F;B->E;B->F;C->F;D->E;D->F;E->F,A-B;A-C;B-C;C-D,8
+673,train,"A, B, C, D, E, F",A->D;A->E;C->D;D->E,A-B;A-F;B-C;B-F,8
+678,train,"A, B, C, D, E, F",A->D;A->E;A->F;B->D;B->E;B->F;C->D;C->E;D->F;E->F,A-B;A-C,3
+680,train,"A, B, C, D, E, F",,A-B;A-C;A-D;A-F;B-C;B-F;C-D;C-E;D-E,18
+687,train,"A, B, C, D, E, F",A->D;A->E;C->D;C->E,A-B;A-F;B-C;D-E,8
+694,train,"A, B, C, D, E, F",A->E;A->F;B->D;B->E;C->D;D->E;D->F,A-C,2
+706,train,"A, B, C, D, E, F",A->E;A->F;B->F;C->E;D->E;E->F,A-B;A-C;A-D,4
+708,train,"A, B, C, D, E, F",A->E;A->F;B->E;B->F;C->F;D->E,A-B;C-D,4
+720,train,"A, B, C, D, E, F",A->E;A->F;B->E;B->F;C->E;D->E;E->F,A-B;A-C;C-D,4
+728,train,"A, B, C, D, E, F",A->F;B->D;B->E;C->D;C->E;D->F;E->F,A-B;A-C,3
+737,train,"A, B, C, D, E, F",A->D;A->E;A->F;B->F;C->D;D->E;E->F,B-C,2
+743,train,"A, B, C, D, E, F",A->E;A->F;B->F;C->F;D->E;E->F,A-B;B-C;B-D;C-D,8
+749,train,"A, B, C, D, E, F",A->D;A->E;B->D;C->D;C->E,A-B;A-F;B-F,6
+756,train,"A, B, C, D, E, F",A->C;A->F;B->C;B->E;C->D;C->F;D->E;D->F;E->F,,1
+760,train,"A, B, C, D, E, F",,A-B;A-C;A-D;A-E;A-F;B-C;B-D;B-E;B-F;C-F;D-E,88
+786,train,"A, B, C, D, E, F",A->D;A->F;B->D;B->E;C->D;D->E;E->F,A-C,2
+787,train,"A, B, C, D, E, F",A->C;A->D;A->E;B->C;C->D;C->E;C->F;D->F;E->F,D-E,2
+793,train,"A, B, C, D, E, F",A->C;A->D;A->E;A->F;B->C;B->E;C->D;C->F;D->F;E->F,,1
+799,train,"A, B, C, D, E, F",,A-B;A-C;A-D;A-E,5
+801,train,"A, B, C, D, E, F",A->E;B->D;C->D;D->E,A-B;A-C;A-F,4
+809,train,"A, B, C, D, E, F",A->C;A->D;A->E;A->F;B->C;B->E;C->D;D->E;E->F,,1
+811,train,"A, B, C, D, E, F",A->D;A->F;B->F;C->D;D->E;D->F;E->F,A-B;B-C,3
+822,train,"A, B, C, D, E, F",A->D;A->E;B->D;B->E;C->D;D->E;D->F;E->F,A-C,2
+830,train,"A, B, C, D, E, F",A->C;A->F;B->C;B->D;C->D;C->F;D->E;E->F,,1
+835,train,"A, B, C, D, E, F",A->D;B->D;C->D,A-E,2
+837,train,"A, B, C, D, E, F",A->D;A->E;A->F;B->D;B->E;B->F;C->D;C->F;D->E,,1
+850,train,"A, B, C, D, E, F",A->D;A->E;B->D;C->D;C->E,A-B;A-F;B-C,4
+856,train,"A, B, C, D, E, F",A->C;A->E;B->C;B->D;C->D;C->E;D->F;E->F,,1
+857,train,"A, B, C, D, E, F",A->F;E->F,A-B;A-C;B-C;B-D;C-D;D-E,12
+860,train,"A, B, C, D, E, F",A->C;A->D;B->C;B->D;C->F;D->E;E->F,C-D,2
+882,train,"A, B, C, D, E, F",A->E;A->F;B->E;B->F;C->F;D->E;D->F;E->F,A-C;C-D,3
+887,train,"A, B, C, D, E, F",A->C;B->C;C->D;C->F;D->E;E->F,,1
+890,train,"A, B, C, D, E, F",A->E;A->F;B->E;C->F;D->E,A-B;B-C;C-D,4
+892,train,"A, B, C, D, E, F",A->D;A->E;B->D;B->E;C->D;D->E;D->F,A-C,2
+901,train,"A, B, C, D, E, F",A->F;B->D;B->E;C->D;D->E;E->F,A-C,2
+907,train,"A, B, C, D, E, F",A->D;A->F;C->D;C->E;D->E;E->F,A-B;B-C,3
+916,train,"A, B, C, D, E, F",A->D;A->E;A->F;B->E;B->F;C->D,B-C,2
+917,train,"A, B, C, D, E, F",A->C;B->C;C->D;C->F;D->F;E->F,,1
+924,train,"A, B, C, D, E, F",A->C;A->E;A->F;B->C;B->E;B->F;C->D;C->E;C->F;D->E;D->F,E-F,2
+927,train,"A, B, C, D, E, F",A->C;A->E;A->F;B->C;B->D;B->F;C->D;C->F;D->E;D->F;E->F,,1
+928,train,"A, B, C, D, E, F",B->D;B->E;C->D;C->E,A-B;A-C;A-F;D-E,8
+931,train,"A, B, C, D, E, F",A->C;A->E;A->F;B->C;B->F;C->D;C->E;D->E,,1
+953,train,"A, B, C, D, E, F",A->D;B->E;C->D;D->E,A-B;A-F,3
+963,train,"A, B, C, D, E, F",A->D;A->F;B->E;C->D;C->F;D->E,A-B;B-C,3
+974,train,"A, B, C, D, E, F",A->D;A->E;A->F;B->D;B->F;C->D;C->E;D->E;D->F;E->F,,1
+975,train,"A, B, C, D, E, F",A->E;B->D;C->D;D->E,A-B;A-F,3
+977,train,"A, B, C, D, E, F",A->C;A->F;B->C;B->E;C->D;D->E;D->F;E->F,,1
+991,train,"A, B, C, D, E, F",A->E;A->F;B->E;B->F;C->E;C->F;D->E;D->F,A-B;A-C;A-D;B-C;B-D,10
+995,train,"A, B, C, D, E, F",A->C;A->D;B->C;B->D;C->E;D->E,A-F,2
+999,train,"A, B, C, D, E, F",A->E;A->F;B->F;C->E;D->E;E->F,A-B;A-C;C-D,4
+1006,train,"A, B, C, D, E, F",A->D;A->F;B->F;C->D;C->E;D->E;E->F,B-C,2
+1011,train,"A, B, C, D, E, F",A->C;A->D;A->E;A->F;B->C;B->D;C->F;D->E,C-D,2
+1015,train,"A, B, C, D, E, F",A->D;A->E;A->F;B->D;B->E;C->D;D->E;D->F;E->F,A-B;A-C,3
+1024,train,"A, B, C, D, E, F",A->C;A->D;A->E;A->F;B->C;C->D;C->E;C->F,D-E,2
+1026,train,"A, B, C, D, E, F",A->C;A->E;A->F;B->C;C->E;C->F;D->E;E->F,B-D,2
+1042,train,"A, B, C, D, E, F",A->C;A->D;A->E;B->C;C->D;C->E;C->F,,1
+1054,train,"A, B, C, D, E, F",B->D;C->D,A-B;A-E,3
+1055,train,"A, B, C, D, E, F",A->C;B->C;C->D;C->F;D->E;D->F;E->F,,1
+1056,train,"A, B, C, D, E, F",A->E;A->F;C->E;D->E;E->F,A-B;B-C;C-D,4
+1057,train,"A, B, C, D, E, F",A->F;B->E;C->F;D->E,A-B;A-D;B-C,4
+1062,train,"A, B, C, D, E, F",A->C;B->C;C->D;C->E,A-F,2
+1072,train,"A, B, C, D, E, F",,A-B;A-C;A-D;A-E;A-F;B-C;B-D;B-E;C-D;C-E;D-E,144
+1085,train,"A, B, C, D, E, F",A->E;A->F;B->E;C->E;D->E;E->F,A-B;B-C;C-D,4
+1090,train,"A, B, C, D, E, F",,A-B;A-C;A-D;A-F;B-E;C-D,12
+1091,train,"A, B, C, D, E, F",A->C;A->D;A->E;B->C;C->D;C->E;D->F;E->F,D-E,2
+1092,train,"A, B, C, D, E, F",A->C;A->D;A->E;A->F;B->C;B->D;B->E;C->F;D->F;E->F,C-D;C-E;D-E,6
+1101,train,"A, B, C, D, E, F",A->E;B->E;C->E;D->E,A-B;A-C;A-F;B-C;B-D,10
+1105,train,"A, B, C, D, E, F",A->D;A->E;A->F;B->D;B->E;B->F;C->D;D->E;D->F,E-F,2
+1107,train,"A, B, C, D, E, F",A->C;A->F;B->C;B->D;B->E;C->D;D->E;E->F,,1
+1111,train,"A, B, C, D, E, F",A->D;A->E;A->F;B->E;B->F;C->D;C->E;C->F;D->E;D->F,A-B;B-C;E-F,6
+1126,train,"A, B, C, D, E, F",A->E;A->F;B->F;C->F;D->E;D->F;E->F,A-B;A-C;B-C;B-D;C-D,10
+1133,train,"A, B, C, D, E, F",A->C;A->F;B->C;B->D;C->D;C->E;D->F;E->F,,1
+1144,train,"A, B, C, D, E, F",A->D;A->F;B->D;C->D;C->F;D->E;E->F,A-B;B-C,3
+1152,train,"A, B, C, D, E, F",A->C;A->E;A->F;B->C;B->E;C->E;C->F;D->E;E->F,A-D,2
+1171,train,"A, B, C, D, E, F",A->D;A->E;A->F;B->D;B->E;B->F;C->D;D->E;D->F,A-C;E-F,4
+1196,train,"A, B, C, D, E, F",A->C;A->D;B->C;C->D;C->E;D->E;D->F,,1
+1197,train,"A, B, C, D, E, F",A->F;B->F;C->E;D->E;E->F,A-B;A-C;A-D;B-C,8
+1199,train,"A, B, C, D, E, F",A->F;B->D;C->D;D->E;E->F,,1
+1201,train,"A, B, C, D, E, F",A->C;A->F;B->C;B->D;B->F;C->D;C->F;D->F;E->F,A-E,2
+1208,train,"A, B, C, D, E, F",A->D;C->D,A-B;A-F;B-E,4
+1209,train,"A, B, C, D, E, F",A->D;C->D,A-F;B-C;B-E,6
+1212,train,"A, B, C, D, E, F",A->E;C->E;D->E,A-B;A-C;A-F;B-C;B-F,10
+1230,train,"A, B, C, D, E, F",A->E;A->F;B->E;B->F;C->E;D->E,,1
+1232,train,"A, B, C, D, E, F",A->D;A->F;B->D;B->F;C->D;C->E;D->E;D->F;E->F,A-B;A-C,3
+1233,train,"A, B, C, D, E, F",A->E;A->F;B->D;B->E;C->D;D->E;E->F,A-B;A-C,3
+1234,train,"A, B, C, D, E, F",A->E;A->F;B->E;C->E;C->F;D->E;E->F,A-B;A-D;B-C,4
+1242,train,"A, B, C, D, E, F",A->D;A->F;B->D;B->E;C->D;D->E;D->F,A-C,2
+1259,train,"A, B, C, D, E, F",A->C;A->E;B->C;B->E;C->D,,1
+1262,train,"A, B, C, D, E, F",A->C;A->D;A->E;A->F;B->C;B->D;C->E;C->F;D->E;D->F,C-D;E-F,4
+1264,train,"A, B, C, D, E, F",A->E;A->F;B->F;C->E;D->E;D->F;E->F,A-B;A-C;B-C;B-D;C-D,10
+1265,train,"A, B, C, D, E, F",A->E;A->F;B->E;B->F;C->E;D->E;E->F,A-B;A-C;A-D;B-C,8
+1269,train,"A, B, C, D, E, F",A->E;A->F;B->F;C->E;D->E;E->F,A-C,2
+1270,train,"A, B, C, D, E, F",A->C;A->D;A->E;A->F;B->C;B->D;B->E;C->F;D->F,C-D;C-E;D-E,6
+1273,train,"A, B, C, D, E, F",A->E;A->F;B->E;C->F;D->E,A-B;B-C;B-D,4
+1279,train,"A, B, C, D, E, F",A->C;A->D;A->E;A->F;B->C;B->E;B->F;C->D;C->E;C->F;D->E;E->F,,1
+1300,train,"A, B, C, D, E, F",A->D;A->E;B->D;B->E;C->D;D->E;E->F,,1
+1302,train,"A, B, C, D, E, F",A->D;A->F;B->D;B->E;C->D;D->E;E->F,,1
+1310,train,"A, B, C, D, E, F",A->C;A->F;B->C;C->E;C->F;D->E,,1
+1318,train,"A, B, C, D, E, F",A->C;A->D;A->E;A->F;B->C;B->D;C->E;C->F;D->E;D->F,C-D,2
+1319,train,"A, B, C, D, E, F",,A-B;A-C;A-D;A-E;A-F;B-C;B-F;C-D;D-E,18
+1322,train,"A, B, C, D, E, F",A->C;A->E;A->F;B->C;B->E;B->F;C->D;D->E,C-F,2
+1333,train,"A, B, C, D, E, F",A->D;B->D;C->D,A-B;A-E;B-C,4
+1335,train,"A, B, C, D, E, F",A->C;A->D;A->F;B->C;B->D;B->E;C->F;D->E,,1
+1337,train,"A, B, C, D, E, F",A->C;A->D;B->C;C->D;C->F;D->F;E->F,,1
+1348,train,"A, B, C, D, E, F",A->D;A->E;A->F;B->D;B->E;C->D;C->E;D->F;E->F,B-C;D-E,4
+1350,train,"A, B, C, D, E, F",A->E;A->F;B->F;C->E;D->E,,1
+1361,train,"A, B, C, D, E, F",,A-B;A-E;A-F;B-C;B-D,6
+1363,train,"A, B, C, D, E, F",A->D;A->E;A->F;B->D;B->E;B->F;C->D;C->E;D->F;E->F,A-B,2
+1369,train,"A, B, C, D, E, F",A->E;A->F;B->E;B->F;C->E;C->F;D->E;D->F,A-B;A-C;A-D,4
+1376,train,"A, B, C, D, E, F",A->D;A->E;A->F;B->D;B->F;C->D;C->F;D->E,A-B;B-C,3
+1380,train,"A, B, C, D, E, F",A->D;A->E;B->D;B->E;C->D;C->E,A-B;A-F;B-F,6
+1384,train,"A, B, C, D, E, F",B->E;C->E;D->E,A-B;A-C;A-F,4
+1390,train,"A, B, C, D, E, F",A->D;A->F;B->D;B->E;C->D;D->E;E->F,B-C,2
+1405,train,"A, B, C, D, E, F",A->C;A->D;A->E;A->F;B->C;B->D;C->F;D->E;E->F,C-D,2
+1406,train,"A, B, C, D, E, F",A->D;A->E;A->F;B->E;B->F;C->D;C->F;D->E;D->F;E->F,A-B,2
+1414,train,"A, B, C, D, E, F",A->E;A->F;B->E;B->F;C->E;D->E;D->F,A-C;C-D,3
+1420,train,"A, B, C, D, E, F",A->C;A->F;B->C;B->E;C->D;C->E;D->E;E->F,,1
+1423,train,"A, B, C, D, E, F",A->D;A->F;B->D;B->F;C->D;C->F;D->F;E->F,A-B;A-C,3
+1431,train,"A, B, C, D, E, F",A->E;A->F;B->D;B->E;C->D;D->E;D->F,A-B,2
+1437,train,"A, B, C, D, E, F",A->C;A->D;B->C;B->D;C->E;D->F;E->F,C-D,2
+1442,train,"A, B, C, D, E, F",A->E;A->F;B->F;C->E;D->E,A-C;C-D,3
+1445,train,"A, B, C, D, E, F",A->D;A->E;B->E;C->D;C->E;D->E,A-B;B-C,3
+1447,train,"A, B, C, D, E, F",A->D;A->E;A->F;B->D;B->F;C->D;C->E;D->E;E->F,A-C,2
+1448,train,"A, B, C, D, E, F",A->D;A->E;A->F;B->D;B->E;B->F;C->D;C->F;D->E;E->F,A-B,2
+1452,train,"A, B, C, D, E, F",A->D;A->F;B->D;B->F;C->D;D->E;E->F,A-B,2
+1457,train,"A, B, C, D, E, F",A->E;A->F;B->E;D->E;D->F,A-B;B-C;C-D,4
+1462,train,"A, B, C, D, E, F",A->D;B->D;C->D,A-E;A-F,3
+1466,train,"A, B, C, D, E, F",A->D;B->D;B->E;C->D;C->E;D->E,A-F;B-C,4
+1469,train,"A, B, C, D, E, F",A->D;A->E;A->F;B->E;B->F;C->D;C->F;D->E;E->F,B-C,2
+1489,train,"A, B, C, D, E, F",A->C;B->C;C->D,,1
+1492,train,"A, B, C, D, E, F",,A-B;A-C;A-E;A-F;B-C;B-D;B-E;C-D,17
+1494,train,"A, B, C, D, E, F",A->D;A->E;B->D;B->E;C->D;D->E;E->F,A-B,2
+1503,train,"A, B, C, D, E, F",A->C;B->C;C->D;C->F;D->E,,1
+1504,train,"A, B, C, D, E, F",A->D;A->E;A->F;B->D;B->F;C->D;C->F;D->E;D->F;E->F,,1
+1511,train,"A, B, C, D, E, F",A->C;A->E;A->F;B->C;B->E;C->D;D->E;E->F,,1
+1552,train,"A, B, C, D, E, F",A->E;A->F;B->F;C->F;D->E,A-B;B-C;C-D,4
+1561,train,"A, B, C, D, E, F",A->C;A->D;B->C;C->D,,1
+1562,train,"A, B, C, D, E, F",A->C;A->D;A->E;B->C;B->E;C->D;C->E;C->F;D->E,,1
+1564,train,"A, B, C, D, E, F",A->F;B->F;C->E;D->E;E->F,A-B;A-C;A-D,4
+1567,train,"A, B, C, D, E, F",A->D;A->E;B->D;C->D;C->E;D->F;E->F,A-B;B-C,3
+1570,train,"A, B, C, D, E, F",A->F;B->F;C->E;D->E;E->F,A-D;B-C,4
+1581,train,"A, B, C, D, E, F",A->F;B->E;D->E;E->F,B-C;C-D,3
+1583,train,"A, B, C, D, E, F",B->E;C->E;D->E,A-B;A-C;A-D;A-F,5
+1584,train,"A, B, C, D, E, F",A->E;A->F;B->E;B->F;C->E;C->F;D->E;E->F,A-B;A-C;A-D;B-D,8
+1600,train,"A, B, C, D, E, F",A->C;A->D;A->E;B->C;B->D;B->E;C->F;D->F,C-D;C-E;D-E,6
+1602,train,"A, B, C, D, E, F",A->D;A->F;B->D;C->D;D->E;E->F,B-C,2
+1613,train,"A, B, C, D, E, F",A->D;A->E;A->F;B->E;B->F;C->D;D->E;D->F,B-C,2
+1617,train,"A, B, C, D, E, F",A->D;C->D,A-B;A-E;B-C;B-E,8
+1622,train,"A, B, C, D, E, F",A->C;A->F;B->C;B->F;C->D;C->F;D->F;E->F,,1
+1623,train,"A, B, C, D, E, F",A->F;B->F;D->F;E->F,A-B;A-C;A-D;A-E;B-C;C-D;C-E,14
+1624,train,"A, B, C, D, E, F",A->E;C->E;D->E,A-B;A-F;B-C;C-D,5
+1627,train,"A, B, C, D, E, F",A->E;B->E;C->E;D->E,A-B;A-C;A-D;A-F;B-C;B-F,13
+1634,train,"A, B, C, D, E, F",A->D;A->E;A->F;B->D;B->F;C->D;C->E;D->E,B-C,2
+1642,train,"A, B, C, D, E, F",A->D;B->D;B->E;C->D;C->E,A-B;A-C;A-F,4
+1643,train,"A, B, C, D, E, F",A->E;A->F;B->E;B->F;C->E;C->F;D->E,A-B;A-C,3
+1646,train,"A, B, C, D, E, F",A->D;A->E;B->E;C->D,,1
+1648,train,"A, B, C, D, E, F",A->E;A->F;B->E;B->F;C->E;D->E;E->F,,1
+1654,train,"A, B, C, D, E, F",A->C;A->E;B->C;B->E;C->F;D->E,,1
+1655,train,"A, B, C, D, E, F",A->C;A->E;A->F;B->C;B->F;C->D;D->E;D->F;E->F,,1
+1663,train,"A, B, C, D, E, F",A->C;A->E;A->F;B->C;B->F;C->D;C->F;D->E;D->F;E->F,,1
+1671,train,"A, B, C, D, E, F",A->C;A->D;A->E;B->C;B->E;C->D;D->E;D->F;E->F,,1
+1673,train,"A, B, C, D, E, F",A->D;C->D,A-B;A-E;A-F;B-C;B-E;B-F,13
+1675,train,"A, B, C, D, E, F",A->E;A->F;B->E;B->F,A-C;A-D;C-D,6
+1682,train,"A, B, C, D, E, F",A->C;A->D;A->F;B->C;C->D;C->F;D->E;E->F,,1
+1691,train,"A, B, C, D, E, F",A->C;A->D;A->E;A->F;B->C;B->E;C->D;C->E;C->F;D->E,D-F,2
+1692,train,"A, B, C, D, E, F",A->D;A->E;A->F;B->F;C->D;D->E,,1
+1693,train,"A, B, C, D, E, F",B->E;D->E,A-B;A-C;A-D;A-F;B-C;C-D,13
+1698,train,"A, B, C, D, E, F",A->C;A->E;B->C;C->E;C->F;D->E,A-D,2
+1704,train,"A, B, C, D, E, F",A->E;A->F;B->E;B->F;C->E;D->E;E->F,A-B;A-C;A-D;C-D,8
+1711,train,"A, B, C, D, E, F",A->F;E->F,A-B;B-C;C-D;D-E,5
+1714,train,"A, B, C, D, E, F",A->C;A->F;B->C;B->F;C->E;D->E,C-F,2
+1720,train,"A, B, C, D, E, F",A->F;B->F;C->E;D->E;E->F,A-C;A-D,3
+1721,train,"A, B, C, D, E, F",A->F;C->F;D->F;E->F,A-B;A-E;B-C;C-D,5
+1724,train,"A, B, C, D, E, F",A->E;A->F;B->F;C->F;D->E;E->F,A-B;A-C;B-D,4
+1726,train,"A, B, C, D, E, F",A->E;A->F;B->D;B->F;C->D;C->F;D->E;E->F,A-B,2
+1727,train,"A, B, C, D, E, F",A->C;A->D;A->E;B->C;C->D;C->E,D-E,2
+1747,train,"A, B, C, D, E, F",A->F;B->E;C->E;D->E;E->F,A-B;B-C,3
+1753,train,"A, B, C, D, E, F",A->D;C->D,A-B;A-E;A-F;B-C,5
+1756,train,"A, B, C, D, E, F",A->E;D->E,A-B;A-C;B-C;B-D;C-D,10
+1757,train,"A, B, C, D, E, F",A->D;A->F;B->D;C->D;D->E;D->F;E->F,A-B,2
+1764,train,"A, B, C, D, E, F",A->C;A->D;A->E;A->F;B->C;B->D;B->E;C->F,C-D;C-E;D-E,6
+1765,train,"A, B, C, D, E, F",A->C;A->E;B->C;B->E;C->E;D->E;E->F,A-D,2
+1777,train,"A, B, C, D, E, F",A->C;A->E;A->F;B->C;B->D;B->F;C->D;C->E;D->E;E->F,,1
+1784,train,"A, B, C, D, E, F",A->D;A->E;A->F;B->D;B->E;B->F;C->D;C->E,A-C;D-E,4
+1794,train,"A, B, C, D, E, F",A->C;A->D;A->F;B->C;B->D;B->F;C->E;D->E,C-D;C-F,3
+1795,train,"A, B, C, D, E, F",A->E;B->D;C->D;D->E,A-B;A-C;A-F;B-F,8
+1806,train,"A, B, C, D, E, F",A->C;A->D;A->E;A->F;B->C;B->E;C->D;D->E;D->F,,1
+1810,train,"A, B, C, D, E, F",A->C;A->E;A->F;B->C;B->F;C->D;C->E;D->E;D->F;E->F,,1
+1820,train,"A, B, C, D, E, F",A->D;A->E;A->F;B->D;B->E;C->D;C->E;D->F;E->F,A-B;B-C;D-E,6
+1827,train,"A, B, C, D, E, F",A->D;A->F;B->D;B->E;C->D;C->E;D->F;E->F,,1
+1832,train,"A, B, C, D, E, F",A->D;A->E;A->F;B->D;B->E;B->F;C->D;D->E;E->F,A-C,2
+1836,train,"A, B, C, D, E, F",A->C;A->D;A->E;B->C;B->D;B->E;C->E;D->E,,1
+1839,train,"A, B, C, D, E, F",A->D;A->E;A->F;B->E;B->F;C->D;C->E;D->E;D->F;E->F,A-B;B-C,3
+1840,train,"A, B, C, D, E, F",A->C;A->D;B->C;B->D,A-E;C-D,4
+1841,train,"A, B, C, D, E, F",A->C;B->C;C->D;C->E;D->F,D-E,2
+1844,train,"A, B, C, D, E, F",A->E;B->E;C->E;D->E,,1
+1863,train,"A, B, C, D, E, F",A->C;A->D;A->F;B->C;B->F;C->D;C->E;D->E;E->F,,1
+1871,train,"A, B, C, D, E, F",A->D;A->F;B->F;C->D;D->E,B-C,2
+1873,train,"A, B, C, D, E, F",A->D;A->E;B->D;C->D;D->E,A-B;A-C;A-F;B-F,8
+1877,train,"A, B, C, D, E, F",A->C;A->D;A->F;B->C;B->D;B->F;C->E;D->F;E->F,C-D,2
+1879,train,"A, B, C, D, E, F",A->E;A->F;B->F;C->E;D->E,A-C;A-D,3
+1881,train,"A, B, C, D, E, F",A->F;B->D;B->E;C->D;C->E;D->F;E->F,A-B;A-C;D-E,6
+1890,train,"A, B, C, D, E, F",,A-B;A-C;A-D;A-E;A-F;B-C;B-E;B-F;C-D,18
+1900,train,"A, B, C, D, E, F",A->C;A->D;B->C;C->D;C->E;C->F;D->E;D->F,,1
+1903,train,"A, B, C, D, E, F",A->C;A->E;A->F;B->C;B->E;B->F;C->D;C->E;C->F;D->E;E->F,,1
+1904,train,"A, B, C, D, E, F",A->D;A->E;A->F;B->F;C->D;D->E,B-C,2
+1912,train,"A, B, C, D, E, F",A->C;A->E;B->C;C->D;D->E,,1
+1917,train,"A, B, C, D, E, F",A->D;C->D,A-B;A-E;A-F;B-E,8
+1924,train,"A, B, C, D, E, F",A->C;A->D;A->F;B->C;B->D;C->E;C->F;D->E;E->F,,1
+1927,train,"A, B, C, D, E, F",A->C;A->E;A->F;B->C;B->E;B->F;C->D;C->F;D->F;E->F,,1
+1934,train,"A, B, C, D, E, F",A->D;B->D;B->E;C->D;D->E,A-F;B-C,4
+1940,train,"A, B, C, D, E, F",A->C;A->D;B->C;B->D;C->E;D->E;E->F,,1
+1941,train,"A, B, C, D, E, F",A->D;B->D;C->D,A-B;A-C;A-E;B-E,8
+1942,train,"A, B, C, D, E, F",A->D;A->E;A->F;B->D;B->F;C->F;D->E;E->F,,1
+1943,train,"A, B, C, D, E, F",A->D;A->E;A->F;C->D;D->E;E->F,A-B;B-C,3
+1945,train,"A, B, C, D, E, F",A->C;A->F;B->C;B->F;C->F;D->F;E->F,,1
+1956,train,"A, B, C, D, E, F",A->C;A->E;A->F;B->C;B->D;C->D;C->F;D->E,,1
+1975,train,"A, B, C, D, E, F",A->F;B->F;C->F;E->F,A-B;A-C;A-D;A-E;B-D;D-E,13
+1993,train,"A, B, C, D, E, F",A->E;A->F;B->F;D->E;D->F;E->F,A-B;A-C;B-C;B-D;C-D,10
+1997,train,"A, B, C, D, E, F",A->D;A->E;A->F;B->D;B->F;C->D;C->F;D->E;D->F;E->F,B-C,2
+2017,train,"A, B, C, D, E, F",A->C;A->D;A->F;B->C;B->F;C->D;C->E;D->E,,1
+2025,train,"A, B, C, D, E, F",A->D;A->E;A->F;B->E;B->F;C->D;C->E;D->E;D->F,A-B;B-C,3
+2027,train,"A, B, C, D, E, F",A->E;A->F;B->E;C->E;C->F;D->E;E->F,A-B;B-C,3
+2028,train,"A, B, C, D, E, F",A->C;A->E;B->C;B->E;C->D;C->E;D->E;D->F,,1
+2030,train,"A, B, C, D, E, F",A->E;A->F;B->E;B->F;C->F;D->E;E->F,A-B;A-D;B-C,4
+2036,train,"A, B, C, D, E, F",A->E;A->F;B->E;C->E;D->E;E->F,A-B;B-C;B-D;C-D,8
+2038,train,"A, B, C, D, E, F",A->C;A->E;B->C;B->E;C->E;C->F;D->E,,1
+2044,train,"A, B, C, D, E, F",A->D;A->E;C->D;C->E,A-B;A-F;B-C,4
+2052,train,"A, B, C, D, E, F",A->D;C->D;C->E;D->E,A-B;A-F;B-C;B-F,8
+2054,train,"A, B, C, D, E, F",A->D;A->E;B->D;C->D;C->E;D->E;D->F,A-B;B-C,3
+2059,train,"A, B, C, D, E, F",A->C;A->D;A->E;A->F;B->C;B->D;B->F;C->F;D->E;E->F,,1
+2072,train,"A, B, C, D, E, F",A->D;A->E;C->D;D->E,A-B;A-F;B-F,6
+2078,train,"A, B, C, D, E, F",A->D;A->E;B->D;C->D;D->E;D->F;E->F,A-B;A-C,3
+2084,train,"A, B, C, D, E, F",A->C;A->F;B->C;B->F;C->D;C->F;D->E;D->F;E->F,,1
+2092,train,"A, B, C, D, E, F",A->C;A->E;B->C;B->D;C->D;C->E,,1
+2094,train,"A, B, C, D, E, F",A->C;A->D;A->E;A->F;B->C;B->F;C->D;D->E,,1
+2104,train,"A, B, C, D, E, F",A->D;A->E;B->D;B->E;C->D;C->E;D->F;E->F,A-B;A-C,3
+2113,train,"A, B, C, D, E, F",A->E;A->F;B->E;C->E;D->E;E->F,A-B;A-C;B-C;B-D,8
+2121,train,"A, B, C, D, E, F",A->D;A->F;B->D;B->E;C->D;C->E;D->E;D->F,A-B,2
+2126,train,"A, B, C, D, E, F",A->C;A->D;A->E;B->C;B->D;C->E;C->F;D->E;D->F;E->F,,1
+2134,train,"A, B, C, D, E, F",A->E;A->F;B->F;C->F;D->E;E->F,A-B,2
+2139,train,"A, B, C, D, E, F",A->E;A->F;B->E;B->F;C->E;C->F;D->E;E->F,A-B;A-D;B-C,4
+2142,train,"A, B, C, D, E, F",A->C;A->E;A->F;B->C;B->E;B->F;C->D;D->E,,1
+2145,train,"A, B, C, D, E, F",A->D;C->D,A-B;A-E;B-C,4
+2161,train,"A, B, C, D, E, F",A->C;A->D;A->E;A->F;B->C;B->D;B->E;B->F;C->F;D->F;E->F,C-D;C-E,3
+2165,train,"A, B, C, D, E, F",A->D;A->F;B->D;B->F;C->D;C->E;D->E;D->F;E->F,,1
+2168,train,"A, B, C, D, E, F",A->C;A->D;A->E;B->C;C->D;D->E;D->F,,1
+2181,train,"A, B, C, D, E, F",A->C;A->E;A->F;B->C;B->E;B->F;C->D;D->E;E->F,,1
+2183,train,"A, B, C, D, E, F",A->D;A->F;B->D;C->D;C->F;D->E;D->F;E->F,A-B;B-C,3
+2191,train,"A, B, C, D, E, F",A->D;A->E;A->F;B->D;B->E;B->F;C->D;C->F;D->E;E->F,,1
+2195,train,"A, B, C, D, E, F",A->D;A->E;A->F;B->F;C->D;C->E;C->F,A-B;B-C;D-E,6
+2200,train,"A, B, C, D, E, F",A->C;A->E;A->F;B->C;B->E;C->D;C->E;C->F;D->E;D->F;E->F,,1
+2207,train,"A, B, C, D, E, F",,A-B;A-C;A-D;A-E;B-C;B-D;B-E;C-D;C-E,42
+2230,train,"A, B, C, D, E, F",A->E;C->E;D->E,A-B;A-F;B-F;C-D,12
+2235,train,"A, B, C, D, E, F",A->D;A->E;A->F;B->D;B->E;B->F;C->D;C->E;C->F;D->F;E->F,A-B,2
+2236,train,"A, B, C, D, E, F",A->C;A->D;A->E;B->C;B->D;B->E;C->F;E->F,C-D;D-E,3
+2240,train,"A, B, C, D, E, F",A->D;B->E;C->D;D->E,A-F;B-C,4
+2241,train,"A, B, C, D, E, F",A->E;B->E;C->E;D->E,A-B;A-C;A-F;B-F,8
+2248,train,"A, B, C, D, E, F",A->E;A->F;C->E;D->E;E->F,A-B;B-C;B-D;C-D,8
+2264,train,"A, B, C, D, E, F",A->C;B->C;B->D;C->D,A-E;A-F,3
+2274,train,"A, B, C, D, E, F",,A-D;A-E;B-C,6
+2280,train,"A, B, C, D, E, F",A->D;A->E;A->F;B->D;B->E;C->D;D->E;D->F,A-B,2
+2298,train,"A, B, C, D, E, F",A->E;A->F;B->E;C->E;D->E;D->F,A-B;B-C;C-D,4
+2300,train,"A, B, C, D, E, F",A->C;A->D;A->E;A->F;B->C;B->E;C->D;C->F;D->E,,1
+2305,train,"A, B, C, D, E, F",A->C;A->D;A->E;A->F;B->C;C->D;C->E;D->F;E->F,,1
+2313,train,"A, B, C, D, E, F",A->C;B->C;C->D;C->E,A-F;D-E,4
+2314,train,"A, B, C, D, E, F",A->D;A->F;B->D;B->F;C->D;C->E;D->E;E->F,A-B,2
+2321,train,"A, B, C, D, E, F",A->D;A->E;A->F;B->D;B->E;C->D;D->E;D->F;E->F,A-B,2
+2329,train,"A, B, C, D, E, F",A->C;A->D;B->C;B->D;C->E;D->E,,1
+2338,validation,"A, B",,,1
+2339,validation,"A, B, C",,A-B,2
+2340,validation,"A, B, C",,,1
+2342,validation,"A, B, C, D",A->D;B->D;C->D,A-B;A-C,3
+2343,validation,"A, B, C, D",,A-B;A-C;A-D;B-C;B-D;C-D,24
+2344,validation,"A, B, C, D, E",A->E;B->E;D->E,A-B;A-C;A-D;B-C;C-D,10
+2345,validation,"A, B, C, D, E",A->C;A->D;B->C;C->D;D->E,,1
+2347,validation,"A, B, C, D, E",A->D;C->D;D->E,A-B;B-C,3
+2348,validation,"A, B, C, D, E",A->E;B->E;C->E;D->E,A-D;B-C,4
+101,validation,"A, B, C, D, E",A->D;A->E;B->D;B->E;C->D,A-C,2
+2349,validation,"A, B, C, D, E",A->C;B->C,,1
+2350,validation,"A, B, C, D, E",A->C;A->D;B->C;B->D;C->E;D->E,C-D,2
+2351,validation,"A, B, C, D, E",A->C;B->C,A-D,2
+2352,validation,"A, B, C, D, E, F",A->D;A->E;A->F;B->D;B->E;B->F;C->D;C->E;C->F,A-B,2
+2353,validation,"A, B, C, D, E, F",A->F;B->F;C->F;D->F;E->F,A-B;A-C;A-D;B-C;B-D;C-D,24
+2354,validation,"A, B, C, D, E, F",A->C;A->D;B->C;C->D;C->F;D->E;D->F;E->F,,1
+2355,validation,"A, B, C, D, E, F",A->D;A->E;B->E;C->D,A-F;B-C,4
+1790,validation,"A, B, C, D, E, F",A->C;A->E;A->F;B->C;B->D;C->D;D->E;D->F,,1
+2357,validation,"A, B, C, D, E, F",A->E;C->E;D->E,A-B;A-C;A-F;B-C;B-F;C-D,12
+2358,test,"A, B",,A-B,2
+2359,test,"A, B, C",A->C;B->C,,1
+2360,test,"A, B, C",,A-B;A-C,3
+2341,test,"A, B, C",,A-B;A-C;B-C,6
+2361,test,"A, B, C, D",,A-B;A-C;B-C,6
+2362,test,"A, B, C, D",,A-B;A-C;A-D;B-C;B-D,10
+2363,test,"A, B, C, D, E",,A-B;A-C;A-D;A-E;B-C;B-D;B-E;C-D,32
+2364,test,"A, B, C, D, E",A->E;B->E;D->E,A-C;C-D,3
+2365,test,"A, B, C, D, E",A->D;A->E;B->D;B->E;C->D;C->E,A-B,2
+2366,test,"A, B, C, D, E",,A-B;A-E;B-C;C-D,5
+2346,test,"A, B, C, D, E",A->C;A->E;B->C;B->D;C->D;C->E,,1
+2367,test,"A, B, C, D, E",A->C;A->D;A->E;B->C;B->E;C->D,,1
+2368,test,"A, B, C, D, E",A->E;B->E;C->E;D->E,,1
+2369,test,"A, B, C, D, E",A->D;A->E;C->D;C->E,A-B;B-C;D-E,6
+2370,test,"A, B, C, D, E",,A-B;A-C;A-D;A-E;B-C;B-D,13
+2356,test,"A, B, C, D, E, F",A->D;A->F;B->D;B->F;C->D;C->F;D->F;E->F,A-E;B-C,4
+2371,test,"A, B, C, D, E, F",A->E;A->F;B->E;B->F;C->E;C->F;D->E;E->F,A-D,2
+2372,test,"A, B, C, D, E, F",A->D;A->E;A->F;B->D;B->E;C->D;C->E;C->F;D->F,A-B;B-C;D-E,6
+2373,test,"A, B, C, D, E, F",A->C;A->F;B->C;B->F;C->E;D->E;E->F,,1
+2374,test,"A, B, C, D, E, F",A->E;A->F;C->E;C->F;D->E,A-B;A-D;B-C,4
+2375,test,"A, B, C, D, E, F",A->D;A->E;A->F;B->D;B->E;C->D;D->E;D->F;E->F,A-C,2
