@@ -5,3 +5,7 @@ __pycache__/
 
 # raw data is downloaded by notebook 01 (raw train.csv is too big for GitHub)
 data/raw/
+
+# processed CSVs are rebuilt by running notebooks 01-05 in order (about 140 MB, too big to keep in git)
+data/processed/
+.pytest_cache/
