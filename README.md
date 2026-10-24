@@ -14,7 +14,27 @@ pip install -r requirements.txt
 ```
 
 Then run the notebooks in `notebooks/` in order (01 → 05). Notebook 01 downloads the data, and each notebook saves CSV
-files in `data/processed/` for the next one.
+files in `data/processed/` for the next one and its figures in `report/figures/`. A full run takes about 4 minutes.
+
+Run the tests with:
+
+```bash
+python -m pytest
+```
+
+## Layout
+
+```
+src/c2c/        shared code used by the notebooks
+  parsing.py    regex parser and schema checks        (notebook 02)
+  graphs.py     PC, equivalence class, claim rules    (notebook 02)
+  features.py   structured features                   (notebook 03)
+  bayes.py      DAG building, intervention effects    (notebook 05)
+tests/          pytest tests for every module
+notebooks/      01 → 05, one per team member
+report/         IEEE report (main.tex, main.pdf) and figures
+data/processed/ CSVs written by the notebooks (not in git)
+```
 
 ## Team
 
@@ -36,6 +56,10 @@ Premises shared between splits are removed, so there is no leakage.
 
 ## Results (test)
 
-* Random Forest (chosen on validation): precision 0.860, recall 0.956, **F1 0.905** (95% CI 0.852–0.937)
-* TF-IDF alone reaches F1 0.47 on validation, while TF-IDF + structured features reach 0.80
-* Edge precision 0.89 (1.00 against the PC graph), and 5 of 5 intervention queries match the true graph
+* Parser + PC with the Corr2Cause generator's claim definitions reproduce **98.5%** of test labels with no learning
+  (rule F1 0.952)
+* Random Forest (chosen on validation): precision 0.927, recall 0.989, **F1 0.957** (95% CI 0.921–0.982)
+* TF-IDF alone reaches F1 0.47 on validation, while TF-IDF + structured features reach 0.88
+* Edge precision 0.89 (1.00 against the PC graph)
+* Intervention queries on the 5 fully known test graphs: **92 of 96** correct, including 28 of the 32 real effects
+  (an empty or reversed graph gets 0 of 32)
