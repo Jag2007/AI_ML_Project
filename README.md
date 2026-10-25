@@ -109,7 +109,7 @@ src/c2c/          shared code used by the notebooks
   features.py     structured features                   (notebook 03)
   bayes.py        DAG building, intervention effects    (notebook 05)
 tests/            pytest unit tests for every module
-report/           IEEE report (main.tex, main.pdf), figures, phase 1 slides
+report/           IEEE report (report.tex, report.pdf), figures, phase 1 slides
 data/             raw/ and processed/ CSVs, rebuilt by the notebooks (not in git)
 ```
 
@@ -124,6 +124,6 @@ bootstrap both group rows by premise.
 
 ## Report
 
-The full write-up is in [`report/main.pdf`](report/main.pdf). To rebuild it from the LaTeX source, run
-`tectonic main.tex` inside `report/`. The Phase 1 slides are in
+The full write-up is in [`report/report.pdf`](report/report.pdf). To rebuild it from the LaTeX source, run
+`tectonic report.tex` inside `report/`. The Phase 1 slides are in
 [`report/phase1_presentation.pptx`](report/phase1_presentation.pptx).
