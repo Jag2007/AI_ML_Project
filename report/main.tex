@@ -24,181 +24,130 @@ Code: \url{https://github.com/Jag2007/AI_ML_Project}}
 
 \begin{abstract}
 ``Two things move together'' does not mean ``one causes the other''. The Corr2Cause dataset tests exactly
-this. Each example gives a short text listing which variables are related, and a claim such as ``A directly
-causes B''. The task is to say whether the claim is definitely true (1) or not (0). We solved it in five steps,
-one notebook per team member: clean the data, turn the text into a cause-and-effect graph, build features, train
-classifiers, and finally draw the predicted graph and ask it ``what if'' questions. Using only the words of the
-text, our model scores an F1 of 0.47. Adding the graph-based features raises this to 0.88. By reading the
-dataset generator's code we matched its exact claim definitions, so the graph step alone (no learning) reproduces
-98.5\% of the test labels. Our final model, a Random Forest, scores an F1 of 0.957 on the unseen test set, close
-to the 0.952 of the no-learning rule. 89\% of the cause arrows it draws are correct, and our graphs answer 92 of 96
-``what if'' questions correctly, against 0 of the 32 real effects for an empty or a reversed graph.
+this. Each example gives a short text (the premise) that says which variables are related, and a claim (the
+hypothesis) such as ``A directly causes B''. The task is to say if the claim is surely true (1) or not (0). We
+built a five-step pipeline, one notebook per team member: clean the data, turn the text into a causal graph with
+the PC algorithm, build features, train classifiers, and finally build a DAG and ask it ``what if''
+(intervention) questions with a Bayesian network. With text features (TF-IDF) alone, logistic regression gets an
+F1 of only 0.47. Adding features from the causal graph raises it to 0.88. The graph step alone, with no learning,
+reproduces 98.5\% of the test labels. Our final model, a Random Forest, gets a test F1 of 0.957. 89\% of the
+cause arrows it draws are correct, and its graphs answer 92 of 96 intervention questions correctly.
 \end{abstract}
 
 \section{Introduction}
 \textbf{The problem.} Ice cream sales and drowning cases both go up in summer. They are \emph{correlated}, but
 ice cream does not cause drowning; hot weather causes both. Large language models often make this mistake and
-read correlation as causation.
+treat correlation as causation.
 
-\textbf{The dataset.} Corr2Cause~\cite{jin2024} turns this into a yes/no task. Here is a real example (shortened):
+\textbf{The dataset.} Corr2Cause~\cite{jin2024} turns this into a yes/no task. A real example (shortened):
 \begin{quote}\small
 \emph{Premise:} There is a closed system of 3 variables, A, B and C. A correlates with B. A is independent of C.
 B is independent of C.\\
 \emph{Hypothesis:} There is a common effect (collider) of A and C.\\
 \emph{Label:} 0 (not valid)
 \end{quote}
-The \emph{premise} lists which pairs of variables are related (``correlate'') and which are not (``independent'').
-The \emph{hypothesis} is a claim about cause and effect. The label is 1 only if the claim is true in
-\emph{every} cause-and-effect picture that fits the premise. If even one fitting picture breaks the claim, the
-label is 0.
+The premise says which pairs are related (``correlates'') and which are not (``independent''). The hypothesis
+is a cause-and-effect claim. The label is 1 only if the claim is true in \emph{every} causal graph that fits the
+premise. If even one fitting graph breaks the claim, the label is 0.
 
-\textbf{Our goal.} Instead of a black box, we wanted a pipeline where every prediction can be traced back to a
-graph we can draw and explain. So we combined a classic causal method (the PC algorithm) with simple machine
-learning models.
+\textbf{Our goal.} We did not want a black box. We wanted every prediction to come from a graph we can draw and
+explain. So we combined a classic causal discovery method (the PC algorithm) with simple machine learning models.
+This is a \emph{neuro-symbolic} design: the learned part reads the text, and the symbolic part (the graph) does
+the exact reasoning.
 
 \section{Related Work}
-We group earlier work into four lines and close with the gap that our project fills (Table~\ref{tab:lit}).
+\textbf{Causal graphs.} Pearl~\cite{pearl2009} showed how to reason about cause and effect with directed acyclic
+graphs (DAGs) and Bayesian networks. Verma and Pearl~\cite{verma1990} showed that different DAGs can give the
+same independences when they have the same skeleton (links without direction) and the same colliders. So from
+independences alone we can only find a group of DAGs, called the \emph{Markov equivalence class} (MEC). The PC
+algorithm~\cite{spirtes2000} finds this class from independence facts, and Meek's rules~\cite{meek1995} set every
+arrow direction that is forced.
 
-\textbf{Causal graphs and discovery from independences.} Pearl~\cite{pearl1988,pearl2009} gave the theory of
-Bayesian networks and of reasoning with causal graphs, and d-separation~\cite{geiger1990} turns ``independent
-given $Z$'' into a rule that can be read off a graph. Verma and Pearl~\cite{verma1990} showed that two DAGs imply
-the same independences exactly when they share the same skeleton and the same colliders, so data can only identify
-a \emph{Markov equivalence class} (MEC), drawn as a partly directed graph~\cite{andersson1997}. The PC
-algorithm~\cite{spirtes2000} recovers this class from independence tests, and Meek's rules~\cite{meek1995} orient
-every edge that can be oriented. PC is consistent even with many variables~\cite{kalisch2007}. Score-based
-search such as GES~\cite{chickering2002} and continuous optimisation such as NOTEARS~\cite{zheng2018} are
-alternatives, but they need numeric data, while Corr2Cause only gives the independences as text.
+\textbf{Finding causes in text.} Early systems found cause--effect pairs with hand-written patterns~\cite{khoo2000}.
+SemEval-2010 Task~8~\cite{hendrickx2010} and BECauSE~2.0~\cite{dunietz2017} label causal phrases in sentences.
+These works find \emph{what a text claims}. They do not check if the claim \emph{follows} from the evidence, and
+they do not build a graph.
 
-\textbf{Causal relation extraction from text.} Early systems found cause--effect pairs with hand-written lexical
-and syntactic patterns~\cite{khoo2000,girju2003}. SemEval-2010 Task~8~\cite{hendrickx2010} made cause--effect one
-of nine relation classes between noun pairs, and BECauSE~2.0~\cite{dunietz2017} and the Causal News
-Corpus~\cite{tan2022} annotate causal language in running text. These works find \emph{what the text claims}
-about causes. They do not check whether a claim \emph{follows} from statistical evidence, and they do not produce
-a graph that can answer intervention questions.
+\textbf{Causal reasoning tests for language models.} The Corr2Cause authors~\cite{jin2024} found that 17 large
+language models score close to chance. Fine-tuned models score well, but fail when the sentences are reworded or
+the variable names are changed, so they learn surface patterns, not reasoning. CLadder~\cite{jin2023cladder} asks
+similar causal questions, but only tests models and does not give a pipeline.
 
-\textbf{Causal reasoning benchmarks for language models.} Corr2Cause~\cite{jin2024} asks whether a causal claim
-follows from a list of correlations and independences. Its authors found that 17 large language models score close
-to chance. Fine-tuned BERT-style models score highly on the original test set, but their scores drop sharply when
-the hypotheses are paraphrased or the variable names are changed, so they learn surface patterns rather than the
-reasoning. CLadder~\cite{jin2023cladder} tests all three rungs of Pearl's ladder with text questions built from
-causal graphs, and K\i c\i man et al.~\cite{kiciman2023} and Ze\v{c}evi\'c et al.~\cite{zecevic2023} argue that
-LLMs repeat causal facts they have seen rather than reason causally. Corr2Cause is framed as natural language
-inference, the same premise--hypothesis format as MNLI~\cite{williams2018}.
+\textbf{Neuro-symbolic AI.} These systems let a learned part read the input and a rule-based part do exact
+reasoning~\cite{garcez2023}. Our pipeline follows this idea. Table~\ref{tab:lit} sums up the gap we fill.
 
-\textbf{Neuro-symbolic AI.} Neuro-symbolic systems let a learned component read the input and a symbolic component
-do exact reasoning~\cite{garcez2023}. The project brief asks for this split: text extraction proposes relations,
-and the graph stage enforces acyclicity, quantifies uncertainty and answers interventions.
-
-\textbf{Feature engineering and models.} We use TF-IDF~\cite{salton1988} for text, filter-based feature
-selection~\cite{guyon2003} with chi-squared and mutual information~\cite{kraskov2004}, logistic regression, Random
-Forest~\cite{breiman2001} and gradient boosting~\cite{friedman2001} from scikit-learn~\cite{pedregosa2011}, the
-bootstrap~\cite{efron1993} for confidence intervals, and pgmpy~\cite{ankan2015} for PC and Bayesian networks.
-
-\begin{table*}[t]
+\begin{table}[t]
 \centering
 \caption{Earlier work and the gap we address}
 \label{tab:lit}
 \footnotesize
 \setlength{\tabcolsep}{3pt}
-\begin{tabular}{p{0.24\linewidth}p{0.30\linewidth}p{0.38\linewidth}}
+\begin{tabular}{p{0.30\linewidth}p{0.30\linewidth}p{0.32\linewidth}}
 \toprule
-Work & What it does & What it lacks for our task \\
+Work & What it does & What is missing \\
 \midrule
-PC, GES, NOTEARS~\cite{spirtes2000,chickering2002,zheng2018} & Learn a graph from numeric data & Cannot read text \\
-Patterns, SemEval-8, BECauSE~\cite{khoo2000,hendrickx2010,dunietz2017} & Extract causal pairs from text & No check that a claim follows; no graph or interventions \\
-Corr2Cause LLMs and fine-tuned models~\cite{jin2024} & Classify premise--hypothesis pairs end to end & Near chance (LLMs) or brittle to rewording (fine-tuned) \\
-CLadder~\cite{jin2023cladder} & Text questions on all rungs of causation & Evaluation only, no extraction pipeline \\
-\textbf{Ours} & Regex parsing $\to$ PC $\to$ features $\to$ classifier $\to$ DAG and Bayesian network & Every prediction traces back to a graph \\
+PC algorithm~\cite{spirtes2000} & Finds a causal graph from data & Cannot read text \\
+Text extraction~\cite{khoo2000,hendrickx2010,dunietz2017} & Finds causal phrases & No check that the claim follows \\
+LLMs on Corr2Cause~\cite{jin2024} & Answer yes/no end to end & Near chance, or breaks on rewording \\
+\textbf{Ours} & Parser $\to$ PC $\to$ features $\to$ classifier $\to$ DAG & Every answer comes from a graph \\
 \bottomrule
 \end{tabular}
-\end{table*}
+\end{table}
 
-\section{Theoretical Background}
-\textbf{Bayesian networks.} A DAG $G$ over variables $V_1,\dots,V_n$ with parents $\mathrm{Pa}(V_i)$ and a
-probability table at each node defines
-\begin{equation}
-P(v_1,\dots,v_n) = \prod_{i=1}^{n} P\big(v_i \mid \mathrm{pa}(v_i)\big).
-\label{eq:factor}
-\end{equation}
-Under the causal Markov and faithfulness assumptions, the independences in the data are exactly the
-d-separations in the graph:
-\begin{equation}
-X \perp\!\!\!\perp Y \mid Z \;\text{ in } P \iff X \perp_{G} Y \mid Z .
-\end{equation}
-A path is blocked by $Z$ if it has a non-collider in $Z$, or a collider $X\!\to\!W\!\leftarrow\!Y$ such that
-neither $W$ nor any descendant of $W$ is in $Z$.
+\section{Key Ideas}
+\textbf{DAG.} A directed acyclic graph: arrows mean ``directly causes'', and you can never follow the arrows back
+to where you started (no cycles, no self-loops).
 
-\textbf{Equivalence class and labels.} The Markov equivalence class $\mathcal{M}$ of a premise is the set of DAGs
-whose d-separations match the premise, which are the DAGs with the same skeleton and colliders~\cite{verma1990}.
-For a hypothesis $h$ and a DAG $G$, let $h(G)\in\{0,1\}$ say whether the claim holds in $G$. Corr2Cause labels a
-hypothesis valid only if it holds in every member, and we measure how close it is to that with
+\textbf{Collider and confounder.} In X$\to$Z$\leftarrow$Y, Z is a \emph{collider} (common effect). In
+X$\leftarrow$Z$\to$Y, Z is a \emph{confounder} (common cause).
+
+\textbf{Conditional independence.} ``A and C are independent given B'' means that once we know B, knowing A tells
+us nothing more about C. The premises list these facts, and the PC algorithm uses them.
+
+\textbf{Markov equivalence class and mec\_support.} Many DAGs can fit one premise. For each claim we count in how
+many of them it is true:
 \begin{equation}
-y(h) = \prod_{G\in\mathcal{M}} h(G), \qquad
-\text{mec\_support}(h) = \frac{1}{|\mathcal{M}|}\sum_{G\in\mathcal{M}} h(G).
+\text{mec\_support} = \frac{\text{fitting DAGs where the claim is true}}{\text{all fitting DAGs}}.
 \label{eq:mec}
 \end{equation}
+If mec\_support $=1$, the claim holds in every fitting DAG, so it should be valid. We call ``predict valid when
+mec\_support $=1$'' the \emph{symbolic rule}. It uses no learning.
 
-\textbf{PC algorithm.} PC starts from the complete undirected graph. It removes the edge $X - Y$ if some set $S$
-of neighbours makes them independent, $X \perp\!\!\!\perp Y \mid S$, and stores $S$ as their separating set.
-For every non-adjacent pair $X, Y$ with a common neighbour $Z \notin S_{XY}$, it orients the collider
-$X \to Z \leftarrow Y$. Meek's rules then orient every remaining edge whose direction is forced. The output
-represents exactly the class $\mathcal{M}$.
-
-\textbf{Interventions.} Forcing $X=x$, written $do(X=x)$, removes the arrows into $X$. Dropping the factor of $X$
-from Eq.~(\ref{eq:factor}) gives the truncated factorisation
+\textbf{Intervention.} Forcing a variable to a value is written $do(X)$. This is different from just observing X.
+We measure the effect of X on Y as
 \begin{equation}
-P\big(v \mid do(X{=}x)\big) = \prod_{i:\,V_i \neq X} P\big(v_i \mid \mathrm{pa}(v_i)\big)\Big|_{X=x},
+\text{effect} = P(Y{=}1 \mid do(X{=}1)) - P(Y{=}1 \mid do(X{=}0)).
+\label{eq:effect}
 \end{equation}
-and when $\mathrm{Pa}(X)$ blocks every back-door path, the back-door adjustment gives
-$P(y \mid do(x)) = \sum_{z} P(y \mid x, z)\,P(z)$ with $Z = \mathrm{Pa}(X)$~\cite{pearl2009}. We report the
-average causal effect
-\begin{equation}
-\mathrm{ACE}(X\!\to\!Y) = P(Y{=}1 \mid do(X{=}1)) - P(Y{=}1 \mid do(X{=}0)).
-\label{eq:ace}
-\end{equation}
+If Y is not downstream of X in the graph, the effect is 0.
 
-\textbf{Text features.} With $n$ documents, term frequency $\mathrm{tf}$ and document frequency $\mathrm{df}$,
-sublinear TF-IDF is
+\textbf{Evaluation.} From the confusion matrix (TP, FP, FN, TN):
 \begin{equation}
-w_{t,d} = \big(1 + \ln \mathrm{tf}_{t,d}\big)\Big(\ln\frac{1+n}{1+\mathrm{df}_t} + 1\Big),
+P = \frac{TP}{TP+FP},\qquad R = \frac{TP}{TP+FN},\qquad F_1 = \frac{2PR}{P+R}.
+\label{eq:f1}
 \end{equation}
-and each document vector is scaled to unit length. Mutual information
-$I(F;Y) = \sum_{f,y} p(f,y)\log\frac{p(f,y)}{p(f)\,p(y)}$ ranks features by how much they reduce uncertainty about
-the label, including non-linear relations.
-
-\textbf{Classifiers.} Logistic regression fits $p_i = \sigma(\beta^\top x_i + \beta_0)$ by minimising the
-class-weighted log-loss with an $L_2$ penalty,
-\begin{equation}
-\min_{\beta}\; \frac{\lVert\beta\rVert^2}{2} - C\sum_{i} w_{y_i}\big[y_i \ln p_i + (1-y_i)\ln(1-p_i)\big],
-\end{equation}
-with class weights $w_c = n/(2\,n_c)$, so the rare valid class counts as much as the common one. Random Forest averages deep trees grown on bootstrap
-samples, each split chosen to reduce the Gini impurity $1-\sum_k p_k^2$. Gradient boosting builds
-$F_m = F_{m-1} + \nu\, h_m$, where each small tree $h_m$ fits the negative gradient of the log-loss and $\nu$ is the
-learning rate.
-
-\textbf{Evaluation.} With precision $P$ and recall $R$, $F_1 = 2PR/(P+R)$. Rows that share a premise are not
-independent, so confidence intervals use a cluster bootstrap: resample whole premises with replacement, recompute
-$F_1$, and take the 2.5th and 97.5th percentiles.
+Precision ($P$): of the claims we called valid, how many really were. Recall ($R$): of the truly valid claims, how many we
+found. F1 balances the two.
 
 \section{Step 1: Cleaning the Data (Notebook 01)}
 We used the official train, validation and test splits from Hugging Face (Table~\ref{tab:data}). Each row has
 the text (\texttt{input}), the \texttt{label}, the number of variables, and a \texttt{template} that says which
 type of claim it is.
 
-\textbf{Checking the data.} We looked at the first and last rows, the shape and the column types. We counted
-missing values and duplicate rows. There were none, so nothing had to be filled in or removed.
+\textbf{Checking.} We looked at \texttt{head()}, \texttt{tail()}, the shape and the column types, and counted
+missing values and duplicates. There were none, so nothing had to be filled in or dropped.
 
-\textbf{Cleaning.} Every text has one ``Hypothesis:'' marker, so we split it into two columns:
-\texttt{premise} and \texttt{hypothesis}. We also removed extra spaces. The same premise is reused with up to 90
-different claims, so we gave each premise an ID number.
+\textbf{Cleaning.} Every text has exactly one ``Hypothesis:'' marker, so we split it into a \texttt{premise} and
+a \texttt{hypothesis} column and removed extra spaces. We checked that the number of variables written in the
+premise matches the \texttt{num\_variables} column. The same premise is reused with up to 90 claims, so we gave
+each premise an ID.
 
-\textbf{Removing leakage.} A few premises appeared in two splits at once (2 in train and validation, 3 in
-validation and test). If the model sees a premise during training and again in testing, its score looks better
-than it really is. We left the test set as it was and removed these shared premises from train and validation.
+\textbf{Removing data leakage.} A few premises were in two splits at once (2 in train and validation, 3 in
+validation and test). If the model sees a premise in training and again in testing, its score looks better than
+it really is. We kept the test set as it was and removed the shared premises from train and validation.
 
-\textbf{Making train smaller.} Train has about 206{,}000 rows, which is slow to work with. We randomly picked
-400 premises (seed 42) and kept all of their claims, giving 35{,}340 rows. The share of valid claims stayed the
-same (18.5\%).
+\textbf{Subsampling train.} Train has about 206{,}000 rows, which is slow. We randomly picked 400 whole premises
+(seed 42) with all their claims, giving 35{,}340 rows. The share of valid claims stayed the same (18.5\%).
 
 \begin{table}[t]
 \centering
@@ -215,7 +164,7 @@ Test & 1{,}162 & 1{,}162 & 21 \\
 \end{tabular}
 \end{table}
 
-\section{Looking at the Data (EDA)}
+\section{Exploratory Data Analysis}
 \begin{figure}[t]
 \centering
 \includegraphics[width=0.49\linewidth]{label_balance}\hfill
@@ -225,31 +174,29 @@ in train. ``Child'' claims are never valid.}
 \label{fig:eda}
 \end{figure}
 
-\textbf{Few valid claims.} Only 13--19\% of claims are valid (Fig.~\ref{fig:eda}, left). A lazy model that
-always answers ``not valid'' would already be over 80\% accurate. So accuracy is misleading here. Instead we use
-\emph{precision} (of the claims we called valid, how many really were), \emph{recall} (of the truly valid
-claims, how many we found) and \emph{F1} (one number that balances the two). We also told the models to give
-more weight to the rare valid class.
+\textbf{Class imbalance.} Only 13--19\% of claims are valid (Fig.~\ref{fig:eda}, left). A model that always says
+``not valid'' would already be over 80\% accurate, so accuracy is misleading. We use precision, recall and F1
+(Eq.~\ref{eq:f1}), and we set \texttt{class\_weight="balanced"} so the rare valid class counts as much as the
+common one.
 
 \textbf{A hidden shortcut.} ``Child'' claims are never valid (Fig.~\ref{fig:eda}, right), yet their text
-(``X directly causes Y'') looks exactly like ``parent'' claims. So the \texttt{template} column gives away the
-answer. We did not use it as a feature; we only used it later to study mistakes.
+(``X directly causes Y'') is the same as ``parent'' claims. So the \texttt{template} column gives away the label.
+We never use it as a feature, only to study mistakes.
 
-\textbf{Harder test set.} Train only has graphs with 5--6 variables, but validation and test also have graphs
-with 2--4 variables. So the test set includes some cases the model never saw in training.
+\textbf{Harder test set.} Train only has graphs with 5--6 variables, but validation and test also have 2--4
+variables. So the test set has cases the model never saw.
 
 \section{Step 2: Text to Graph (Notebook 02)}
-\textbf{Reading the text.} The sentences follow fixed patterns, so simple regular expressions are enough. From
-each claim we pick out the two variables (single capital letters) and the claim type (direct cause, indirect
-cause, common effect, common cause) using keywords. We also added safety checks: a variable must be one of A--F
-and must appear in the premise, a variable cannot cause itself (A$\to$A), and unknown wording is rejected. All
-real rows passed, and broken examples we made by hand were caught.
+\textbf{Parsing.} The sentences follow fixed templates, so regular expressions (regex) read them exactly. From each
+claim we take the two variables (the single capital letters) and the claim type (direct cause, indirect cause,
+collider, confounder) from keywords. We added schema checks: variables must be A--F and appear in the premise, no
+self-loops (A$\to$A), and no unknown wording. All real rows passed, and broken examples we wrote by hand were
+caught.
 
-\textbf{Running PC.} PC normally needs numeric data to test for independence. Here the premise already tells us
-which pairs are independent, so we let pgmpy's PC read those facts directly
-(\texttt{ci\_test="independence\_match"}). PC then (1) starts with all pairs linked and removes links between
-independent pairs, (2) finds patterns like X$\to$Z$\leftarrow$Y, where Z is a common effect, and (3) applies its
-fixed rules to set more directions. Links it cannot decide are left undirected (Fig.~\ref{fig:pc}).
+\textbf{PC algorithm.} PC normally tests independence on numeric data. Here the premise already states the
+independences, so pgmpy's PC reads them directly (\texttt{ci\_test="independence\_match"}). PC (1) starts with
+every pair linked and removes the link between independent pairs, (2) finds colliders X$\to$Z$\leftarrow$Y, and
+(3) uses Meek's rules to set more directions. Links it cannot decide stay undirected (Fig.~\ref{fig:pc}).
 
 \begin{figure}[t]
 \centering
@@ -259,19 +206,16 @@ Left: E is a common effect of A--D. Right: only A and B are linked, and C stands
 \label{fig:pc}
 \end{figure}
 
-\textbf{Counting fitting graphs.} For each undirected link we try both directions. We keep every version that
-has no loops and fits the same independence facts. This gives us all the DAGs in the equivalence class, between
-1 and 144 per premise. For each claim we then compute mec\_support, the share of these DAGs where the claim is
-true (Eq.~\ref{eq:mec}). If it is 1, the claim holds in every fitting graph, so it should be valid.
+\textbf{All fitting DAGs.} For each undirected link we try both directions. We keep every version that has no
+cycle and is I-equivalent to the PC graph (same skeleton and colliders). This gives every DAG in the Markov
+equivalence class, between 1 and 144 per premise. For each claim we then compute mec\_support (Eq.~\ref{eq:mec}).
 
 \textbf{What does each claim mean?} Our first definitions were the textbook ones: a collider is a shared direct
-child, a confounder a shared direct parent, and ``X causes something else which causes Y'' means Y is a
-descendant of X but not a direct child. With these, the mec\_support rule matched only 93.7\% of train labels.
-So we read the code that generated the labels~\cite{corr2causecode}. It walks every path between X and Y and
-names the path by its arrows (Table~\ref{tab:claims}). Two differences matter. First, ``X causes something else
-which causes Y'' only needs a path of two or more arrows, even if X$\to$Y also exists. Second, colliders and
-confounders can be reached through longer paths, and a loop in the generator that counts the wrong way means a
-confounder only counts when the common cause is directly linked to the second variable.
+child, a confounder is a shared direct parent, and ``X causes something else which causes Y'' means Y is
+downstream of X but not a direct child. To match the labels better, we read the code that made the
+dataset~\cite{corr2causecode}. It looks at every path between X and Y and names it by its arrows
+(Table~\ref{tab:claims}). The main difference: ``X causes something else which causes Y'' only needs a path of two
+or more arrows, even if X$\to$Y also exists.
 
 \begin{table}[t]
 \centering
@@ -280,56 +224,70 @@ confounder only counts when the common cause is directly linked to the second va
 \footnotesize
 \begin{tabular}{ll}
 \toprule
-Claim & A path from X to Y \\
+Claim & Path between X and Y \\
 \midrule
 X directly causes Y & X$\to$Y \\
 X causes sth.\ else which causes Y & X$\to\dots\to$Y (2+ arrows) \\
 Collider (common effect) & X$\to\dots\to$Z$\leftarrow\dots\leftarrow$Y \\
-Confounder (common cause) & X$\leftarrow\dots\leftarrow$Z$\to$Y \\
+Confounder (common cause) & X$\leftarrow\dots\leftarrow$Z$\to\dots\to$Y \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-With these definitions the same no-learning rule matches 96.6\% of train, 97.5\% of validation and 98.5\% of test
-labels. The largest group of remaining mismatches (41\%) are ``parent'' claims where every fitting DAG has the
-arrow X$\to$Y but the label is 0. We treat these as label noise; a public audit of the test split also reports
-wrong labels in both directions. We also noticed that the letters follow the causal order: across all 440
-premises, PC never points an arrow from a later letter to an earlier one. This is why ``child'' claims, which
-always name the later letter as the cause, are never valid.
+\textbf{How well does the graph explain the labels?} Table~\ref{tab:agree} shows how often the symbolic rule
+(mec\_support $=1$) matches the label, with no learning at all.
 
-\section{Step 3: Building Features (Notebook 03)}
-A model cannot read text or graphs directly, so we turn each claim into a row of numbers called features.
+\begin{table}[t]
+\centering
+\caption{Share of labels matched by the symbolic rule}
+\label{tab:agree}
+\begin{tabular}{lccc}
+\toprule
+Definitions & Train & Validation & Test \\
+\midrule
+Our first (textbook) & 93.7\% & 96.5\% & 96.2\% \\
+Generator's & \textbf{96.6\%} & \textbf{97.5\%} & \textbf{98.5\%} \\
+\bottomrule
+\end{tabular}
+\end{table}
 
-\textbf{Graph features (15).} The claim type (one column per type); how many correlations and independences the
-premise lists; whether X and Y are said to correlate, to be independent, or to be independent once other
-variables are known; whether PC drew X$\to$Y, Y$\to$X or an undirected X--Y; the number of fitting DAGs (on a log
-scale); and mec\_support. We rescaled these to a similar range, using only train data to set the scale.
+The largest group of remaining mismatches (511 of 1{,}235, or 41\%) are ``parent'' claims where every fitting DAG
+has X$\to$Y but the label is 0. A public audit of the test split also reports wrong labels, so we treat these as
+label noise.
 
-\textbf{Text features.} TF-IDF gives each word or word pair a score: high if it appears often in this text but
-rarely in others. We made one TF-IDF table for the premise (135 terms) and one for the claim (106 terms), learned
-from train only. We kept one-letter words because A--F are the variable names.
+\section{Step 3: Feature Engineering (Notebook 03)}
+A model needs numbers, so we turn each claim into a row of features.
 
-\textbf{Which features matter?} We scored each feature by how much it tells us about the label (mutual
-information, Fig.~\ref{fig:mi}). The 0/1 and count features were treated as discrete and the other two as
-continuous. mec\_support is far ahead of everything else, followed by the arrow-direction features. The top text
-words are things like ``collider'' and variable letters, which say nothing about the specific pair being asked
-about. Keeping only the top 80 text terms changed F1 by about 0.02 (0.88 vs 0.90), which is within the noise of
-a 19-premise validation set, so we kept all of them.
+\textbf{Structured features (15).} The claim type, one-hot encoded (the types have no order); the number of
+correlations and independences in the premise; whether X and Y correlate, are independent, or are independent
+given other variables; whether PC drew X$\to$Y, Y$\to$X or an undirected X--Y; the number of fitting DAGs on a log
+scale (\texttt{log\_mec\_size}); and mec\_support. There were no missing values. The columns have different
+ranges, so we standardised them with \texttt{StandardScaler}: each value becomes
+(value $-$ mean) / standard deviation, with the mean and standard deviation taken from train only.
+
+\textbf{Text features.} TF-IDF gives each word or word pair (unigrams and bigrams) a score: high if it is common in
+this text but rare in the others. We made one TF-IDF table for the premise (135 terms) and one for the hypothesis
+(106 terms), fitted on train only. We kept one-letter words because A--F are the variable names.
+
+\textbf{Feature selection.} We ranked text terms with the chi-squared test and structured features with mutual
+information (how much a feature tells us about the label, Fig.~\ref{fig:mi}). mec\_support is far ahead, followed
+by the arrow-direction features. The top text terms are words like ``collider'' and variable letters, which say
+nothing about the pair being asked about. Keeping only the top 50 + 30 text terms changed F1 by about 0.02 (0.88
+vs 0.90). With only 19 validation premises this is within the noise, so we kept all terms.
 
 \begin{figure}[t]
 \centering
 \includegraphics[width=0.82\linewidth]{mutual_information}
-\caption{How much each graph feature tells us about the label (train). mec\_support, which comes from PC, is
-clearly the most useful.}
+\caption{Mutual information of each structured feature with the label (train). mec\_support, which comes from PC,
+is clearly the most useful.}
 \label{fig:mi}
 \end{figure}
 
-\textbf{Text vs graph features.} Table~\ref{tab:ablation} trains the same simple model (logistic regression) on
-three feature sets. With text only, the model calls almost everything valid: it finds 95\% of valid claims, but
-only 31\% of its ``valid'' answers are right. The graph features fix this, and using both is best among the
-learned models. The no-learning rule still scores higher (0.91): with balanced class weights the linear model
-trades precision for recall, and it cannot copy the sharp step at mec\_support $=1$. The tree models in Step~4
-learn that step.
+\textbf{Text vs graph features (ablation).} Table~\ref{tab:ablation} trains the same logistic regression on three
+feature sets. With text only, the model calls almost everything valid: recall 0.95 but precision only 0.31. Graph
+features fix this, and using both is best among the learned models. The symbolic rule still scores higher (0.91):
+a linear model with balanced class weights cannot copy the sharp step at exactly mec\_support $=1$. The tree models
+in Step~4 can.
 
 \begin{table}[t]
 \centering
@@ -339,11 +297,11 @@ learn that step.
 \toprule
 Features & Precision & Recall & F1 \\
 \midrule
-Text only & 0.311 & 0.953 & 0.469 \\
-Graph only & 0.840 & 0.853 & 0.846 \\
-Text + graph & 0.884 & 0.884 & \textbf{0.884} \\
+Text (TF-IDF) only & 0.311 & 0.953 & 0.469 \\
+Structured only & 0.840 & 0.853 & 0.846 \\
+TF-IDF + structured & 0.884 & 0.884 & \textbf{0.884} \\
 \midrule
-Rule mec\_support $=1$ (no learning) & 0.846 & 0.977 & 0.906 \\
+Symbolic rule (no learning) & 0.846 & 0.977 & 0.906 \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -351,24 +309,39 @@ Rule mec\_support $=1$ (no learning) & 0.846 & 0.977 & 0.906 \\
 \begin{figure*}[t]
 \centering
 \includegraphics[width=0.85\linewidth]{feature_importance}
-\caption{Left: logistic regression weights. mec\_support pushes strongly towards ``valid'' (+4.9); a large
+\caption{Left: logistic regression coefficients. mec\_support pushes strongly towards ``valid'' (+4.9); a large
 equivalence class, many independences and a Y$\to$X arrow push towards ``not valid''. Right: Random Forest
-importance, where mec\_support alone takes 0.71 of the total.}
+feature importance, where mec\_support alone takes 0.71 of the total.}
 \label{fig:imp}
 \end{figure*}
 
-Two different models agree (Fig.~\ref{fig:imp}): the graph features, not the words, drive the predictions.
+Both models agree (Fig.~\ref{fig:imp}): the graph features, not the words, drive the predictions.
 
-\section{Step 4: Training and Testing Models (Notebook 04)}
-\textbf{Setup.} Each claim becomes 256 numbers (text + graph features). We tried three models: logistic
-regression, Random Forest (300 decision trees voting together) and gradient boosting (small trees added one
-after another, each fixing the last one's mistakes). For each model we tried a few settings with
-\texttt{GridSearchCV} and 5-fold cross-validation.
+\section{Step 4: Models and Evaluation (Notebook 04)}
+\textbf{Setup.} Each claim becomes 256 features (135 + 106 TF-IDF + 15 structured). We tried logistic regression,
+Random Forest (300 decision trees that vote) and gradient boosting (small trees added one by one, each fixing the
+last one's mistakes). We tuned the hyperparameters with \texttt{GridSearchCV} and 5-fold cross-validation, scored by
+F1. We used \texttt{GroupKFold}, which keeps all claims of one premise in the same fold, so the model is never
+checked on a premise it trained on. Table~\ref{tab:tuning} shows the settings tried and the best ones.
 
-One detail matters here: we used \texttt{GroupKFold}, which keeps all claims of the same premise in the same
-fold. Otherwise the model could see a premise in training and be checked on the same premise, which would make
-the score look too good. We picked the model with the best validation F1, and used the test set only once, at
-the very end.
+\begin{table}[t]
+\centering
+\caption{Hyperparameter tuning (5-fold GroupKFold on train)}
+\label{tab:tuning}
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{lp{0.52\linewidth}c}
+\toprule
+Model & Settings tried (best in bold) & CV F1 \\
+\midrule
+Logistic Regression & C: 0.1, 1, \textbf{10} & 0.926 \\
+Random Forest & max\_depth: None, \textbf{20}; min\_samples\_leaf: \textbf{1}, 5 & 0.935 \\
+Gradient Boosting & learning\_rate: 0.05, \textbf{0.1}; max\_leaf\_nodes: 15, \textbf{31} & 0.949 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+We picked the model with the best validation F1 and used the test set only once, at the end.
 
 \begin{table}[t]
 \centering
@@ -382,74 +355,71 @@ Model & Val F1 & Test P & Test R & Test F1 \\
 Logistic Regression & 0.878 & 0.922 & 0.983 & 0.952 \\
 \textbf{Random Forest} (chosen) & \textbf{0.929} & 0.927 & 0.989 & \textbf{0.957} \\
 Gradient Boosting & 0.879 & 0.927 & 0.989 & 0.957 \\
-mec\_support rule only (no ML) & 0.906 & 0.922 & 0.983 & 0.952 \\
+Symbolic rule (no learning) & 0.906 & 0.922 & 0.983 & 0.952 \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-\textbf{Results.} Random Forest had the best validation F1, so we chose it (Table~\ref{tab:results}) and used
-the test set only to report it. It is slightly better than the plain mec\_support rule on both validation
-(0.929 vs 0.906) and test (0.957 vs 0.952), but the test gap is well inside the confidence interval below. The
-honest reading is that the symbolic step does almost all of the work once the claim definitions are right, and the
-learned model mainly tidies up the edges of that rule. This is the neuro-symbolic split the brief asks for:
-the text step proposes, the graph step decides.
+\textbf{Results.} Random Forest had the best validation F1, so we chose it (Table~\ref{tab:results}). It is a bit
+better than the symbolic rule on validation (0.929 vs 0.906) and test (0.957 vs 0.952), but the test gap is inside
+the confidence interval below. So the graph step does almost all of the work, and the learned model mainly tidies
+up the edges of the rule.
 
-\textbf{How sure are we?} The test set has only 21 premises, so the score could change with a different test
-set. To check, we re-sampled whole premises 1{,}000 times (the bootstrap) and recomputed F1 each time. The F1
-stayed between 0.921 and 0.982 in 95\% of the runs.
+\textbf{Confidence interval.} The test set has only 21 premises. Rows of the same premise are not independent, so
+we used a bootstrap over premises: we resampled whole premises 1{,}000 times and recomputed F1 each time. The 95\%
+confidence interval (2.5th to 97.5th percentile) is 0.921 to 0.982.
 
 \begin{figure}[t]
 \centering
 \includegraphics[width=0.4\linewidth]{confusion_matrix}
-\caption{Random Forest on test: 968 correct ``not valid'', 178 correct ``valid'', 14 false alarms and 2 missed
-valid claims.}
+\caption{Random Forest on test: 968 true negatives, 178 true positives, 14 false positives and 2 false
+negatives.}
 \label{fig:cm}
 \end{figure}
 
-\textbf{Where it goes wrong.} The model made 16 mistakes out of 1{,}162 (Fig.~\ref{fig:cm}). Half are false
-alarms on ``parent'' claims, the same label disagreements found in Step~2. It made no mistakes on ``child''
-claims. Graphs with 2--4 variables, which never appeared in training, had 1 mistake in 126 rows (0.8\%), against
-1.4\% for 5--6 variable graphs. This is because the graph features come from the parser and PC, not from
-memorised sentences.
+\textbf{Error analysis.} The model made 16 mistakes out of 1{,}162 (Fig.~\ref{fig:cm}). Half are false positives on
+``parent'' claims, the same label noise found in Step~2. It made no mistakes on ``child'' claims. Graphs with 2--4
+variables, which never appeared in training, had 1 mistake in 126 rows, about as low as the 5--6 variable graphs.
+This is because the structured features come from the parser and PC, not from memorised sentences.
 
-\section{Step 5: Drawing the Graph and Asking ``What If'' (Notebook 05)}
-\textbf{Building the DAG.} For each test premise, every ``X directly causes Y'' claim that the model calls valid
-becomes an arrow. We add arrows starting with the ones the model is most sure about. An arrow is skipped if it
-points from a variable to itself, uses a variable not in the premise, or would create a loop. All 21 test graphs
-came out as proper DAGs. Out of 73 arrows drawn, 65 are correct (\textbf{precision 0.89}), and no true arrow was
-missed (recall 1.00). All 8 wrong arrows are also drawn by PC, so they come from the same label disagreement as
-before (Fig.~\ref{fig:dag}).
+\section{Step 5: DAG and Bayesian Network (Notebook 05)}
+\textbf{Building the DAG.} For each test premise, every ``X directly causes Y'' claim predicted valid becomes an
+arrow. We add the most confident arrows first. An arrow is skipped if it is a self-loop, uses a variable not in the
+premise, or would create a cycle. All 21 test graphs are proper DAGs.
+
+\textbf{Edge precision.} Edge precision = correct arrows / arrows drawn, and edge recall = correct arrows / true
+arrows. We drew 73 arrows and 65 are correct (\textbf{edge precision 0.89}), and no true arrow was missed (edge
+recall 1.00). Against the PC graph the edge precision is 1.00: all 8 wrong arrows are ones PC supports but the
+dataset labels as 0 (Fig.~\ref{fig:dag}).
 
 \begin{figure}[t]
 \centering
 \includegraphics[width=0.82\linewidth]{dag_vs_truth}
-\caption{One test premise. Left: the true arrows. Right: our predicted DAG. Blue arrows are correct; the two red
-arrows (B$\to$E, A$\to$F) are extra ones that PC supports but the dataset marks as not valid.}
+\caption{One test premise. Left: the true arrows. Right: our predicted DAG. Blue arrows are correct; the red
+arrows are extra ones that PC supports but the dataset marks as not valid.}
 \label{fig:dag}
 \end{figure}
 
-\textbf{Bayesian network and ``what if'' questions.} A Bayesian network is a DAG with probabilities attached to
-each node. It lets us ask ``what happens to Y if we \emph{force} X to a value?'', written $do(X)$. This is
-different from just observing X, and it is the real test of cause and effect.
+\textbf{Bayesian network.} A Bayesian network is a DAG with a probability table (CPD) at each node. Corr2Cause has
+no numbers, so we made some: we gave the true graph random probability tables, simulated 5{,}000 rows from it, and
+fitted our DAG on those rows with pgmpy. Then we measured intervention effects with Eq.~(\ref{eq:effect}).
 
-Corr2Cause has no numbers, only text, so we made some. We gave the true graph random probabilities, generated
-5{,}000 samples from it, and fitted our predicted DAG on those samples with pgmpy. Then we measured the effect of X
-on Y with the ACE of Eq.~(\ref{eq:ace}). For the chain A$\to$B$\to$C, the true effect of A on C is 0.490 and our
-correctly drawn graph gives 0.498. If the arrows are reversed, the graph still fits the same data but gives 0.000,
-and wrongly says that C affects A.
+\textbf{Why direction matters.} For the chain A$\to$B$\to$C, the true effect of A on C is 0.490, and the correct
+graph fitted on the data gives 0.498. The reversed graph C$\to$B$\to$A fits the same data but gives 0.000 for A on
+C, and wrongly says that C affects A (0.514).
 
-\textbf{Intervention queries.} We used the five test premises whose graph is fully known (one DAG in the
-class). Each premise gets its own random probabilities, and we ask about every ordered pair of variables in both
-directions: 96 queries, 32 of which have a real effect. A query counts as correct only if the graph gets both
-whether there is an effect at all (a directed path) and its size within 0.05. The first condition stops a tiny
-true effect from ``matching'' a graph with no arrow. Table~\ref{tab:queries} compares our DAGs with two
-baselines fitted on the same data.
+\textbf{Intervention queries.} We used the five test premises where PC knows the full graph (only one DAG in the
+class). For every ordered pair of variables we asked ``what is the effect of $do(X)$ on Y?'': 96 queries, 32 with
+a real effect. A query is correct only if the graph gets both (1) whether there is an effect at all (a directed
+path) and (2) its size within 0.05. We compare our DAG with two baselines fitted on the same data
+(Table~\ref{tab:queries}).
 
 \begin{table}[t]
 \centering
 \caption{Intervention queries on the five fully known test graphs}
 \label{tab:queries}
 \footnotesize
+\setlength{\tabcolsep}{4pt}
 \begin{tabular}{lccc}
 \toprule
 Graph & All queries & Real effects & Mean $|$error$|$ \\
@@ -461,25 +431,21 @@ Empty graph & 64 / 96 & 0 / 32 & 0.064 \\
 \end{tabular}
 \end{table}
 
-Our DAGs answer 28 of the 32 real effects correctly; both baselines answer none. All four misses come from one
-premise where the model left out C$\to$D and C$\to$E, two arrows that PC says are certain but the dataset labels
-as not valid. So getting the arrows right, in the right direction, is what makes the ``what if'' answers right.
+Our DAGs get 28 of the 32 real effects right; both baselines get none. So getting the arrows right, in the right
+direction, is what makes the ``what if'' answers right.
 
 \section{Conclusion and Next Steps}
-Turning the text into a graph with a parser and the PC algorithm, using the claim definitions of the dataset's
-own generator, explains 97--98\% of the labels with no learning. Adding these graph features to simple text
-features and training a Random Forest gives a test F1 of 0.957 (95\% CI 0.921--0.982), with no data leaking
-between splits. Text features alone reach only 0.47, which supports the brief's point that fluent text features
-cannot replace formal causal reasoning. Most remaining mistakes come from a small set of labels that disagree with
-PC.
+Turning the text into a graph with a regex parser and the PC algorithm explains 97--98\% of the labels with no
+learning. Adding these graph features to TF-IDF and training a Random Forest gives a test F1 of 0.957 (95\% CI
+0.921--0.982), with no data leakage between splits. TF-IDF alone reaches only 0.47, which shows that word patterns
+cannot replace causal reasoning. Most remaining mistakes come from a small set of labels that disagree with PC.
 
-\textbf{Limitations.} Corr2Cause is generated from templates, so our regex parser would not work on paraphrased or
-real text, and the letters follow the causal order, which a model could exploit. Train only has 5--6 variable
-premises. The Bayesian network data is simulated from the PC graph, not measured.
+\textbf{Limitations.} Corr2Cause is made from templates, so our regex parser would not work on reworded or real
+text. Train only has 5--6 variable premises. The Bayesian network data is simulated, not measured.
 
-\textbf{Phase 2.} We plan to replace the regex parser and TF-IDF with a fine-tuned transformer that reads
-paraphrased text, keep PC for the reasoning, and test both on paraphrased and renamed-variable versions of the
-data, where the Corr2Cause authors found fine-tuned models break down.
+\textbf{Phase 2.} We plan to replace the regex parser and TF-IDF with a fine-tuned transformer that can read
+reworded text, keep PC for the reasoning, and test on reworded and renamed-variable versions of the data, where the
+Corr2Cause authors found fine-tuned models break down.
 
 \vspace{2ex}
 \noindent\begin{minipage}[t]{\linewidth}
@@ -511,64 +477,27 @@ Report and repository & & & & & \checkmark \\
 \end{center}
 \end{minipage}
 
-\begin{thebibliography}{40}
+\begin{thebibliography}{20}
 \bibitem{jin2024} Z.~Jin, J.~Liu, Z.~Lyu, S.~Poff, M.~Sachan, R.~Mihalcea, M.~Diab, and B.~Sch\"olkopf,
 ``Can large language models infer causation from correlation?'' in \emph{Proc. ICLR}, 2024.
-\bibitem{pearl1988} J.~Pearl, \emph{Probabilistic Reasoning in Intelligent Systems: Networks of Plausible
-Inference}. Morgan Kaufmann, 1988.
 \bibitem{pearl2009} J.~Pearl, \emph{Causality: Models, Reasoning, and Inference}, 2nd~ed. Cambridge Univ.
 Press, 2009.
-\bibitem{geiger1990} D.~Geiger, T.~Verma, and J.~Pearl, ``Identifying independence in Bayesian networks,''
-\emph{Networks}, vol.~20, no.~5, pp.~507--534, 1990.
 \bibitem{verma1990} T.~Verma and J.~Pearl, ``Equivalence and synthesis of causal models,'' in \emph{Proc.
 UAI}, 1990, pp.~255--268.
-\bibitem{andersson1997} S.~A.~Andersson, D.~Madigan, and M.~D.~Perlman, ``A characterization of Markov equivalence
-classes for acyclic digraphs,'' \emph{Ann. Statist.}, vol.~25, no.~2, pp.~505--541, 1997.
 \bibitem{spirtes2000} P.~Spirtes, C.~Glymour, and R.~Scheines, \emph{Causation, Prediction, and Search},
 2nd~ed. MIT Press, 2000.
 \bibitem{meek1995} C.~Meek, ``Causal inference and causal explanation with background knowledge,'' in
 \emph{Proc. UAI}, 1995, pp.~403--410.
-\bibitem{kalisch2007} M.~Kalisch and P.~B\"uhlmann, ``Estimating high-dimensional directed acyclic graphs with the
-PC-algorithm,'' \emph{J. Mach. Learn. Res.}, vol.~8, pp.~613--636, 2007.
-\bibitem{chickering2002} D.~M.~Chickering, ``Optimal structure identification with greedy search,'' \emph{J. Mach.
-Learn. Res.}, vol.~3, pp.~507--554, 2002.
-\bibitem{zheng2018} X.~Zheng, B.~Aragam, P.~Ravikumar, and E.~P.~Xing, ``DAGs with NO TEARS: Continuous
-optimization for structure learning,'' in \emph{Proc. NeurIPS}, 2018.
 \bibitem{khoo2000} C.~S.~G.~Khoo, S.~Chan, and Y.~Niu, ``Extracting causal knowledge from a medical database using
 graphical patterns,'' in \emph{Proc. ACL}, 2000, pp.~336--343.
-\bibitem{girju2003} R.~Girju, ``Automatic detection of causal relations for question answering,'' in \emph{Proc. ACL
-Workshop on Multilingual Summarization and Question Answering}, 2003, pp.~76--83.
 \bibitem{hendrickx2010} I.~Hendrickx \emph{et al.}, ``SemEval-2010 Task 8: Multi-way classification of semantic
 relations between pairs of nominals,'' in \emph{Proc. SemEval}, 2010, pp.~33--38.
 \bibitem{dunietz2017} J.~Dunietz, L.~Levin, and J.~Carbonell, ``The BECauSE corpus 2.0: Annotating causality and
 overlapping relations,'' in \emph{Proc. Linguistic Annotation Workshop}, 2017, pp.~95--104.
-\bibitem{tan2022} F.~A.~Tan \emph{et al.}, ``The Causal News Corpus: Annotating causal relations in event sentences
-from news,'' in \emph{Proc. LREC}, 2022.
 \bibitem{jin2023cladder} Z.~Jin \emph{et al.}, ``CLadder: Assessing causal reasoning in language models,'' in
 \emph{Proc. NeurIPS}, 2023.
-\bibitem{kiciman2023} E.~K\i c\i man, R.~Ness, A.~Sharma, and C.~Tan, ``Causal reasoning and large language
-models: Opening a new frontier for causality,'' \emph{arXiv:2305.00050}, 2023.
-\bibitem{zecevic2023} M.~Ze\v{c}evi\'c, M.~Willig, D.~S.~Dhami, and K.~Kersting, ``Causal parrots: Large language
-models may talk causality but are not causal,'' \emph{Trans. Mach. Learn. Res.}, 2023.
-\bibitem{williams2018} A.~Williams, N.~Nangia, and S.~Bowman, ``A broad-coverage challenge corpus for sentence
-understanding through inference,'' in \emph{Proc. NAACL}, 2018, pp.~1112--1122.
 \bibitem{garcez2023} A.~d'Avila Garcez and L.~C.~Lamb, ``Neurosymbolic AI: The 3rd wave,'' \emph{Artif. Intell.
 Rev.}, vol.~56, pp.~12387--12406, 2023.
-\bibitem{salton1988} G.~Salton and C.~Buckley, ``Term-weighting approaches in automatic text retrieval,''
-\emph{Inf. Process. Manage.}, vol.~24, no.~5, pp.~513--523, 1988.
-\bibitem{guyon2003} I.~Guyon and A.~Elisseeff, ``An introduction to variable and feature selection,'' \emph{J. Mach.
-Learn. Res.}, vol.~3, pp.~1157--1182, 2003.
-\bibitem{kraskov2004} A.~Kraskov, H.~St\"ogbauer, and P.~Grassberger, ``Estimating mutual information,''
-\emph{Phys. Rev. E}, vol.~69, no.~6, p.~066138, 2004.
-\bibitem{breiman2001} L.~Breiman, ``Random forests,'' \emph{Mach. Learn.}, vol.~45, no.~1, pp.~5--32, 2001.
-\bibitem{friedman2001} J.~H.~Friedman, ``Greedy function approximation: A gradient boosting machine,''
-\emph{Ann. Statist.}, vol.~29, no.~5, pp.~1189--1232, 2001.
-\bibitem{pedregosa2011} F.~Pedregosa \emph{et al.}, ``Scikit-learn: Machine learning in Python,'' \emph{J.
-Mach. Learn. Res.}, vol.~12, pp.~2825--2830, 2011.
-\bibitem{efron1993} B.~Efron and R.~J.~Tibshirani, \emph{An Introduction to the Bootstrap}. Chapman \&
-Hall, 1993.
-\bibitem{ankan2015} A.~Ankan and A.~Panda, ``pgmpy: Probabilistic graphical models using Python,'' in
-\emph{Proc. SciPy}, 2015.
 \bibitem{corr2causecode} Corr2Cause authors, ``Data generation code,'' \url{https://github.com/causalNLP/corr2cause},
 file \texttt{code/data\_gen.cpp}, accessed Oct. 2026.
 \end{thebibliography}
