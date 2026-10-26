@@ -32,6 +32,50 @@ For comparison, an empty graph or a reversed graph gets **0 of the 32** real eff
 | 4 | `04_models_evaluation` | Kasula Lalithendra ([@Lalith0024](https://github.com/Lalith0024)) | GridSearchCV with GroupKFold, model selection, confusion matrix, bootstrap CI, error analysis |
 | 5 | `05_dag_bayesian_network` | Jagruthi Pulumati ([@Jag2007](https://github.com/Jag2007)) | DAG building, edge precision, Bayesian network, intervention queries |
 
+## Worked example: ice cream and drowning
+
+Ice cream sales and drownings rise together, but hot weather causes both. Test premise 2360 has exactly this shape
+(A = hot weather, B = ice cream, C = drowning):
+
+> A correlates with B. A correlates with C. B correlates with C. However, B and C are independent given A.
+
+| Step | What happens |
+|---|---|
+| 01 Clean | The premise gets an ID and stays only in the test set. It comes with 18 claims. |
+| 02 Parse and PC | PC links heat to ice cream and heat to drowning, with **no link between ice cream and drowning**. Three DAGs fit these facts. |
+| 03 Features | "B directly causes C" (ice cream causes drowning) becomes 256 numbers: no arrow either way, independent given A, `mec_support` = 0. |
+| 04 Predict | The Random Forest says **not valid** (2.8% probability of valid). Correct. |
+| 05 What-if | With no path from ice cream to drowning, forcing ice cream sales up does not change drowning. |
+
+The model gets all 18 claims about this premise right. Even "A is a common cause of B and C" is correctly marked not
+valid: it holds in only 1 of the 3 fitting DAGs (`mec_support` = 0.33), so correlations alone cannot prove it.
+
+## Features and models
+
+Notebook 02 passes on each claim's text plus its parsed variables, claim type and PC graph. Notebook 03 turns these
+into **256 features**: 241 TF-IDF terms from the text (135 premise + 106 hypothesis) and 15 structured features from
+the parser and the graph, including `mec_support`, the share of fitting DAGs in which the claim is true.
+
+| Features (logistic regression, validation) | F1 |
+|---|---|
+| TF-IDF only | 0.469 |
+| Structured only | 0.846 |
+| TF-IDF + structured | 0.884 |
+| Symbolic rule: valid if `mec_support` = 1 (no learning) | 0.906 |
+
+We compare one model from each classic family, and a no-learning rule as the baseline:
+
+| Model | Why | Validation F1 | Test F1 |
+|---|---|---|---|
+| Logistic Regression | Linear baseline; its weights show which features matter | 0.878 | 0.952 |
+| **Random Forest** (final) | Bagged trees; learns sharp cutoffs and feature interactions | **0.929** | **0.957** |
+| Gradient Boosting | Boosted trees; often strongest on tabular data | 0.879 | 0.957 |
+| Symbolic rule | Measures what learning adds on top of the graph step | 0.906 | 0.952 |
+
+The models predict the **label** (1 = the claim is valid, 0 = it is not). `mec_support` is an input feature, not the
+output. The Random Forest beats the rule by only 0.005, inside the confidence interval, so the graph step does most of
+the causal reasoning.
+
 ## Getting started
 
 Requires Python 3.13.
@@ -81,4 +125,5 @@ bootstrap both group rows by premise.
 ## Report
 
 The full write-up is in [`report/main.pdf`](report/main.pdf). To rebuild it from the LaTeX source, run
-`tectonic main.tex` inside `report/`.
+`tectonic main.tex` inside `report/`. The Phase 1 slides are in
+[`report/phase1_presentation.pptx`](report/phase1_presentation.pptx).
